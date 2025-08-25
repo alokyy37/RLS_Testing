@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "bc0699323420ce7c890c",
+  "position": {
+    "x": 82.789973999523539,
+    "y": 58.55246969884297,
+    "z": 1000,
+    "height": 25.873554710431609,
+    "width": 143.11703838903421,
+    "tabOrder": 5000
+  },
+  "visualGroup": {
+    "displayName": "Grp- IM Orders WOW",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "85aeb9d7b5d65cac27d2"
+}
