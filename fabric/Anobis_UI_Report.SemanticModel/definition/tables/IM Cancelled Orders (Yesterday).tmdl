@@ -1,0 +1,57 @@
+table 'IM Cancelled Orders (Yesterday)'
+	lineageTag: 4a612ce4-6299-479b-84b0-35854f136602
+
+	column Count
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 105fb140-0f3f-4113-a528-18c088be5087
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Cancelled Orders (Yesterday)' = m
+		mode: import
+		queryGroup: 'IM\IM-Yesterday\IM-Cancellation\IM-Cancelled Orders'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_at_ist >= datetime(' " & StartOfYesterdayFormatted & " ')
+				    | where  created_at_ist < datetime(' " & EndOfYesterdayFormatted & " ')
+				    | where dp_order_type == 'INSTAMART' and status == 'CANCELLED' and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level))
+				    | count",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

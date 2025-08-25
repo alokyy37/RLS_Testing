@@ -1,0 +1,216 @@
+table Food-BigNo-Today
+	lineageTag: c4646b0f-3982-4212-9c3c-67dd5b50e925
+
+	column CompletedOrders
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 8130fc15-fda2-46e6-bc51-f4dd71ddb854
+		summarizeBy: sum
+		sourceColumn: CompletedOrders
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOV
+		dataType: double
+		sourceProviderType: double
+		lineageTag: be8bda5a-4660-4e6a-bf75-df7c0846b7bf
+		summarizeBy: sum
+		sourceColumn: AOV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GMV
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 923c922a-9986-49f4-aa74-11834c7330cc
+		summarizeBy: sum
+		sourceColumn: GMV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CancelledOrders
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 33faa3f1-83b0-4647-b14f-d8d41f2e33ec
+		summarizeBy: sum
+		sourceColumn: CancelledOrders
+
+		annotation SummarizationSetBy = Automatic
+
+	column CDC
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d2843627-835a-4478-9d9e-ad6eee19652a
+		summarizeBy: sum
+		sourceColumn: CDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SDC
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 6e3c2134-c366-42cd-a55f-df674d4d5437
+		summarizeBy: sum
+		sourceColumn: SDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RDC
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3ac04d30-1ed5-4a53-a694-53557d7ba9ea
+		summarizeBy: sum
+		sourceColumn: RDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TransactingRestaurantCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 157c175f-a781-4dee-bd36-17591b39e725
+		summarizeBy: sum
+		sourceColumn: TransactingRestaurantCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactingUserCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c1a619b6-a9c5-4d86-b650-b9b082d45b80
+		summarizeBy: sum
+		sourceColumn: TransactingUserCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Food-BigNo-Today = m
+		mode: directQuery
+		queryGroup: Food\Food-Today\Food-UpdatedTime
+		source = ```
+				let
+				
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				          // Reference all dynamic parameters
+				    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+				    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+				    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+				    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+				    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+				
+				    // Build Dynamic Conditions
+				    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				
+				
+				    // Combine All Filters
+				    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				    Query = "
+				    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    let main_metrics = " & TableName & "
+				    | where created_on_ist >= datetime("& StartOfTodayFormatted &")
+				    | where created_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				    | where updated_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    "& CombinedFilters &"
+				    | extend is_completed_non_subscription = (order_status == 'completed' and order_type != 'SUBSCRIPTION')
+				    | extend is_cancelled = (order_status == 'cancelled')
+				    | extend is_cancelled_cdc = (order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '3')
+				    | extend is_cancelled_sdc = (order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '1')
+				    | extend is_cancelled_rdc = (order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '2')
+				    | extend is_all_orders = ((order_status == 'completed' or order_status == 'cancelled' or order_status == 'processing') and order_type != 'SUBSCRIPTION')
+				    | summarize 
+				    CompletedOrders = countif(is_completed_non_subscription),
+				    AOV = avgif(gmv_total, is_completed_non_subscription),
+				    GMV = sumif(gmv_total, is_completed_non_subscription),
+				    CancelledOrders = countif(is_cancelled),
+				    CDC = sumif(is_cancelled_cdc, is_all_orders) * 100.0 / sumif(1, is_all_orders),
+				    SDC = sumif(is_cancelled_sdc, is_all_orders) * 100.0 / sumif(1, is_all_orders),
+				    RDC = sumif(is_cancelled_rdc, is_all_orders) * 100.0 / sumif(1, is_all_orders);
+				    let restaurant_count =  "& TableName & "
+				    | where created_on_ist >= datetime("& StartOfTodayFormatted &")
+				    | where created_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				    | where updated_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    | where order_status == 'completed'
+				    | where order_type != 'SUBSCRIPTION'
+				    | where isnotempty(restaurantId)
+				    | summarize TransactingRestaurantCount = count_distinct(restaurantId);
+				    let user_count =  "& TableName & "
+				    | where created_on_ist >= datetime("& StartOfTodayFormatted &")
+				    | where created_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				    | where updated_on_ist <= datetime("& CurrentDateTimeFormatted &")
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    | where order_status == 'completed'
+				    | where order_type != 'SUBSCRIPTION'
+				    | summarize TransactingUserCount = count_distinct(user_id);
+				    // Combine all results
+				    main_metrics
+				    | extend dummy = 1
+				    | join kind=inner (restaurant_count | extend dummy = 1) on dummy
+				    | join kind=inner (user_count | extend dummy = 1) on dummy
+				    | project 
+				    CompletedOrders,
+				    AOV,
+				    GMV,
+				    CancelledOrders,
+				    CDC,
+				    SDC,
+				    RDC,
+				    TransactingRestaurantCount,
+				    TransactingUserCount",
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

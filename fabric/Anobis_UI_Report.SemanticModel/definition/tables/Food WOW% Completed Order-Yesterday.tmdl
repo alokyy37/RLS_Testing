@@ -1,0 +1,109 @@
+table 'Food WOW% Completed Order-Yesterday'
+	lineageTag: 498d3c46-dbe2-4524-a71c-ea01afd54fd4
+
+	column print_0
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f033fbb9-603b-49d0-a602-3afaa415c751
+		summarizeBy: sum
+		sourceColumn: print_0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Food WOW% Completed Order-Yesterday' = m
+		mode: directQuery
+		queryGroup: 'Food\Food- Yesterday\Food- Sales\Food- Orders'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Get Last 7 days's time
+				    LastWeekDateTime = YesterdayDateTime - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    NextDayLastWeekDateTime = YesterdayDateTime - #duration(6, 0, 0, 0),
+				    LastWeekCurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(NextDayLastWeekDateTime)) & " 00:00:00"),
+				    LastWeekCurrentDateTimeFormatted = DateTime.ToText(LastWeekCurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Reference all dynamic parameters
+				    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+				    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+				    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+				    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+				    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+				
+				    // Build Dynamic Conditions
+				    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				
+				
+				    // Combine All Filters
+				    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+				
+				    // Format the query with dynamic start and end times
+				    Query = "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				let today = " & TableName & " 
+				| where created_on_ist >= datetime('" & StartOfYesterdayFormatted & "')
+				| where created_on_ist < datetime('" & EndOfYesterdayFormatted & "')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				        " & CombinedFilters & "
+				| where order_status == 'completed' 
+				| where order_type != 'SUBSCRIPTION' 
+				| summarize ordercount = count() by city, area, business_unit, business_classifier
+				| summarize sum(ordercount);
+				let last_week = " & TableName & " 
+				| where created_on_ist >= datetime('" & StartOfLastWeekFormatted & "')
+				| where created_on_ist < datetime('" & LastWeekCurrentDateTimeFormatted & "')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				        " & CombinedFilters & "
+				| where order_status == 'completed' 
+				| where order_type != 'SUBSCRIPTION' 
+				| summarize ordercount = count() by city, area, business_unit, business_classifier
+				| summarize sum(ordercount);
+				// Run below to check green
+				let todayCount = toscalar(today);
+				let lastweekcount = toscalar(last_week);
+				let percentage = toscalar(toreal((((toreal(todayCount) - toreal(lastweekcount)) / toreal(lastweekcount)) * 100)));
+				print(round(percentage, 2))",
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
