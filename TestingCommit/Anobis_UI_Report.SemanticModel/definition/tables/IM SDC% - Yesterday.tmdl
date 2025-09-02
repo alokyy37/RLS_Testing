@@ -1,0 +1,60 @@
+table 'IM SDC% - Yesterday'
+	lineageTag: 2d30f14f-c18e-4490-90eb-245d00c7bf41
+
+	column SDC%
+		dataType: string
+		lineageTag: 53a93c8a-4d8b-410d-bd23-46bc51326da2
+		summarizeBy: none
+		sourceColumn: SDC%
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM SDC% - Yesterday' = m
+		mode: import
+		queryGroup: IM\IM-Yesterday\IM-Cancellation\IM-SDC
+		source = ```
+				let
+				 
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Format the query with dynamic start and end times for yesterday in IST
+				     Query = TableName & " 
+				    |where created_at_ist >= datetime('"& StartOfYesterdayFormatted &"') 
+				    |where created_at_ist <= datetime('"& EndOfYesterdayFormatted &"')
+				    | where updated_at_ist <= datetime('"& EndOfYesterdayFormatted &"')
+				    and dp_order_type == 'INSTAMART'
+				    | extend sdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_SWIGGY_DRIVEN_CANCELLATION', 1.0, 0.0)
+				    | extend delivered = iff(status == 'COMPLETED', 1.0, 0.0)
+				    | summarize 
+				    SDCCount = sum(sdc_cancelled),
+				    DeliveredDistinctCount = dcount(iff(status == 'COMPLETED', order_id, ''))
+				    | extend ['SDC%'] =strcat(round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * SDCCount / DeliveredDistinctCount),2),'%')
+				    | project ['SDC%']",
+				        
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,18 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "1.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "food_hourly_metrics_today.aov_5minutes": {
+			      "Binding": {
+			        "ConceptualEntity": "Food_Hourly_Metrics (today)",
+			        "ConceptualProperty": "AOV_5minutes"
+			      },
+			      "State": "Generated"
+			    }
+			  }
+			}
+		contentType: json
+

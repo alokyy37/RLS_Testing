@@ -1,0 +1,48 @@
+table 'TOP 50 HS_Code'
+	lineageTag: bd3a9807-5fdd-4692-b1e6-30518b223d75
+
+	measure 'HS_Code Rank by Value' =
+			
+			IF(SELECTEDVALUE(Data[Value4]) = "Quantity",RANKX(ALL('Armenia Import'[HS_CODE]), [Total Quantity] , , DESC,Dense),
+			IF(SELECTEDVALUE(Data[Value4]) = "Records", RANKX(ALL('Armenia Import'[HS_CODE]), [Total Records] , , DESC,Dense),
+			RANKX(ALL('Armenia Import'[HS_CODE]), [Total Value] , , DESC,Dense) ))
+		formatString: 0
+		lineageTag: c6eb929e-2721-4f7e-9118-5e7e02fcf68b
+
+	measure 'HS_Code Top50 Title' = Selectedvalue('TOP 50 HS_Code'[Metric]) & " HS_Code by " & SELECTEDVALUE(Data[Value4])
+		lineageTag: c2ead128-c772-4d67-b8de-c2df47b69e3d
+
+	measure 'TOP50 HS_Code Rank' =
+			
+			IF('TOP 50 HS_Code'[HS_Code Rank by Value]<=SELECTEDVALUE('TOP 50 HS_Code'[Value]),1,0)
+		formatString: 0
+		lineageTag: e7082a9b-9c93-4ffd-a77b-3c2f1ddb8474
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ef3d4dd-facb-4294-ac8a-ad6825c29aee
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: 758c9d65-1170-476d-a7a1-a866841fb85b
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TOP 50 HS_Code' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjJQ0lEK8Q9QADJidaKVjGF8YwjfBMY3gfBNYXwgIzYWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Value = _t, Metric = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Value", Int64.Type}, {"Metric", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

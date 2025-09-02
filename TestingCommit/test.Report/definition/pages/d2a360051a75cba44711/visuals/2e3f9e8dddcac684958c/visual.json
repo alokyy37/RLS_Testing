@@ -1,0 +1,317 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "2e3f9e8dddcac684958c",
+  "position": {
+    "x": 106.57959183673469,
+    "y": 72.097959183673467,
+    "z": 0,
+    "height": 451.39591836734695,
+    "width": 895.47755102040821
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Customer City"
+                }
+              },
+              "queryRef": "Sales Data.Customer City",
+              "nativeQueryRef": "Customer City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Category Name"
+                }
+              },
+              "queryRef": "Sales Data.Category Name",
+              "nativeQueryRef": "Category Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Customer Country"
+                }
+              },
+              "queryRef": "Sales Data.Customer Country",
+              "nativeQueryRef": "Customer Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Customer Lname"
+                }
+              },
+              "queryRef": "Sales Data.Customer Lname",
+              "nativeQueryRef": "Customer Lname"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Customer Segment"
+                }
+              },
+              "queryRef": "Sales Data.Customer Segment",
+              "nativeQueryRef": "Customer Segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Customer State"
+                }
+              },
+              "queryRef": "Sales Data.Customer State",
+              "nativeQueryRef": "Customer State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Order Date"
+                }
+              },
+              "queryRef": "Sales Data.Order Date",
+              "nativeQueryRef": "Order Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Order Id"
+                }
+              },
+              "queryRef": "CountNonNull(Sales Data.Order Id)",
+              "nativeQueryRef": "Order Id"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales Data"
+                        }
+                      },
+                      "Property": "Order Quantity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Sales Data.Order Quantity)",
+              "nativeQueryRef": "Sum of Order Quantity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales Data"
+                    }
+                  },
+                  "Property": "Order Region"
+                }
+              },
+              "queryRef": "Sales Data.Order Region",
+              "nativeQueryRef": "Order Region"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9cd78c19460c1c98cee7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Category Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3fd7cca86e51b080fa49",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Customer City"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a075976b2b014b44b521",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Customer Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4767d03281c5f6cb8467",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Customer Lname"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db7c1fa6fdb9730a2ee2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Customer Segment"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "62c02816b55b63530e78",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Customer State"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3b95fefe3e44f783abf5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Order Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5e1cd4c823b1897654b8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Order Id"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "19ef13cdb7e158fdc4a7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sales Data"
+                  }
+                },
+                "Property": "Order Quantity"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "062b579a53d86b7ba470",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales Data"
+              }
+            },
+            "Property": "Order Region"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

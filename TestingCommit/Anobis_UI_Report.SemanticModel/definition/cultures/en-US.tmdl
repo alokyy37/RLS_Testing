@@ -1,0 +1,4784 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "uoms_food_v2.order_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "order_status"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.food_gmv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "Food GMV"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.delivery_charges": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "Delivery Charges"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.convience_fee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "Convience Fee"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.free_delivery_discount": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "Free Delivery Discount"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.created_on": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "created_on"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_food_v2.today_gmv_sum": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_food_v2",
+			          "ConceptualProperty": "today_gmv_sum"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_instamart_v2.status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_instamart_v2",
+			          "ConceptualProperty": "status"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "uoms_instamart_v2.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "uoms_instamart_v2",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart_hourly_metricstoday.amv_today": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Instamart_Hourly_Metrics(today)",
+			          "ConceptualProperty": "AMV_today"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart_hourly_metricstoday.timebin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Instamart_Hourly_Metrics(today)",
+			          "ConceptualProperty": "TimeBin"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart_daily_metrics_7days.amv_daily": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Instamart_Daily_Metrics (7days)",
+			          "ConceptualProperty": "AMV_daily"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart_weekly_metrics4weekss.amv_4weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Instamart_Weekly_Metrics(4weekss)",
+			          "ConceptualProperty": "AMV_4weeks"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.today_food_aov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "today_food_aov"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.today_gmv_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "today_GMV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.today_cancel_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "today_cancel_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.yesterday_completedorders_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "yesterday_CompletedOrders_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.yesterday_gmv_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "yesterday_GMV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.yesterday_aov_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "yesterday_AOV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column7days_completedorders_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "7days_CompletedOrders_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column7days_aov_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "7days_AOV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column7days_cancel_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "7days_cancel_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column7days_gmv_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "7days_GMV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column4weeks_completedorders_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "4weeks_CompletedOrders_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column4weeks_aov_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "4weeks_AOV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column4weeks_cancel_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "4weeks_cancel_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.column4weeks_gmv_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "4weeks_GMV_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.today_completedorders_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "today_CompletedOrders_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food.yesterday_cancel_food": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food",
+			          "ConceptualProperty": "yesterday_cancel_food"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.today_gmv_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "today_gmv_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.today_complededorder_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "today_complededorder_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.today_cancel_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "today_cancel_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.today_aov_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "today_AOV_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.yesterday_gmv_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "yesterday_gmv_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.yesterday_complededorder_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "yesterday_complededorder_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.yesterday_aov_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "yesterday_AOV_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.yesterday_cancel_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "yesterday_cancel_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column7days_aov_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "7days_AOV_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column7days_completedorders_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "7days_completedorders_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column7days_gmv_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "7days_gmv_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column7days_cancel_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "7days_cancel_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column4weeks_aov_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "4weeks_AOV_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column4weeks_completedorders_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "4weeks_completedorders_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column4weeks_cancel_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "4weeks_cancel_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "instamart.column4weeks_gmv_insta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InstaMart",
+			          "ConceptualProperty": "4weeks_GMV_insta"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_orders_count_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Orders Count Today Line",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Today Line",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_orders_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Orders (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_today_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants (Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_userstoday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users(Today Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cancelled_decompotion_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_wow_completed_orderyesterday.arrow_wow_order_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "Arrow WOW% Order- yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Arrow WOW% Order": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_wow_aovyesterday.arrow_wow_aovyesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "Arrow WOW% AOV-yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Arrow WOW% AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_wow_gmvyesterday.arrow_wow_gmv_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "Arrow WOW% GMV yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Arrow WOW% GMV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_wow_cdcyesterday.arrow_wow_cdc_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "Arrow WOW% CDC Yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Arrow WOW% CDC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_treeyesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treeyesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treeyesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_decomposition_treeyesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_decomposition_treeyesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_decomposition_treeyesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_orders_today_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Orders (Today Line)",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treeyesterday.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treeyesterday.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treeyesterday.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treeyesterday.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_wow_rdctoday.arrow_wow_rdc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "Arrow WOW% RDC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RDC WOW%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_today.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_decomposition_treetoday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_gmv_decomposition_treetoday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_gmv_decomposition_treetoday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_gmv_decomposition_treetoday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_gmv_decomposition_treetoday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cancelled_decompotion_tree_today.area1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.city1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.business_classifier1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.business_unit1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_decompotion_tree_today.time_slot1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_tree_today.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_tree_today.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree- Today",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_today_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Today Line",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_today_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV (Today Line)",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store Id": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treetoday.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Today",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_today.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Today",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.gmv_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "AOV yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Today",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.im_aov_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "IM AOV Yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_today.im_aov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "IM AOV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_order_count_decomposition_treelast_7_days.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treelast_7_days.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treelast_7_days.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treelast_7_days.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_today.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decompotion_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decompotion_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decompotion_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decompotion_tree_yesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decompotion_tree_yesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_rdc_decompotion_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_today.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_yesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_yesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_tree_today.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_tree_today.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_tree_today.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_tree_today.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_tree_today.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree- Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decompotion_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decompotion_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decompotion_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decompotion_tree_yesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decompotion_tree_yesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decomposition_treeyesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treetoday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treetoday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treetoday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treetoday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treetoday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturant_decompotion_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturant Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturant_decompotion_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturant Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturant_decompotion_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturant Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturant_decompotion_tree_yesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturant Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturant_decompotion_tree_yesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturant Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturants_decomposition_treeyesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treetoday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Today",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treetoday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Today",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treetoday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Today",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treetoday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Today",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treetoday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Today",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decompotion_tree_yesterday_2.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decompotion Tree- Yesterday (2)",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decompotion_tree_yesterday_2.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decompotion Tree- Yesterday (2)",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decompotion_tree_yesterday_2.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decompotion Tree- Yesterday (2)",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decompotion_tree_yesterday_2.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decompotion Tree- Yesterday (2)",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decompotion_tree_yesterday_2.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decompotion Tree- Yesterday (2)",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decomposition_treeyesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treeyesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treeyesterday.business_classifier": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "business_classifier"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_decomposition_treeyesterday.business_unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "business_unit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Business Unit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_today.cdc_today": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC Today"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decomposition_tree_last_7_days.cdc_7_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC 7 Days"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_today.rdc_today": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC Today"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_rdc_decompotion_tree_yesterday.rdc_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC Yesterday"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decomposition_tree_today.sdc_today": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC Today"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decomposition_treeyesterday.sdc_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC Yesterday"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decomposition_treelast_7_days.sdc_7_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC 7 Days"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_aov_count_decomposition_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_gmv_decomposition_treeyesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cancelled_decompotion_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_order_count_decomposition_treelast_7_days.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "im_order_count_decomposition_treeyesterday.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Yesterday",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_count_decomposition_tree_yesterday.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Count Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_decomposition_treeyesterday.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_decompotion_tree_yesterday.delivery_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "Delivery Slot"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Slot": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_decompotion_tree_yesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Decompotion Tree- Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_sdc_decomposition_treeyesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_resturants_decomposition_treeyesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_transacting_users_decomposition_treeyesterday.time_slot": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Decomposition Tree-Yesterday",
+			          "ConceptualProperty": "time_slot"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decomposition_tree_yesterday.cdc_yesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC Yesterday"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "food_cdc_decomposition_tree_yesterday.area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_decomposition_tree_yesterday.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Decomposition Tree- Yesterday",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Yesterday Line",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_orders_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Orders (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_orders_count_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Orders Count Yesterday Line",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_yesterday_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users (Yesterday Line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_aov_last_4_weeks_line.period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food AOV Last 4 Weeks Line",
+			          "ConceptualProperty": "period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_gmv_last_4_weeks_line.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food GMV (Last 4 Weeks line)",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_orders_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Orders Line Last 7 Days",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cancelled_orders_line_last_4_weeks.created_on_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Cancelled Orders Line Last 4 Weeks",
+			          "ConceptualProperty": "created_on_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_cdc_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food CDC% Line Last 7 Days",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_rdc_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food RDC% Line Last 7 Days",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_sdc_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food SDC% line Last 7 Days",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_resturants_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Resturants Line (Last 7 Days)",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "food_transacting_users_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Food Transacting Users Line (Last 7 Days)",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.aov_7_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "AOV 7 Days"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdc_7_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC 7 Days"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "all_measures.aov_4_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "AOV 4 Weeks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdc_4_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC 4 Weeks"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "all_measures.sdc_4_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC 4 Weeks"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "im_orders_count_today_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Orders Count Today Line",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ime": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_orders_count_yesterday_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Orders Count Yesterday Line",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_aov_yesterday_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Yesterday Line",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_gmv_yesterday_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV (Yesterday Line)",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_orders_yesterday_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Orders (Yesterday Line)",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_7_days.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "City"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_7_days.zone": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "Zone"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_7_days.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_7_days.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_7_days.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 7 Days",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_4_weeks.delivery_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 4 Weeks",
+			          "ConceptualProperty": "Delivery Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Delivery Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_4_weeks.store_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 4 Weeks",
+			          "ConceptualProperty": "Store ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Store ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_order_count_decomposition_treelast_4_weeks.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Order Count decomposition tree-Last 4 Weeks",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Region": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.im_aovl7d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "IM AOV-L7D"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.im_aovl4w": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "IM AOV-L4W"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_orders_count_last_7_days_line.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Orders Count Last 7 Days Line",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "im_aov_last_7_days_line.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM AOV Last 7 Days Line",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "im_gmv_last_7_days_line.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM GMV (Last 7 Days Line)",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cancelled_orders_line_last_7_days.time_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM Cancelled Orders Line Last 7 Days",
+			          "ConceptualProperty": "time_period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.cdctoday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC-Today"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdctoday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC-Today"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.sdctoday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC-Today"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.cdcyesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC-Yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdcyesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC-Yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.sdcyesterday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC-Yesterday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.cdcl7d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC-L7D"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdcl7d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC-L7D"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.sdcl7d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC-L7D"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.cdcl4w": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "CDC-L4W"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.rdcl4w": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "RDC-L4W"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.sdcl4w": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALL Measures",
+			          "ConceptualProperty": "SDC-L4W"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SDC%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_cdc_today_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM CDC (Today Line)",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TIME": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "im_sdctoday_line.created_at_ist": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IM SDC%-Today Line",
+			          "ConceptualProperty": "created_at_ist"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

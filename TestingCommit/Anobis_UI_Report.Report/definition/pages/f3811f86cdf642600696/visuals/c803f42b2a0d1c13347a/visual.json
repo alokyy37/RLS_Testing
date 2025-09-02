@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c803f42b2a0d1c13347a",
+  "position": {
+    "x": 4.3839695993521683,
+    "y": 155.22651427380836,
+    "z": 5000,
+    "height": 89.772727272727266,
+    "width": 225.78650833359802,
+    "tabOrder": 6000
+  },
+  "visualGroup": {
+    "displayName": "Grp- IM Orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "bf77b71c54be0b698eb0"
+}

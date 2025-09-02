@@ -1,0 +1,98 @@
+table 'Food GMV Decomposition Tree-Last 4 Weeks'
+	lineageTag: 60c5b541-60d1-414d-983d-7359e704edd2
+
+	column city
+		dataType: string
+		lineageTag: b3b489ac-6b42-4f07-8966-069fbdfeddf1
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: 8eb6661c-f3fa-483f-bb75-d8b42b8b917b
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 3d7808d0-0743-43b8-a418-f48407eb6fc9
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		lineageTag: e73d0d0d-cc7f-4354-b7f0-d98cb24d65aa
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum_gmv_total
+		dataType: double
+		lineageTag: 4b0dc234-faa9-4121-b0f2-d32d51815408
+		summarizeBy: sum
+		sourceColumn: sum_gmv_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column time_slot
+		dataType: string
+		lineageTag: fb957e38-92e2-4e2d-86d9-b20edccd30b9
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food GMV Decomposition Tree-Last 4 Weeks' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 4 weeks\Food- Sales\Food-GMV'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 28 days ago in IST
+				    Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				    // Set the start of the last 28 days to 12:00 AM IST
+				    StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				    StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast28Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast28DayFormatted = DateTime.ToText(EndofLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(' " & StartOfLast28DaysFormatted & " ') 
+				    | where created_on_ist < datetime(' " & EndofLast28DayFormatted & " ') 
+				    | where order_status == 'completed' 
+				    | where order_type != 'SUBSCRIPTION' 
+				    | summarize round(sum(gmv_total), 2) by city, area, business_unit, business_classifier, time_slot",
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

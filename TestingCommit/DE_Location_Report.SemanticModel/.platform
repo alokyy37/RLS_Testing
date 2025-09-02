@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DE_Location_Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c50998b1-c472-8341-45af-14fa9df9b875"
+  }
+}

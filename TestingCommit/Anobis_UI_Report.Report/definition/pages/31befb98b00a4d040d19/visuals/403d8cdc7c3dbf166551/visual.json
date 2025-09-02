@@ -1,0 +1,188 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "403d8cdc7c3dbf166551",
+  "position": {
+    "x": 8.9563518088613243,
+    "y": 570.88607594936707,
+    "z": 10000,
+    "height": 381.64556962025313,
+    "width": 448.1012658227848,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree-Today"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree-Today.city",
+              "nativeQueryRef": "City",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree-Today"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree-Today.area",
+              "nativeQueryRef": "Area",
+              "displayName": "Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree-Today"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree-Today.time_slot",
+              "nativeQueryRef": "Time Slot",
+              "displayName": "Time Slot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree-Today"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree-Today.business_classifier",
+              "nativeQueryRef": "Business Classifier",
+              "displayName": "Business Classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree-Today"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree-Today.business_unit",
+              "nativeQueryRef": "Business Unit",
+              "displayName": "Business Unit"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food-BigNo-Today"
+                        }
+                      },
+                      "Property": "TransactingUserCount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food-BigNo-Today.TransactingUserCount)",
+              "nativeQueryRef": "Food Transacting Users",
+              "displayName": "Food Transacting Users"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food-BigNo-Today"
+                      }
+                    },
+                    "Property": "TransactingUserCount"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "23f097956d7acb2b6051"
+}

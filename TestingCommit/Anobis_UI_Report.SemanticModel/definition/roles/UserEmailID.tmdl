@@ -1,0 +1,862 @@
+role UserEmailID
+	modelPermission: read
+
+	tablePermission Anobis_RLS_MV = Anobis_RLS_MV[UserEmail_ID] == USERPRINCIPALNAME()
+
+	tablePermission 'Food Cancelled Decompotion Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Order Count decomposition tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food AOV Count Decomposition Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food GMV Decomposition Tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Order Count decomposition tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM AOV Count Decomposition Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM GMV Decomposition Tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Cancelled Decompotion Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Order Count decomposition tree-Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food AOV Count Decomposition Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food AOV Count Decomposition Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food GMV Decomposition Tree-Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Cancelled Decompotion Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Order Count decomposition tree-Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM AOV Count Decomposition Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM GMV Decomposition Tree-Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Cancelled Decompotion Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food CDC% Decomposition Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food SDC% Decomposition Tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food RDC% Decompotion Tree- Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Resturants Decomposition Tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Users Decomposition Tree-Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food SDC% Decomposition Tree-Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food RDC% DecompositionTree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food CDC% Decomposition Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Users Decomposition Tree- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Restaurants Decomposition Treee- Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Order Count decomposition tree-Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food GMV Decomposition Tree-Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Cancelled Decompotion Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food CDC% Decomposition Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food RDC% DecompositionTree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food SDC% Decomposition Tree-Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'Food Transacting Users Decomposition Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Order Count decomposition tree-Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM AOV Count Decomposition Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM GMV Decomposition Tree-Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM Cancelled Decompotion Tree- Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM CDC% Decomposition Tree - Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM CDC% Decomposition Tree - Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM CDC% Decomposition Tree - Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM SDC% Decomposition Tree - Yesterday' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM SDC% Decomposition Tree - Last 7 Days' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	tablePermission 'IM SDC% Decomposition Tree - Last 4 Weeks' = ```
+			[city] IN CALCULATETABLE(
+			    VALUES(Anobis_RLS_MV[city]),
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && (Anobis_RLS_MV[city] = "cities" || Anobis_RLS_MV[city] <> "cities")
+			    )
+			) 
+			|| 
+			COUNTROWS(
+			    FILTER(
+			        ALL(Anobis_RLS_MV),
+			        (Anobis_RLS_MV[UserEmail_ID] = USERNAME() || Anobis_RLS_MV[UserEmail_ID] = USERPRINCIPALNAME())
+			        && Anobis_RLS_MV[city] = "cities"
+			    )
+			) > 0
+			```
+
+	annotation PBI_Id = 40486a0798144bbe87babadca5ff11aa
+

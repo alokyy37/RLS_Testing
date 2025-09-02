@@ -1,0 +1,87 @@
+table 'DE_Location(Base Query)'
+	lineageTag: b9fd5a23-5a60-45e3-a349-7f06f35383a5
+
+	measure BG_Color = ```
+			
+			IF( 
+			    ISBLANK( SELECTEDVALUE( 'DE_Location(Base Query)'[Amount] ) ), 
+			    IF( SELECTEDVALUE( 'Theme Mode'[Text] ) = "Light", "#F0F0F0", "#202020" ), 
+			    "Transparent"
+			)
+			
+			```
+		lineageTag: e808296f-6ae2-4a29-b95b-984c02c46c28
+
+	measure 'Assigned DE' = CALCULATE( COUNT('DE_Location(Base Query)'[OrderId]),  NOT(ISBLANK('DE_Location(Base Query)'[OrderId])))
+		formatString: 0
+		lineageTag: e199e2fb-e72b-46b7-a091-451b4d8d1286
+
+	measure Measure = CALCULATE( DISTINCTCOUNT('DE_Location(Base Query)'[OrderId]), NOT(ISBLANK('DE_Location(Base Query)'[OrderId])))
+		formatString: 0
+		lineageTag: cc27ebe0-6f86-49c9-ae51-69e2376b8e46
+
+	column DE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 8ac84cd4-ab44-4607-83b7-92eb833f2992
+		summarizeBy: none
+		sourceColumn: DE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderId
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4ef9d335-d9b5-4332-9d69-08585c31f9d1
+		summarizeBy: none
+		sourceColumn: OrderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 37e9ec69-e623-41c5-bb82-326727c00da5
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Current_Lat_DE
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 86c82500-0da0-441a-bd08-8eceae62305e
+		dataCategory: Latitude
+		summarizeBy: sum
+		sourceColumn: Current_Lat_DE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Current_Lon_DE
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5a0cbb8f-da6f-4b5f-8775-564d89498021
+		dataCategory: Longitude
+		summarizeBy: sum
+		sourceColumn: Current_Lon_DE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'DE_Location(Base Query)' = m
+		mode: directQuery
+		source =
+				let
+				    Source = AzureDataExplorer.Contents("https://trd-tmr5b6twv9s1stvwa6.z4.kusto.fabric.microsoft.com", "metrics", "// Total Active DE#(lf)let now_unix = datetime_diff('millisecond', now(), datetime(1970-01-01)); // prod#(lf)let fiveMinAgo = now_unix - 5 * 60 * 1000;#(lf)let oneHourAgo = now_unix - 60 * 60 * 1000;#(lf)// Get the most recent movement data for each DE#(lf)let latest_movement_data = movement_data#(lf)| where ingestion_time() > ago(5m)#(lf)| summarize arg_max(ingestion_time(), *) by resource_id#(lf)| project #(lf)    DE = resource_id,#(lf)    Current_Lat_DE = location_lat,#(lf)    Current_Lon_DE = location_lng;#(lf)// Get active orders with assigned DEs#(lf)let active_orders = uoms_orders_audit_converted // prod#(lf)| where tolong(CreatedAt) between (fiveMinAgo .. now_unix) // prod#(lf)//| extend p = parse_json(Payload)#(lf)//| extend d = parse_json(tostring(p.jsonStr))#(lf)| extend d = Payload // prod#(lf)| where d.status.leaf_order_status !in (""LEAF_ORDER_STATUS_COMPLETED"", ""LEAF_ORDER_STATUS_CANCELLED"")#(lf)| extend #(lf)    DE = tostring(d.delivery_info.delivery_executive.id),#(lf)    OrderId = tostring(d.id),#(lf)    Amount = toreal(d.cart.cart_price_info_v2.price_total.final_cart_price.units),#(lf)    Updated_Time = unixtime_seconds_todatetime(UpdatedAt)#(lf)| where isnotempty(DE)#(lf)| summarize arg_max(Updated_Time, *) by OrderId#(lf)| project DE, OrderId, Amount;#(lf)// Join the datasets to get the complete picture#(lf)latest_movement_data#(lf)| join kind=leftouter active_orders on DE#(lf)| project #(lf)    DE,#(lf)    OrderId,#(lf)    Amount,#(lf)       Current_Lat_DE,#(lf)    Current_Lon_DE#(lf)", [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

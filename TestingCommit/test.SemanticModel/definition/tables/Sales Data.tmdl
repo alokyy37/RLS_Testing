@@ -1,0 +1,171 @@
+table 'Sales Data'
+	lineageTag: cf013304-023d-4117-9787-e3ca12c7b278
+
+	column Row_Id
+		dataType: string
+		lineageTag: 39dce932-4873-4140-83b9-5f36e2008c58
+		summarizeBy: none
+		sourceColumn: Row_Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 24b98c2f-e4b3-491d-a957-649833ad15ec
+		summarizeBy: count
+		sourceColumn: Order Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 54621f44-0ab2-4b9b-97ed-6805843e17db
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Customer Fname'
+		dataType: string
+		lineageTag: 680880a8-26df-450c-83d1-fd15a35dd3f4
+		summarizeBy: none
+		sourceColumn: Customer Fname
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Lname'
+		dataType: string
+		lineageTag: b5ceec8b-cab2-4770-b983-bdae4e3ec247
+		summarizeBy: none
+		sourceColumn: Customer Lname
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Name'
+		dataType: string
+		lineageTag: 74b3bc54-ef09-4afa-84c2-776b1fe55596
+		summarizeBy: none
+		sourceColumn: Category Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Segment'
+		dataType: string
+		lineageTag: 98e96831-6e5f-461f-b0ba-cb954d5b8084
+		summarizeBy: none
+		sourceColumn: Customer Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Market Region'
+		dataType: string
+		lineageTag: d01025c3-1ad3-4f87-8a8b-55b6206babec
+		summarizeBy: none
+		sourceColumn: Market Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Additional Order items'
+		dataType: string
+		lineageTag: 08c5ffc0-eb5e-41c1-9386-fcd86a046b8f
+		summarizeBy: none
+		sourceColumn: Additional Order items
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer City'
+		dataType: string
+		lineageTag: a730c7e5-2721-4618-a979-15cacefe5ad0
+		summarizeBy: none
+		sourceColumn: Customer City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Country'
+		dataType: string
+		lineageTag: 428959ad-2671-4d06-850e-82a16373dab2
+		summarizeBy: none
+		sourceColumn: Customer Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: d6079537-9c64-4ac9-8039-7e840b7f4340
+		summarizeBy: count
+		sourceColumn: Customer Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer State'
+		dataType: string
+		lineageTag: 4045f44f-8c0e-4973-96b3-e7bce5d82e23
+		summarizeBy: none
+		sourceColumn: Customer State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Zipcode'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bc26aed-7b31-4454-bd42-b968e7330ed4
+		summarizeBy: sum
+		sourceColumn: Customer Zipcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Region'
+		dataType: string
+		lineageTag: 2ab9d61c-1452-436a-add0-26ddd6b88fca
+		summarizeBy: none
+		sourceColumn: Order Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: a0159c63-c237-4980-875c-bdeacae255ac
+		summarizeBy: sum
+		sourceColumn: Order Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		lineageTag: 59e0b5ca-f433-4e24-9ca6-604a18c91ab3
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Profit Per Order'
+		dataType: double
+		lineageTag: 1695ec24-5dcc-4587-aa9b-06c9c7ed57e9
+		summarizeBy: sum
+		sourceColumn: Profit Per Order
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Sales Data' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ALOK YADAV\Downloads\Task2.xlsx"), null, true),
+				    #"Sales Data_Sheet" = Source{[Item="Sales Data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Sales Data_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Row_Id", type text}, {"Order Id", Int64.Type}, {"Order Date", type date}, {"Customer Fname", type text}, {"Customer Lname", type text}, {"Category Name", type text}, {"Customer Segment", type text}, {"Market Region", type text}, {"Additional Order items", type text}, {"Customer City", type text}, {"Customer Country", type text}, {"Customer Id", Int64.Type}, {"Customer State", type text}, {"Customer Zipcode", Int64.Type}, {"Order Region", type text}, {"Order Quantity", Int64.Type}, {"Sales", type number}, {"Profit Per Order", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
