@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "977907e95482f9980987",
+  "position": {
+    "x": 90.566164593083613,
+    "y": 48.527023491114889,
+    "z": 1000,
+    "height": 34.351846145262229,
+    "width": 125.80260158180232
+  },
+  "visualGroup": {
+    "displayName": "Grp- IM CDC WOW",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "1573d4ace96f271d63e8"
+}

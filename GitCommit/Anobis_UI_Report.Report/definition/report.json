@@ -1,0 +1,415 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": {
+        "visual": "1.8.97",
+        "report": "2.0.97",
+        "page": "1.3.97"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "PowerSlicerA96234ADB8D143D1837FEC426BB34781",
+    "ScrollingTextVisual1448795304508"
+  ],
+  "resourcePackages": [
+    {
+      "name": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "resources/distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426.pbiviz.json",
+          "path": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "ANOBIS_Landing_Page2658087268460292.svg",
+          "path": "ANOBIS_Landing_Page2658087268460292.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-adjust-1009884260493235384.png",
+          "path": "icons8-adjust-1009884260493235384.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-back-96_(2)6368821147609807.png",
+          "path": "icons8-back-96_(2)6368821147609807.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-cross-mark-1005388015980755934.png",
+          "path": "icons8-cross-mark-1005388015980755934.png",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-FOOD_ALL7101216501092644.svg",
+          "path": "L4W-FOOD_ALL7101216501092644.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_AOV15000092072818805.svg",
+          "path": "L4W-Food_AOV15000092072818805.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_Cancelled19440500092966428.svg",
+          "path": "L4W-Food_Cancelled19440500092966428.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_CDC_47120601179723365.svg",
+          "path": "L4W-Food_CDC_47120601179723365.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_GMV2769489090892463.svg",
+          "path": "L4W-Food_GMV2769489090892463.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_RDC_444943973303487.svg",
+          "path": "L4W-Food_RDC_444943973303487.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_SDC_9799500305249595.svg",
+          "path": "L4W-Food_SDC_9799500305249595.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_Transacting_Restauran8639861040977701.svg",
+          "path": "L4W-Food_Transacting_Restauran8639861040977701.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-Food_Transacting_Users28056346590553205.svg",
+          "path": "L4W-Food_Transacting_Users28056346590553205.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-IM_All6173981399577388.svg",
+          "path": "L4W-IM_All6173981399577388.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-IM_AOV6696579375684146.svg",
+          "path": "L4W-IM_AOV6696579375684146.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-IM_Cancelled36280419593659263.svg",
+          "path": "L4W-IM_Cancelled36280419593659263.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-IM_GMV13514285678564675.svg",
+          "path": "L4W-IM_GMV13514285678564675.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L4W-ORG_METRICS3720329453327189.svg",
+          "path": "L4W-ORG_METRICS3720329453327189.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-FOOD_ALL2862375211232544.svg",
+          "path": "L7D-FOOD_ALL2862375211232544.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_AOV012525328652741141.svg",
+          "path": "L7D-Food_AOV012525328652741141.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_Cancelled1647402941251188.svg",
+          "path": "L7D-Food_Cancelled1647402941251188.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_CDC_9512720779408856.svg",
+          "path": "L7D-Food_CDC_9512720779408856.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_Completed05710208527525262.svg",
+          "path": "L7D-Food_Completed05710208527525262.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_GMV6573264373201011.svg",
+          "path": "L7D-Food_GMV6573264373201011.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_RDC_4119054549867751.svg",
+          "path": "L7D-Food_RDC_4119054549867751.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_SDC_33568475715020263.svg",
+          "path": "L7D-Food_SDC_33568475715020263.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_Transacting_Resstaura6178430697407089.svg",
+          "path": "L7D-Food_Transacting_Resstaura6178430697407089.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-Food_Transacting_Users08460086178695092.svg",
+          "path": "L7D-Food_Transacting_Users08460086178695092.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-IM_All6620517197117912.svg",
+          "path": "L7D-IM_All6620517197117912.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-IM_AOV5861350054553405.svg",
+          "path": "L7D-IM_AOV5861350054553405.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-IM_Cancelled47745942908457484.svg",
+          "path": "L7D-IM_Cancelled47745942908457484.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-IM_GMV19050536777883376.svg",
+          "path": "L7D-IM_GMV19050536777883376.svg",
+          "type": "Image"
+        },
+        {
+          "name": "L7D-ORG_METRICS3210224813770326.svg",
+          "path": "L7D-ORG_METRICS3210224813770326.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-FOOD_ALL8696688108610247.svg",
+          "path": "Today-FOOD_ALL8696688108610247.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_AOV954863946488941.svg",
+          "path": "Today-Food_AOV954863946488941.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_Cancelled3382558523044883.svg",
+          "path": "Today-Food_Cancelled3382558523044883.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_CDC_19532640716626282.svg",
+          "path": "Today-Food_CDC_19532640716626282.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_Completed7450675980353711.svg",
+          "path": "Today-Food_Completed7450675980353711.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_GMV9787769236629447.svg",
+          "path": "Today-Food_GMV9787769236629447.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_RDC_8555330489808028.svg",
+          "path": "Today-Food_RDC_8555330489808028.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_SDC_3541693819761118.svg",
+          "path": "Today-Food_SDC_3541693819761118.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_Transacting_Reastur062418833963010734.svg",
+          "path": "Today-Food_Transacting_Reastur062418833963010734.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-Food_Transacting_Users7306863036644646.svg",
+          "path": "Today-Food_Transacting_Users7306863036644646.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-IM_All755286899346649.svg",
+          "path": "Today-IM_All755286899346649.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-IM_AOV4178472309406709.svg",
+          "path": "Today-IM_AOV4178472309406709.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-IM_Cancelled6124257815308596.svg",
+          "path": "Today-IM_Cancelled6124257815308596.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-IM_CDC__(2)40224578304979475.svg",
+          "path": "Today-IM_CDC__(2)40224578304979475.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-IM_GMV14712819260466814.svg",
+          "path": "Today-IM_GMV14712819260466814.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Today-ORG_METRICS2795369032344788.svg",
+          "path": "Today-ORG_METRICS2795369032344788.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-FOOD_ALL40122889265577566.svg",
+          "path": "Yesterday-FOOD_ALL40122889265577566.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_AOV2555433621717067.svg",
+          "path": "Yesterday-Food_AOV2555433621717067.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_Cancelled7587532379570503.svg",
+          "path": "Yesterday-Food_Cancelled7587532379570503.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_CDC_8613935035919318.svg",
+          "path": "Yesterday-Food_CDC_8613935035919318.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_Completed9819061942212715.svg",
+          "path": "Yesterday-Food_Completed9819061942212715.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_GMV3506246360793026.svg",
+          "path": "Yesterday-Food_GMV3506246360793026.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_RDC_1972746657365092.svg",
+          "path": "Yesterday-Food_RDC_1972746657365092.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_SDC_814790535169883.svg",
+          "path": "Yesterday-Food_SDC_814790535169883.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_Transacting_Rea6120994110054976.svg",
+          "path": "Yesterday-Food_Transacting_Rea6120994110054976.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-Food_Transacting_Use35351797041080046.svg",
+          "path": "Yesterday-Food_Transacting_Use35351797041080046.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-IM_All2944222395151308.svg",
+          "path": "Yesterday-IM_All2944222395151308.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-IM_AOV7098522397941123.svg",
+          "path": "Yesterday-IM_AOV7098522397941123.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-IM_Cancelled46185407035858694.svg",
+          "path": "Yesterday-IM_Cancelled46185407035858694.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-IM_CDC__(2)7244342139576105.svg",
+          "path": "Yesterday-IM_CDC__(2)7244342139576105.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-IM_GMV08186189220544016.svg",
+          "path": "Yesterday-IM_GMV08186189220544016.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Yesterday-ORG_METRICS12903030268932825.svg",
+          "path": "Yesterday-ORG_METRICS12903030268932825.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": true,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": true
+  }
+}

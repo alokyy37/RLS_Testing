@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "9ed9dd80003210129b65",
+  "position": {
+    "x": 20.290997840983742,
+    "y": 11.79245283018868,
+    "z": 0,
+    "height": 940.51062343580816,
+    "width": 454.70900215901628,
+    "tabOrder": 11001
+  },
+  "visualGroup": {
+    "displayName": "Grp-FilterHide",
+    "groupMode": "ScaleMode"
+  }
+}

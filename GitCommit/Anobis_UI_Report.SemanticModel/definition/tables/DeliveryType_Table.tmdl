@@ -1,0 +1,38 @@
+table DeliveryType_Table
+	lineageTag: f8f084d5-5200-4974-8481-f3908ee71194
+
+	column delivery_type
+		dataType: string
+		lineageTag: ac485fd1-34d1-49e7-bade-cd3690269187
+		summarizeBy: none
+		sourceColumn: delivery_type
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": "__SelectAll__"
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DeliveryType_Table = m
+		mode: import
+		queryGroup: IM-Parameter
+		source =
+				let
+				    TableName = IMTableName,
+				    Query = "" & TableName & "
+				    | where isnotempty(delivery_type)
+				    | distinct delivery_type",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

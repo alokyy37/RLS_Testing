@@ -1,0 +1,78 @@
+table 'IM Cancelled Orders (Last 7 Days)'
+	lineageTag: c82dc9cf-2325-4d46-b274-3f39f3720f2c
+
+	column Count
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d9c56f2c-bc90-4ad2-8ee8-6e182b51b335
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Cancelled Orders (Last 7 Days)' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 7 Days\IM-Cancellation\IM-Cancelled Orders'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast7Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast7DayFormatted = DateTime.ToText(EndofLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				      // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_at_ist >= datetime('" & StartOfLast7DaysFormatted & "')
+				    | where  created_at_ist < datetime(' " & EndofLast7DayFormatted & " ')
+				    " & CombinedFilters & "
+				    | where dp_order_type == 'INSTAMART' and status == 'CANCELLED' 
+				    and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+				    | count",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
