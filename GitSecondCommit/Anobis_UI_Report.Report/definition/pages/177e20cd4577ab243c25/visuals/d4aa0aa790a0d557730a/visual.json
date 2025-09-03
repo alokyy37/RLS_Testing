@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "d4aa0aa790a0d557730a",
+  "position": {
+    "x": 69.089573251882527,
+    "y": 55.757249216586864,
+    "z": 1000,
+    "height": 27.472527472527471,
+    "width": 165.97417923435825,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Cancelled orders-WOW%",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "c41c301702a7201a9508"
+}

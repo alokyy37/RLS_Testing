@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "Last 7 Days",
+  "name": "0f52b9410ac90d348c5d",
+  "options": {
+    "targetVisualNames": [
+      "9e4bbe8a7c2ddbd02e13",
+      "afeacd05a7002f62dbe5",
+      "01e12d82872626583f47",
+      "af9b4e5c7f89f2eaa5e2",
+      "ebf8c55291c0eeee955b",
+      "05d347aabe3823445adf",
+      "1cf192181f38f94bba4d",
+      "f36fab280f657b02cb0c",
+      "bb5af442cb8807edf9a9",
+      "446cb124d0fb49cd2be3",
+      "fdc3d299274c9424d5a7",
+      "ef4ab4587832e1c35a13",
+      "d2d815b037648a246ca9",
+      "ec4b038b3050c213f5a9"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "b1f76d7c3bba2aee8991",
+    "sections": {
+      "b1f76d7c3bba2aee8991": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "6a3dbae51572a342ebba",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InstaMart"
+                    }
+                  },
+                  "Property": "today_cancel_insta"
+                }
+              },
+              "howCreated": 5
+            },
+            {
+              "name": "af6365809cf4a431649d",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InstaMart"
+                    }
+                  },
+                  "Property": "yesterday_cancel_insta"
+                }
+              },
+              "howCreated": 5
+            }
+          ]
+        },
+        "visualContainers": {}
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

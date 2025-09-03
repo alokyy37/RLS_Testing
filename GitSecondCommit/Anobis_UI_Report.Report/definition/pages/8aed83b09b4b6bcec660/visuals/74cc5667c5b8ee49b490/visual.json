@@ -1,0 +1,182 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "74cc5667c5b8ee49b490",
+  "position": {
+    "x": 9.6188238085243,
+    "y": 567.572325662721,
+    "z": 12000,
+    "height": 388.81578947368422,
+    "width": 450,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree- Last 4 Weeks.area",
+              "nativeQueryRef": "area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree- Last 4 Weeks.business_classifier",
+              "nativeQueryRef": "business_classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree- Last 4 Weeks.business_unit",
+              "nativeQueryRef": "business_unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree- Last 4 Weeks.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Transacting Users Decomposition Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food Transacting Users Decomposition Tree- Last 4 Weeks.time_slot",
+              "nativeQueryRef": "time_slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Transacting Users (Last 4 Weeks)"
+                        }
+                      },
+                      "Property": "Count"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Transacting Users (Last 4 Weeks).Count)",
+              "nativeQueryRef": "Sum of Count"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Transacting Users (Last 4 Weeks)"
+                      }
+                    },
+                    "Property": "Count"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "e81842c50266408d2bc7"
+}
