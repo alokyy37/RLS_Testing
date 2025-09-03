@@ -1,0 +1,50 @@
+table Rows
+	lineageTag: e94d17d1-e911-41e4-b734-dae4905ef335
+
+	column Rows
+		lineageTag: 5a29975b-2f07-4afa-97cc-add774f53b18
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Rows Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Rows Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rows Fields'
+		isHidden
+		lineageTag: 473f3431-e4fd-4471-b7a4-495f617425ae
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Rows Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rows Order'
+		isHidden
+		formatString: 0
+		lineageTag: f85ca5fb-cf92-415b-88dc-8aa9eef422c0
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Rows = calculated
+		mode: import
+		source =
+				{
+				    ("SUPPLIER NAME", NAMEOF('Armenia Import'[SUPPLIER_NAME_EN]), 0),
+				    ("IMPORTER NAME", NAMEOF('Armenia Import'[IMPORTER_NAME_EN]), 1),
+				    ("HS CODE", NAMEOF('Armenia Import'[HS_CODE]), 2),
+				    ("ORIGIN COUNTRY", NAMEOF('Armenia Import'[ORIGIN_COUNTRY]), 3)
+				}
+
+	annotation PBI_Id = 1bd45058ada64820a0ae40d4fbd01482
+

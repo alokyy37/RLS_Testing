@@ -1,0 +1,49 @@
+table 'Selection 2'
+	lineageTag: 1917db88-a243-4b6a-8d2c-c900bf403c9e
+
+	column Selection
+		lineageTag: 5af73851-bb73-49fa-ade3-a54a6ac1627a
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Selection Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Selection Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection Fields'
+		isHidden
+		lineageTag: e27f12c3-63b2-4b8d-adfe-565af352e1df
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Selection Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection Order'
+		isHidden
+		formatString: 0
+		lineageTag: 6a003a08-e504-450c-918d-4c6dca96fbf3
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Selection 2' = calculated
+		mode: import
+		source =
+				{
+				    ("EXPORTER_COUNTRY", NAMEOF('Armenia Import'[EXPORTER_COUNTRY_NAME]), 0),
+				    ("CUSTOM_OFFICE", NAMEOF('Armenia Import'[CLEARANCE_CUSTOMS_OFFICE_CODE_AND_NAME_EN]), 1),
+				    ("ORIGIN_COUNTRY", NAMEOF('Armenia Import'[ORIGIN_COUNTRY_NAME]), 2)
+				}
+
+	annotation PBI_Id = e7a844b625b84b8b91b12f4a5399a04c
+

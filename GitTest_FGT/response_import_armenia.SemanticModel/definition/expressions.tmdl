@@ -1,0 +1,7 @@
+expression Query = "ArmeniaImport | take 1000" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f19b51aa-b93c-4f9b-8bfa-4e6c3d1f4d46
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+

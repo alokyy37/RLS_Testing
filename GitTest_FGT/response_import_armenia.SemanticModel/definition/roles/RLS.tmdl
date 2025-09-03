@@ -1,0 +1,7 @@
+role RLS
+	modelPermission: read
+
+	tablePermission 'Armenia Import' = 'Armenia Import'[ORIGIN_COUNTRY] == "CHINA"
+
+	annotation PBI_Id = 3d4709ba1ad54d91afe388b067365df2
+

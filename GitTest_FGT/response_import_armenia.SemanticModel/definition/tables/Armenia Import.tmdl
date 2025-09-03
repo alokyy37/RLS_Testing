@@ -1,0 +1,580 @@
+table 'Armenia Import'
+	lineageTag: ba6d153f-1ba3-4c6b-b53b-435030d351ac
+
+	column QUANTITY
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 679248a2-d24e-44df-9bd9-2deb7bfe2fc8
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IMPORTER_NAME
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d0f56cdf-df17-499d-8656-3b08719ba6df
+		summarizeBy: none
+		sourceColumn: IMPORTER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_DESCRIPTION
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d1afa394-1aba-498b-a55a-a88fb163b802
+		summarizeBy: none
+		sourceColumn: PRODUCT_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIT
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 9c1ebf0d-d60c-461b-b83a-c28ec26e119c
+		summarizeBy: none
+		sourceColumn: UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECORDS_TAG
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4be45bb9-88fe-4dce-a57b-e5e753994c8a
+		summarizeBy: none
+		sourceColumn: RECORDS_TAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column HS_CODE_4
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: a7ce2c9e-f8b2-4062-ad9d-da652f51b8d5
+		summarizeBy: none
+		sourceColumn: HS_CODE_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column HS_CODE_2
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: ab7e3ea1-3aca-49b7-8722-893873edea65
+		summarizeBy: none
+		sourceColumn: HS_CODE_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column HS_CODE
+		dataType: string
+		sourceProviderType: bigint
+		lineageTag: 557c155d-3ad0-4d07-9a76-a4e92494752c
+		summarizeBy: none
+		sourceColumn: HS_CODE
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECORD_ID
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 54d23727-824c-41a2-9130-78f2ac27912a
+		summarizeBy: none
+		sourceColumn: RECORD_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE_2
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 7e416dd0-8601-48d9-b1de-e57f0e1cf212
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: cb289066-6545-421b-9117-3733de75c19a
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column Month
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: bigint
+		lineageTag: 98871311-5bf2-45e6-9303-ed47d72936b5
+		summarizeBy: none
+		sourceColumn: Month
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Months name'
+		dataType: string
+		lineageTag: 16fe62eb-23e9-4aaf-9d4e-e007fc077941
+		summarizeBy: none
+		sourceColumn: Months name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IMPORTER_NAME_EN
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 89021f4f-ac67-4190-996c-af1fd4c46f66
+		summarizeBy: none
+		sourceColumn: IMPORTER_NAME_EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_DESCRIPTION_EN
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: f7f08388-673a-43a9-ad17-5f850c53bbb6
+		summarizeBy: none
+		sourceColumn: PRODUCT_DESCRIPTION_EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_NAME
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1d48177a-0b8c-4c17-922c-fcb94bccbef4
+		summarizeBy: none
+		sourceColumn: SUPPLIER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_NAME_EN
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 9193fd81-e004-4dd8-8bf6-0cb80f10eadb
+		summarizeBy: none
+		sourceColumn: SUPPLIER_NAME_EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAX_ID_NUMBER
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: fbc656d5-3ceb-482c-9c3d-1da18b89b96b
+		summarizeBy: none
+		sourceColumn: TAX_ID_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCEDURE_CODE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 46e64f46-6d90-4665-a4fe-f20fe3317061
+		summarizeBy: none
+		sourceColumn: PROCEDURE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMS_POINT_CODE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 845a5e75-63cf-4597-836e-9d96c1b7dd4a
+		summarizeBy: none
+		sourceColumn: CUSTOMS_POINT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASSESSMENT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 49cdcec1-c452-4ab9-aa74-bdc1914111dc
+		summarizeBy: none
+		sourceColumn: ASSESSMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DECLARATION_NUMBER
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1f8dbe22-9dfb-4bfb-954d-9ec0f9f6fac0
+		summarizeBy: none
+		sourceColumn: DECLARATION_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORIGIN_COUNTRY
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 0fcf0d22-12d8-4816-b6a6-ab17d6ffc0dd
+		summarizeBy: none
+		sourceColumn: ORIGIN_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXPORT_COUNTRY
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: fd7f10e4-88ef-42d4-8985-f9a5d8619b7d
+		summarizeBy: none
+		sourceColumn: EXPORT_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADE_COUNTRY
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: a3642b1e-8f55-4fc4-a9a0-a67e7f5e6576
+		summarizeBy: none
+		sourceColumn: TRADE_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROSS_WEIGHT
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 454fd7ad-ed84-4dea-b92b-9ebd99dfa270
+		summarizeBy: sum
+		sourceColumn: GROSS_WEIGHT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NET_WEIGHT
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 035ec0ff-1c57-472d-893a-efcdd547f163
+		summarizeBy: sum
+		sourceColumn: NET_WEIGHT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUANTITY_2
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ab071db0-2d37-4177-b8d3-b01cf9141a46
+		summarizeBy: sum
+		sourceColumn: QUANTITY_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIT_2
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: c4efe7c5-e25a-4ba3-8a7f-a31623428998
+		summarizeBy: none
+		sourceColumn: UNIT_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVOICE_AMOUNT
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 45038804-56f7-4174-93de-f053c5b7065d
+		summarizeBy: sum
+		sourceColumn: INVOICE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOMS_VALUE_LC
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d16162a0-fa2f-4c3b-b859-e32ff5872440
+		summarizeBy: sum
+		sourceColumn: CUSTOMS_VALUE_LC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VAT
+		dataType: double
+		sourceProviderType: double
+		lineageTag: fed10f15-70bf-4aae-a8e9-51307be14985
+		summarizeBy: sum
+		sourceColumn: VAT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOMS_DUTY_TAX
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f1a15caf-938d-4947-a58e-604fb5ebed60
+		summarizeBy: sum
+		sourceColumn: CUSTOMS_DUTY_TAX
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXCISE_TAX
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 7d0053ec-07e2-493f-b995-5751f2b7652f
+		summarizeBy: sum
+		sourceColumn: EXCISE_TAX
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ECOLOGY_TAX
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 98c15501-7ffa-43ea-9cc2-83c1538d731f
+		summarizeBy: none
+		sourceColumn: ECOLOGY_TAX
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANTI_DUMPING_TAX
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: dabb9ebc-cf24-4dee-bdf0-5da4ef40c02c
+		summarizeBy: none
+		sourceColumn: ANTI_DUMPING_TAX
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_VALUE
+		dataType: double
+		sourceProviderType: double
+		lineageTag: b0eb61ef-e4d7-4ee6-9dec-71ecb3ce35e0
+		summarizeBy: sum
+		sourceColumn: TOTAL_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_VALUE_1
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 7e0aeb0e-4df3-4270-bc36-dd67edfb213e
+		summarizeBy: sum
+		sourceColumn: TOTAL_VALUE_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_VALUE_2
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 34377138-3d43-4ade-b8b0-16d2ba8d3c39
+		summarizeBy: sum
+		sourceColumn: TOTAL_VALUE_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_VALUE_3
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ef7c0038-cfe4-4390-b545-3688f7e1b16f
+		summarizeBy: sum
+		sourceColumn: TOTAL_VALUE_3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_VALUE_4
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 8c12f099-8648-49c3-bf0b-c5391c3bc97a
+		summarizeBy: sum
+		sourceColumn: TOTAL_VALUE_4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column METHOD
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: cc92b870-9670-4012-995e-1ae2462a4e8f
+		summarizeBy: none
+		sourceColumn: METHOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column USD_EXCHANGE_RATE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: b816ed17-2ad0-43e9-ae0b-e5bee265278a
+		summarizeBy: none
+		sourceColumn: USD_EXCHANGE_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EURO_EXCHANGE_RATE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 8efee0c0-1f41-4ee5-8b5e-9080f82b67ba
+		summarizeBy: none
+		sourceColumn: EURO_EXCHANGE_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVOICE_CURRENCY
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: dc75bb2c-4186-4b13-bf4f-6a037b4dec97
+		summarizeBy: none
+		sourceColumn: INVOICE_CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVOICE_RATE
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 898fa727-bf6a-49a7-a223-922bc2c296cd
+		summarizeBy: none
+		sourceColumn: INVOICE_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOTERM
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e5e34bb2-87ba-4444-bc5d-7c5d9e2daa81
+		summarizeBy: none
+		sourceColumn: INCOTERM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMS_TARIFF
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d51b207e-71e8-4781-a559-021d8ee4a005
+		summarizeBy: none
+		sourceColumn: CUSTOMS_TARIFF
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMS_TARIFF_1
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 2e75312a-35ed-4e11-8879-17586c63f2ea
+		summarizeBy: none
+		sourceColumn: CUSTOMS_TARIFF_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMS_BROKER
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 0e751cef-4795-4425-96d7-29cf8fa0ac3c
+		summarizeBy: none
+		sourceColumn: CUSTOMS_BROKER
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMS_BROKER_EN
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 002ae36e-7c55-48ee-802b-e79db6904406
+		summarizeBy: none
+		sourceColumn: CUSTOMS_BROKER_EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_NUMBER
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: fe5d4b51-f423-499a-b9af-2c6deb8dc0e4
+		summarizeBy: none
+		sourceColumn: ITEM_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCEDURE_CODE_MEANING
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 05f0395c-aa8b-46d1-a822-294dbbb81bdd
+		summarizeBy: none
+		sourceColumn: PROCEDURE_CODE_MEANING
+
+		annotation SummarizationSetBy = Automatic
+
+	column HS_DESCRIPTION
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: b42a917a-c73d-448c-b477-411c2b7d1fef
+		summarizeBy: none
+		sourceColumn: HS_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVOICE_AMOUNT_USD
+		dataType: double
+		sourceProviderType: double
+		lineageTag: a14b4a01-f4d4-499a-8c13-a3c74c9bc3b4
+		summarizeBy: sum
+		sourceColumn: INVOICE_AMOUNT_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOMS_VALUE_USD
+		dataType: double
+		sourceProviderType: double
+		lineageTag: fb3392ea-c2f5-413a-99d7-e477d8ca9d02
+		summarizeBy: sum
+		sourceColumn: CUSTOMS_VALUE_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	hierarchy 'Year Hierarchy'
+		lineageTag: d661288d-8c02-40c7-9e6e-00db2546e90c
+
+		level Year
+			lineageTag: ba8b175c-37e0-48b2-a379-ba581130a0d1
+			column: Year
+
+		level 'Months name'
+			lineageTag: d5512b77-3ca0-4c0b-8687-8f74acbe381b
+			column: 'Months name'
+
+	partition 'Armenia Import' = m
+		mode: directQuery
+		source =
+				let
+				    Source = AzureDataExplorer.Contents("https://trd-ysuz6stmkrkuzcjqbp.z7.kusto.fabric.microsoft.com", "Eximpedia", Query, [MaxRows=null, MaxSize=null, NoTruncate=true, AdditionalSetStatements="set notruncation;"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ASSESSMENT_DATE", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([ASSESSMENT_DATE]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([ASSESSMENT_DATE]), Int64.Type),
+				    #"Added Conditional Column" = Table.AddColumn(#"Inserted Month", "Custom", each if [Month] = 1 then "January" else if [Month] = 2 then "February" else if [Month] = 3 then "March" else if [Month] = 4 then "April" else if [Month] = 5 then "May" else if [Month] = 6 then "June" else if [Month] = 7 then "July" else if [Month] = 8 then "August" else if [Month] = 9 then "September" else if [Month] = 10 then "October" else if [Month] = 11 then "November " else if [Month] = 12 then "December" else "Null"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column",{{"Custom", "Months name"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Months name", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
