@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "1db2c225697a7f614857",
+  "position": {
+    "x": 13.201871657754008,
+    "y": 582.35294117647049,
+    "z": 2000,
+    "height": 378.30882352941171,
+    "width": 438.60294117647055,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "zone"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.zone",
+              "nativeQueryRef": "zone"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.region",
+              "nativeQueryRef": "region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "store_id"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.store_id",
+              "nativeQueryRef": "store_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "delivery_type"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.delivery_type",
+              "nativeQueryRef": "delivery_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                    }
+                  },
+                  "Property": "delivery_slot"
+                }
+              },
+              "queryRef": "IM SDC% Decomposition Tree - Last 4 Weeks.delivery_slot",
+              "nativeQueryRef": "delivery_slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                        }
+                      },
+                      "Property": "SDC%"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(IM SDC% Decomposition Tree - Last 4 Weeks.SDC%)",
+              "nativeQueryRef": "Sum of SDC%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "IM SDC% Decomposition Tree - Last 4 Weeks"
+                      }
+                    },
+                    "Property": "SDC%"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "2a194a8a95c5e13537df"
+}
