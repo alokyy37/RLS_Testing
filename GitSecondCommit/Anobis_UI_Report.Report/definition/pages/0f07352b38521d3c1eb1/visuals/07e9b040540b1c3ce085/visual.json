@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "07e9b040540b1c3ce085",
+  "position": {
+    "x": 81.86879278357047,
+    "y": 42.066256813227326,
+    "z": 1000,
+    "height": 32.399725203501674,
+    "width": 129.58762886597938,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Grp-foodwow completed orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "d3fb77d0b808977d4096"
+}

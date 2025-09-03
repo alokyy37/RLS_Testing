@@ -1,0 +1,177 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "7822b3a4bc52392ac410",
+  "position": {
+    "x": 7.4586172393311454,
+    "y": 571.80851063829778,
+    "z": 10000,
+    "height": 372.34042553191489,
+    "width": 442.55319148936172,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food SDC% Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food SDC% Decomposition Tree- Today.city",
+              "nativeQueryRef": "City",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food SDC% Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food SDC% Decomposition Tree- Today.area",
+              "nativeQueryRef": "Area",
+              "displayName": "Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food SDC% Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food SDC% Decomposition Tree- Today.time_slot",
+              "nativeQueryRef": "Time Slot",
+              "displayName": "Time Slot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food SDC% Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food SDC% Decomposition Tree- Today.business_classifier",
+              "nativeQueryRef": "Business Classifier",
+              "displayName": "Business Classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food SDC% Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food SDC% Decomposition Tree- Today.business_unit",
+              "nativeQueryRef": "Business Unit",
+              "displayName": "Business Unit"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "SDC Today"
+                }
+              },
+              "queryRef": "ALL Measures.SDC Today",
+              "nativeQueryRef": "SDC%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ALL Measures"
+                  }
+                },
+                "Property": "SDC Today"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "2a960685b66b3c57193c"
+}

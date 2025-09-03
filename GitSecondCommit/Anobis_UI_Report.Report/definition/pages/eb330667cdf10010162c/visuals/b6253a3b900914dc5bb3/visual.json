@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b6253a3b900914dc5bb3",
+  "position": {
+    "x": 7.2129684711481259,
+    "y": 14.965523760827351,
+    "z": 0,
+    "height": 71.454628900226538,
+    "width": 205.00895523926252
+  },
+  "visualGroup": {
+    "displayName": "grp-completed orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "9e35b8dc741c1db0dd04"
+}

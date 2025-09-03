@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8ac84e9531c6018d0003",
+  "position": {
+    "x": 74.4671057206699,
+    "y": 41.273261703218338,
+    "z": 1000,
+    "height": 28.627645428971903,
+    "width": 139.68368979493806,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Grp-food wow cancelled orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "4fb7560c4682e1074e58"
+}
