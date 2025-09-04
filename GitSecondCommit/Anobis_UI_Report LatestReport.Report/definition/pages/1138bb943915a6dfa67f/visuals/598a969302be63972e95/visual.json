@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "598a969302be63972e95",
+  "position": {
+    "x": 3.9946769349118365,
+    "y": 164.21186870993202,
+    "z": 17000,
+    "height": 88.82352941176471,
+    "width": 231.76470588235296,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "grp-food completed orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "cdd68c8b8b8ebb28a4bb"
+}

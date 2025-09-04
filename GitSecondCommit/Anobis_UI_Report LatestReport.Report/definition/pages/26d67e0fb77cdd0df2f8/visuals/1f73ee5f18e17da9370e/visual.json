@@ -1,0 +1,177 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "1f73ee5f18e17da9370e",
+  "position": {
+    "x": 7.0264641957123173,
+    "y": 568.81831574350042,
+    "z": 3000,
+    "height": 371.69230769230768,
+    "width": 439.38461538461536,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food AOV Count Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food AOV Count Decomposition Tree- Today.city",
+              "nativeQueryRef": "City",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food AOV Count Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food AOV Count Decomposition Tree- Today.time_slot",
+              "nativeQueryRef": "Time Slot",
+              "displayName": "Time Slot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food AOV Count Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food AOV Count Decomposition Tree- Today.business_classifier",
+              "nativeQueryRef": "Business Classifier",
+              "displayName": "Business Classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food AOV Count Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food AOV Count Decomposition Tree- Today.area",
+              "nativeQueryRef": "Area",
+              "displayName": "Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food AOV Count Decomposition Tree- Today"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food AOV Count Decomposition Tree- Today.business_unit",
+              "nativeQueryRef": "Business Unit",
+              "displayName": "Business Unit"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "AOV"
+                }
+              },
+              "queryRef": "ALL Measures.AOV",
+              "nativeQueryRef": "AOV"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ALL Measures"
+                  }
+                },
+                "Property": "AOV"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "9ed9dd80003210129b65"
+}
