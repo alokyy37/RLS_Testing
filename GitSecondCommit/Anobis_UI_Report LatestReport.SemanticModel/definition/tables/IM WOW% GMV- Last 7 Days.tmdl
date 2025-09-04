@@ -1,0 +1,114 @@
+table 'IM WOW% GMV- Last 7 Days'
+	lineageTag: 1d0f16d4-de67-46db-8cf9-6fc34064ec51
+
+	column print_0
+		dataType: double
+		sourceProviderType: double
+		lineageTag: c3ad763c-29d2-4824-abfa-3ddea0665499
+		summarizeBy: sum
+		sourceColumn: print_0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'IM WOW% GMV- Last 7 Days' = m
+		mode: directQuery
+		queryGroup: 'IM\IM-Last 7 Days\IM-Sales\IM-GMV'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Last 7 days current week to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDate = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofCurrentDateFormatted = DateTime.ToText(CurrentDate, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Last 7 days previous week to 12:00 AM IST
+				    LastWeekStartDateTime = StartOfLast7Days - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekStartDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLastWeekFormatted = StartOfLast7DaysFormatted,
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				      // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				
+				    // Format the query with dynamic start and end times
+				   
+				    Query = "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    let current_week = " & TableName & "
+				    | where created_at_ist >= datetime('" & StartOfLast7DaysFormatted & "')
+				    | where  created_at_ist < datetime(' " & EndofCurrentDateFormatted & " ')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    " & CombinedFilters & "
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GMV = round(sum(gmv), 2) by city, region, zone, store_id, delivery_slot, delivery_type
+				    | summarize sum(GMV);
+				    let last_week = " & TableName & "
+				    | where created_at_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				    | where created_at_ist < datetime('"& EndofLastWeekFormatted &"') 
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    " & CombinedFilters & "
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GMV = round(sum(gmv), 2) by city, region, zone, store_id, delivery_slot, delivery_type
+				    | summarize sum(GMV);
+				    // Run below to check green
+				    let currentweekCount = toscalar(current_week);
+				    let lastweekcount = toscalar(last_week);
+				    let percentage = toscalar(toreal((((toreal(currentweekCount) - toreal(lastweekcount)) / toreal(lastweekcount)) * 100)));
+				    print(round(percentage, 2))"
+				,
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

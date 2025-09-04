@@ -1,0 +1,144 @@
+table 'IM CDC% WOW-Yesterday'
+	lineageTag: 96ec4f5e-6027-41b1-8437-2f3c64a8c777
+
+	column 'CDC% WoW'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: ed6c3c24-63f1-4c4f-ac59-16339afe0699
+		summarizeBy: none
+		sourceColumn: CDC% WoW
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrendArrow
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4fa81cc9-5b48-458c-bacf-47fc1088248d
+		summarizeBy: none
+		sourceColumn: TrendArrow
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrendColor
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 90a0e087-9d49-4f6d-9902-7bedc0b5015a
+		summarizeBy: none
+		sourceColumn: TrendColor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM CDC% WOW-Yesterday' = m
+		mode: directQuery
+		queryGroup: IM\IM-Yesterday\IM-Cancellation\IM-CDC
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Get Last 7 days's time
+				    LastWeekDateTime = YesterdayDateTime - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    NextDayLastWeekDateTime = YesterdayDateTime - #duration(6, 0, 0, 0),
+				    LastWeekCurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(NextDayLastWeekDateTime)) & " 00:00:00"),
+				    LastWeekCurrentDateTimeFormatted = DateTime.ToText(LastWeekCurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				
+				    // Format the query with dynamic start and end times
+				    Query = "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    let today = " & TableName & " 
+				    |where created_at_ist >= datetime('"& StartOfYesterdayFormatted &"') 
+				    |where created_at_ist <= datetime('"& EndOfYesterdayFormatted &"')
+				    | where updated_at_ist <= datetime('"& EndOfYesterdayFormatted &"') 
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				            "& CombinedFilters &"
+				    and dp_order_type == 'INSTAMART'
+				    | extend cdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_CUSTOMER_DRIVEN_CANCELLATION', 1.0, 0.0)
+				    | extend delivered = iff(status == 'COMPLETED', 1.0, 0.0)
+				    | summarize 
+				    CDCCount = sum(cdc_cancelled),
+				    DeliveredDistinctCount = dcount(iff(status == 'COMPLETED', order_id, ''))
+				    | extend ['CDC%'] = round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * CDCCount / DeliveredDistinctCount),2)
+				    | project ['CDC%'];
+				    let last_week = " & TableName & " 
+				    | where created_at_ist >= datetime('" & StartOfLastWeekFormatted & "')
+				    | where created_at_ist <= datetime('"& LastWeekCurrentDateTimeFormatted &"') 
+				    | where updated_at_ist <= datetime('"& LastWeekCurrentDateTimeFormatted &"') 
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				            "& CombinedFilters &"
+				    and dp_order_type == 'INSTAMART'
+				    | extend cdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_CUSTOMER_DRIVEN_CANCELLATION', 1.0, 0.0)
+				    | extend delivered = iff(status == 'COMPLETED', 1.0, 0.0)
+				    | summarize 
+				    CDCCount = sum(cdc_cancelled),
+				    DeliveredDistinctCount = dcount(iff(status == 'COMPLETED', order_id, ''))
+				    | extend ['CDC%'] = round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * CDCCount / DeliveredDistinctCount),2)
+				    | project ['CDC%'];
+				    // Run below to check green
+				    let todayCount = toscalar(today);
+				    let lastweekcount = toscalar(last_week);
+				    let percentage = toscalar(toreal((((toreal(todayCount) - toreal(lastweekcount)) / toreal(lastweekcount)) * 100)));
+				    let arrow = iff(percentage > 0, '\u25BC', // ▼ down
+				                iff(percentage < 0, '\u25B2', // ▲ up
+				                '-')); // neutral
+				                let color = iff(percentage > 0, 'limegreen',
+				                iff(percentage < 0, 'tomato',
+				                'gray'));
+				     let wow_display = strcat(round(percentage,2), '% WOW');
+				    print ['CDC% WoW'] = wow_display, TrendArrow = arrow, TrendColor = color",
+				   
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

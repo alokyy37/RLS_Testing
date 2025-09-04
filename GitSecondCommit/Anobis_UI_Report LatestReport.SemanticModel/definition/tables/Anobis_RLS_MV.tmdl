@@ -1,0 +1,53 @@
+table Anobis_RLS_MV
+	lineageTag: 86090955-30ca-4c0b-abe9-a338fb5be695
+
+	column UserEmail_ID
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 8f2a51a2-c760-439c-8c62-1104f1d7c806
+		summarizeBy: none
+		sourceColumn: UserEmail_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 7574d024-b773-455f-858e-563140104051
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4b39c318-321d-4062-b1bf-b1398f366e53
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column Timestamp
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 613605c6-be70-4b27-89e3-3eea9c1a924f
+		summarizeBy: none
+		sourceColumn: Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Anobis_RLS_MV = m
+		mode: directQuery
+		queryGroup: Food-Parameter
+		source =
+				let
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, "Anobis_RLS_MV", [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
