@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "f8e1e2adc616d46bb0eb",
+  "position": {
+    "x": 59.340658083301761,
+    "y": 57.82657702085902,
+    "z": 1000,
+    "height": 28.303675322052619,
+    "width": 163.57821191697229,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Completed WOW%",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "ac829b8804421eb614d4"
+}

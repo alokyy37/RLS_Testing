@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "42b83a167cd5d5d540a5",
+  "position": {
+    "x": 245.03568596352102,
+    "y": 254.60745440126882,
+    "z": 3000,
+    "height": 92.335591880397743,
+    "width": 222.76923076923077,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Grp- food cancelled orders",
+    "groupMode": "ScaleMode"
+  }
+}
