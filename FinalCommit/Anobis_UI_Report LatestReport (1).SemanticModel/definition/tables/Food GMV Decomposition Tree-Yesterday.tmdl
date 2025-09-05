@@ -1,0 +1,97 @@
+table 'Food GMV Decomposition Tree-Yesterday'
+	lineageTag: 9f20e6bf-efe2-4b1d-94ff-feed63e772ea
+
+	column city
+		dataType: string
+		lineageTag: 99c9d649-876c-4fe5-8ec4-dfde6ccb0610
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: 0dfbb8d2-6f35-4d4f-985e-d3e46c140b83
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 53a79d9c-7654-4421-89bf-c7865b77cd9e
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		lineageTag: 1654220f-2a9b-4a42-b214-d02826ad367c
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column GMV
+		dataType: double
+		lineageTag: 5b16b437-545d-4073-a96a-279cb17a3614
+		summarizeBy: sum
+		sourceColumn: GMV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column time_slot
+		dataType: string
+		lineageTag: 7e9709d8-120b-4718-ada2-b486e06abec8
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food GMV Decomposition Tree-Yesterday' = m
+		mode: import
+		queryGroup: 'Food\Food- Yesterday\Food- Sales\Food-GMV'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime('" & StartOfYesterdayFormatted & "') 
+				    | where created_on_ist < datetime('" & EndOfYesterdayFormatted & "')
+				    | where order_status == 'completed' 
+				    | where order_type != 'SUBSCRIPTION' 
+				    | summarize GMV = round(sum(gmv_total), 2) by city, area, business_unit, business_classifier, time_slot",
+				
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

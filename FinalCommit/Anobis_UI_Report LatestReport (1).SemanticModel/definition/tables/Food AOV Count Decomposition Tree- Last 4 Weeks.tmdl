@@ -1,0 +1,106 @@
+table 'Food AOV Count Decomposition Tree- Last 4 Weeks'
+	lineageTag: 647fda16-6726-400c-a0d5-56b8ad7bee10
+
+	column city
+		dataType: string
+		lineageTag: 0ebbdba9-c92f-491e-8bc0-b9edf3ee5819
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: 15442ca0-da9a-4f86-bc79-488413db6216
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 44f31101-e386-43eb-8eb2-c453f1d65b20
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		lineageTag: 1e28b7a5-6df6-4799-a771-7ae1c51c0709
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupAvgGmv
+		dataType: double
+		lineageTag: dc636506-7b17-42f8-9daf-01db12a26648
+		summarizeBy: sum
+		sourceColumn: GroupAvgGmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupCount
+		dataType: int64
+		formatString: 0
+		lineageTag: fb9924a8-8ba4-4c52-9847-7d2c9586f07f
+		summarizeBy: sum
+		sourceColumn: GroupCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_slot
+		dataType: string
+		lineageTag: 5552a272-8e78-477f-9d6f-e005a581876a
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food AOV Count Decomposition Tree- Last 4 Weeks' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 4 weeks\Food- Sales\Food-AOV'
+		source = ```
+				let
+				// Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 28 days ago in IST
+				    Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				    StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast28Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast28DayFormatted = DateTime.ToText(EndofLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(' " & StartOfLast28DaysFormatted &  " ') 
+				    | where created_on_ist < datetime(' " & EndofLast28DayFormatted & " ') 
+				    | where order_status == 'completed' | where order_type != 'SUBSCRIPTION' 
+				    |summarize GroupAvgGmv = avg(gmv_total), GroupCount = count() by city, area, business_unit, business_classifier, time_slot",
+				     Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

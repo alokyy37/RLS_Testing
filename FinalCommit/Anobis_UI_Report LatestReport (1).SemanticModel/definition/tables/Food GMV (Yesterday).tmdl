@@ -1,0 +1,53 @@
+table 'Food GMV (Yesterday)'
+	lineageTag: 6fe88da9-7be4-41f5-a759-e1073f7752ec
+
+	column sum_gmv_total
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d524902d-92a6-4a00-97ea-47f127a95df3
+		summarizeBy: sum
+		sourceColumn: sum_gmv_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Food GMV (Yesterday)' = m
+		mode: import
+		queryGroup: 'Food\Food- Yesterday\Food- Sales\Food-GMV'
+		source =
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " | where created_on_ist >= datetime(" & Text.From(StartOfYesterdayFormatted) & ") | where created_on_ist < datetime(" & Text.From(EndOfYesterdayFormatted) & ") | where order_status == 'completed' | where order_type != 'SUBSCRIPTION' | summarize sum(gmv_total)",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
