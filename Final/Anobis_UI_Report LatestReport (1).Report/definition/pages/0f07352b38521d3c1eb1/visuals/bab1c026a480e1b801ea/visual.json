@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "bab1c026a480e1b801ea",
+  "position": {
+    "x": 94.881328247946755,
+    "y": 63.012120558024321,
+    "z": 1000,
+    "height": 28,
+    "width": 133.30049261083741,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Grp- IM Cancelled WOW",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "33ab86d1479e410d8005"
+}

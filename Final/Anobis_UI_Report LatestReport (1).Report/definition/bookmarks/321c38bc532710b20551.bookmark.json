@@ -1,0 +1,827 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "F_YesterdayViewALL_FS",
+  "name": "321c38bc532710b20551",
+  "options": {
+    "targetVisualNames": [
+      "bcf022f50b138a0ad850",
+      "f08162020a533b771845",
+      "cf9374c21e0e8d47ca88",
+      "0eed895c8048d8e48305",
+      "be243cb1ec60bc2dd1b0",
+      "4e4da13fc21069d6c268",
+      "ba8b7997a9824c004c01",
+      "86d844b76754d670850a",
+      "c348a3fe1b4d01c0a64b",
+      "38708ea6e01d91c1b1e4",
+      "579a1eaf1ce89080121e",
+      "801d4b9cc8d8ce797c01",
+      "e3bb9773ac65d4b52348",
+      "43d8b65278b600d86a03",
+      "b109cf006d434855b024",
+      "09d0f5adc4e463b3e300",
+      "6175d7a745706ae6a003",
+      "8e153a66bea9ee4aeb3a",
+      "ffd477e499bb4a35c005",
+      "68c12dc0d8e3b6973993",
+      "1400d2cad1044293872b",
+      "65898826c2135049e061",
+      "14340b073c280984b03d",
+      "155b9f7de0bbd9d12bea",
+      "af96a26ed7d39085a016",
+      "ff0113507039081416a8",
+      "64612a5160c003b05ee2",
+      "e766aaa019e49c6c8dc9",
+      "8eecab866dcecbe36c56",
+      "10dc2135116c3cd2dc03",
+      "04f1d0c27dee15cbcad1",
+      "58a5cc68dddc5eeb0051",
+      "2f3d0abb7d0eb2398634",
+      "601868322d0b91a022e7",
+      "9306ae5cc67d0c9ee051",
+      "127b8a530d43b6674328",
+      "43e89ed540a0707d6e0e",
+      "a6f1ce2da044da02d103",
+      "cc1c1dcf5780b8210c00",
+      "64944fa702398b3cba2a",
+      "1213c81c7b4d1e2a17e4",
+      "0de7574f65de19d0a065",
+      "6141c78314c98cc91bba",
+      "3424d04e5a9d57bd9594",
+      "ab69c173ac53d96ce244",
+      "c777e4f78d6091eb33ac",
+      "913af40db04947ca71d9",
+      "2a318983d96e6681b046",
+      "6bd40c900cd0aa8c0c0e",
+      "bf1cb176c6be8202e34e",
+      "a2fbc34c83aa9a4e5570",
+      "d371d2a354e701e629d2",
+      "a0a9f1b6ca0003a9746d",
+      "2095b2cdb930057a28ad",
+      "451fcbf00e4d8b16b109",
+      "ed022fa2ba23d40086eb",
+      "fb7e02f272dc3c0d2125",
+      "e667e2de4bb3bda14000",
+      "06a58fd49287d902a9d3",
+      "1b13f79156a8c3a36bc9",
+      "01e8cc1e04aad42b40a7",
+      "368ae2e0bd160472d960",
+      "df44264bb43094a077ba",
+      "311e40bbcdc2900230a7",
+      "37f37824a5479cd36b0a",
+      "bef0b8d2edb047e9c3a0",
+      "d86a3a94734d42099253",
+      "0ae1580690930c79722b",
+      "7048d4085c8479e02a07",
+      "9439a763d00a8a30749b",
+      "88da2b30014a5e0187d6",
+      "e5ef375131155c161465",
+      "ff69d3763501c0052557",
+      "20321460d35772bb2807",
+      "ea07d4a03b6d76b8d07e",
+      "0351653d1e10a93d04c0",
+      "bc0950c2867c701a4d5e",
+      "ccacf741655c5360b980",
+      "fe14567491b1a95c3930",
+      "49d2b44b50c68306be40",
+      "6a527ee5b0dc46a607a8"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "bbabd60e755cfafd6899",
+    "sections": {
+      "bbabd60e755cfafd6899": {
+        "visualContainers": {
+          "09d0f5adc4e463b3e300": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "0eed895c8048d8e48305": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1400d2cad1044293872b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "65898826c2135049e061": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "155b9f7de0bbd9d12bea": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "af96a26ed7d39085a016": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Order Count decomposition tree-Yesterday"
+                            }
+                          },
+                          "Property": "count_"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "64612a5160c003b05ee2": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "e766aaa019e49c6c8dc9": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "04f1d0c27dee15cbcad1": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "58a5cc68dddc5eeb0051": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "2f3d0abb7d0eb2398634": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "601868322d0b91a022e7": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ALL Measures"
+                        }
+                      },
+                      "Property": "AOV yesterday"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "127b8a530d43b6674328": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a6f1ce2da044da02d103": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "cc1c1dcf5780b8210c00": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "64944fa702398b3cba2a": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food GMV Decomposition Tree-Yesterday"
+                            }
+                          },
+                          "Property": "GMV"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "0de7574f65de19d0a065": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                            }
+                          },
+                          "Property": "count_"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "3424d04e5a9d57bd9594": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "ab69c173ac53d96ce244": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "c777e4f78d6091eb33ac": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2a318983d96e6681b046": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "6bd40c900cd0aa8c0c0e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a2fbc34c83aa9a4e5570": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "d371d2a354e701e629d2": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food WOW% CDC-Yesterday"
+                            }
+                          },
+                          "Property": "print_0"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "2095b2cdb930057a28ad": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ed022fa2ba23d40086eb": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "fb7e02f272dc3c0d2125": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "e667e2de4bb3bda14000": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "37f37824a5479cd36b0a": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Transacting Resturants Decomposition Tree-Yesterday"
+                            }
+                          },
+                          "Property": "ftr"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "bef0b8d2edb047e9c3a0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0ae1580690930c79722b": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "7048d4085c8479e02a07": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "88da2b30014a5e0187d6": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Transacting Users (Yesterday)"
+                            }
+                          },
+                          "Property": "Count"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "df44264bb43094a077ba": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "06a58fd49287d902a9d3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "368ae2e0bd160472d960": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "01e8cc1e04aad42b40a7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e5ef375131155c161465": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "20321460d35772bb2807": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "ea07d4a03b6d76b8d07e": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "bc0950c2867c701a4d5e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ccacf741655c5360b980": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "49d2b44b50c68306be40": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "6a527ee5b0dc46a607a8": {
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food WOW% SDC-Yesterday"
+                            }
+                          },
+                          "Property": "print_0"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "38708ea6e01d91c1b1e4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "43d8b65278b600d86a03": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4e4da13fc21069d6c268": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "579a1eaf1ce89080121e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "6175d7a745706ae6a003": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "801d4b9cc8d8ce797c01": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "86d844b76754d670850a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8e153a66bea9ee4aeb3a": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "b109cf006d434855b024": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessUnit_Table"
+                        }
+                      },
+                      "Property": "business_unit"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ba8b7997a9824c004c01": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "be243cb1ec60bc2dd1b0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c348a3fe1b4d01c0a64b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cf9374c21e0e8d47ca88": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e3bb9773ac65d4b52348": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "ffd477e499bb4a35c005": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food updatedTime"
+                            }
+                          },
+                          "Property": "max_updated_on_ist"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "1b13f79156a8c3a36bc9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "68c12dc0d8e3b6973993": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "f08162020a533b771845": {
+            "isHidden": true,
+            "children": {
+              "14340b073c280984b03d": {
+                "isHidden": false
+              },
+              "8eecab866dcecbe36c56": {
+                "isHidden": false
+              },
+              "9306ae5cc67d0c9ee051": {
+                "isHidden": false
+              },
+              "1213c81c7b4d1e2a17e4": {
+                "isHidden": false
+              },
+              "913af40db04947ca71d9": {
+                "isHidden": false
+              },
+              "a0a9f1b6ca0003a9746d": {
+                "isHidden": false
+              },
+              "311e40bbcdc2900230a7": {
+                "isHidden": false
+              },
+              "9439a763d00a8a30749b": {
+                "isHidden": false
+              },
+              "0351653d1e10a93d04c0": {
+                "isHidden": false,
+                "children": {
+                  "fe14567491b1a95c3930": {
+                    "isHidden": false
+                  }
+                }
+              }
+            }
+          },
+          "bcf022f50b138a0ad850": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

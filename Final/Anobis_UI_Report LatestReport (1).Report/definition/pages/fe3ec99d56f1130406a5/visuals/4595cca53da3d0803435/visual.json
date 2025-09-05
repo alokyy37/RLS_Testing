@@ -1,0 +1,192 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "4595cca53da3d0803435",
+  "position": {
+    "x": 8.82714440940402,
+    "y": 580.70749952648589,
+    "z": 5000,
+    "height": 371.69230769230768,
+    "width": 441.84615384615387,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "City"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.city",
+              "nativeQueryRef": "City",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.region",
+              "nativeQueryRef": "Region",
+              "displayName": "Region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "Zone"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.zone",
+              "nativeQueryRef": "Zone",
+              "displayName": "Zone"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "Store ID"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.store_id",
+              "nativeQueryRef": "Store ID",
+              "displayName": "Store ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "Delivery Type"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.delivery_type",
+              "nativeQueryRef": "Delivery Type",
+              "displayName": "Delivery Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM AOV Count Decomposition Tree- Yesterday"
+                    }
+                  },
+                  "Property": "Delivery Slot"
+                }
+              },
+              "queryRef": "IM AOV Count Decomposition Tree- Yesterday.delivery_slot",
+              "nativeQueryRef": "Delivery Slot",
+              "displayName": "Delivery Slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "IM AOV Yesterday"
+                }
+              },
+              "queryRef": "ALL Measures.IM AOV Yesterday",
+              "nativeQueryRef": "AOV"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ALL Measures"
+                  }
+                },
+                "Property": "IM AOV Yesterday"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "8b37dfdb39292bc46e7b"
+}
