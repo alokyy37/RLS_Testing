@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "323c4e62c3d5a2735d03",
+  "position": {
+    "x": 7.2722921789645669,
+    "y": 571.93624573352145,
+    "z": 1000,
+    "height": 383.54430379746833,
+    "width": 443.03797468354429,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food Cancelled Decompotion Tree- Yesterday.city",
+              "nativeQueryRef": "City",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food Cancelled Decompotion Tree- Yesterday.area",
+              "nativeQueryRef": "Area",
+              "displayName": "Area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food Cancelled Decompotion Tree- Yesterday.business_classifier",
+              "nativeQueryRef": "business_classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food Cancelled Decompotion Tree- Yesterday.business_unit",
+              "nativeQueryRef": "business_unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food Cancelled Decompotion Tree- Yesterday.time_slot",
+              "nativeQueryRef": "time_slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                        }
+                      },
+                      "Property": "count_"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Food Cancelled Decompotion Tree- Yesterday.count_)",
+              "nativeQueryRef": "Cancelled Orders",
+              "displayName": "Cancelled Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Food Cancelled Decompotion Tree- Yesterday"
+                      }
+                    },
+                    "Property": "count_"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "5d17c617ac5a036013d2"
+}

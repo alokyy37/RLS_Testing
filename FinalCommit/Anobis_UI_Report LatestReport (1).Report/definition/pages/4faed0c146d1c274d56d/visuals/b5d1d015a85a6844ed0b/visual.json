@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b5d1d015a85a6844ed0b",
+  "position": {
+    "x": 26.11761594658028,
+    "y": 577.01228948566222,
+    "z": 12000,
+    "height": 376.61538461538464,
+    "width": 434.46153846153845,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "City"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.region",
+              "nativeQueryRef": "region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Store ID"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.store_id",
+              "nativeQueryRef": "store_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Delivery Type"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.delivery_type",
+              "nativeQueryRef": "delivery_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Delivery Slot"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.delivery_slot",
+              "nativeQueryRef": "delivery_slot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Zone"
+                }
+              },
+              "queryRef": "IM Cancelled Decompotion Tree- Last 4 Weeks.zone",
+              "nativeQueryRef": "zone"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                        }
+                      },
+                      "Property": "count_"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(IM Cancelled Decompotion Tree- Last 4 Weeks.count_)",
+              "nativeQueryRef": "CAncelled Orders",
+              "displayName": "CAncelled Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                      }
+                    },
+                    "Property": "count_"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "4cd1d36a6e7d62cbd38a"
+}

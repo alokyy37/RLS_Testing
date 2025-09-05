@@ -1,0 +1,109 @@
+table 'IM Order Count decomposition tree-Last 4 Weeks'
+	lineageTag: f29833e2-de8f-4362-9a6d-e79ce69d96a6
+
+	column City
+		dataType: string
+		lineageTag: 65510953-3bd2-4875-b576-b0ff15a4a24b
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: cb58abae-5db3-4fe0-99b9-b3e3f164d0fe
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		lineageTag: dd7f9da9-8fde-4e16-ad21-d84151ec64e1
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store ID'
+		dataType: string
+		lineageTag: ea978b5d-62a2-48be-ad57-98b55b5b1145
+		summarizeBy: none
+		sourceColumn: Store ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Type'
+		dataType: string
+		lineageTag: 309ec0e6-ab3a-4393-ad9b-cf3c65b6542e
+		summarizeBy: none
+		sourceColumn: Delivery Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column count_
+		dataType: int64
+		formatString: 0
+		lineageTag: 76800fbc-24a0-45ed-b163-d07e509f5c7c
+		summarizeBy: sum
+		sourceColumn: count_
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Slot'
+		dataType: string
+		lineageTag: 852d62ee-46e8-4e1d-b8c1-d9f465267090
+		summarizeBy: none
+		sourceColumn: Delivery Slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Order Count decomposition tree-Last 4 Weeks' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 4 Weeks\IM-Sales\IM-Orders'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 28 days ago in IST
+				    Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				    // Set the start of the last 28 days to 12:00 AM IST
+				    StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				    StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast28Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast28DayFormatted = DateTime.ToText(EndofLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_at_ist >= datetime(' " & StartOfLast28DaysFormatted & " ')
+				    | where created_at_ist < datetime(' " & EndofLast28DayFormatted & " ')
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+				    | summarize count() by city, region, zone, store_id, delivery_slot, delivery_type",
+				    
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"city", "City"}, {"region", "Region"}, {"zone", "Zone"}, {"store_id", "Store ID"}, {"delivery_type", "Delivery Type"}, {"delivery_slot", "Delivery Slot"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

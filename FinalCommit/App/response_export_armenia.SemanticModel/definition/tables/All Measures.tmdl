@@ -1,0 +1,183 @@
+table 'All Measures'
+	lineageTag: ed904d4b-c656-4274-b2be-c5d012b71a3e
+
+	measure 'Top exporters' =
+			
+			VAR SelectedMetric = SELECTEDVALUE(Data[Data Order])
+			var TopRank = SWITCH(
+			    SelectedMetric,
+			    0, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Value], , DESC),
+			    1, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Quantity], , DESC),
+			    2, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Records], , DESC, Dense),
+			    BLANK()
+			)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [TOPN Exporter_Rank], 1, BLANK())
+			return result
+		formatString: 0
+		lineageTag: 0ca502e2-853f-423c-992e-b24adea309b4
+
+	measure 'Total Quantity' = SUM('Armenia Export'[QUANTITY])
+		formatString: 0.00
+		lineageTag: 9499200f-4faf-4d66-bf0d-2b6620958a66
+
+	measure 'Total Value' = SUM('Armenia Export'[TOTAL_VALUE])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: dc156b6f-f08d-4f12-be3b-1c26d72f7392
+
+	measure 'Total Records' = DISTINCTCOUNT('Armenia Export'[RECORD_ID])
+		formatString: 0.00
+		lineageTag: e1c3ef15-5b02-41ee-aae8-1746c8c7cb17
+
+	measure 'Top HS CODE by quantity' =
+			
+			Var topRank = RANKX(ALL('Armenia Export'[HS_CODE]), [Total Quantity],,DESC)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [Title HS_Code], 1, BLANK())
+			return
+			 result
+		formatString: 0
+		lineageTag: a54504f3-50f8-43c8-9446-be0e87bd3da2
+
+	measure 'Top HS_CODE' =
+			
+			VAR SelectedMetric = SELECTEDVALUE(Data[Data Order])
+			var TopRank = SWITCH(
+			    SelectedMetric,
+			    0, RANKX(ALL('Armenia Export'[HS_CODE]), [Total Value], , DESC),
+			    1, RANKX(ALL('Armenia Export'[HS_CODE]), [Total Quantity], , DESC),
+			    2, RANKX(ALL('Armenia Export'[HS_CODE]), [Total Records], , DESC, Dense),
+			    BLANK()
+			)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [Title HS_Code], 1, BLANK())
+			return
+			 result
+		formatString: 0
+		lineageTag: b2ab42c7-588b-44a4-ba89-7b9b2c5ba346
+
+	measure 'Top HS CODE by Records' =
+			
+			Var topRank = RANKX(ALL('Armenia Export'[HS_CODE]), [Total Records],,DESC)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [Title HS_Code], 1, BLANK())
+			return
+			 result
+		formatString: 0
+		lineageTag: 96da5d69-357d-4a38-9a00-a0270c193937
+
+	measure 'Total Buyers' = DISTINCTCOUNT('Armenia Export'[BUYER_NAME_EN])
+		formatString: 0.00
+		lineageTag: ca6a60da-c030-40c8-bbbe-62a8764aefef
+
+	measure 'Top Importer by Quantity' =
+			
+			VAR SelectedMetric = SELECTEDVALUE(Data[Data Order])
+			var TopRank = SWITCH(
+			    SelectedMetric,
+			    0, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Value], , DESC),
+			    1, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Quantity], , DESC),
+			    2, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Records], , DESC, Dense),
+			    BLANK()
+			)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [TOP50 Exporter Rank], 1, BLANK())
+			return result
+		formatString: 0
+		lineageTag: 21e302f6-226d-41d0-a836-7f1bd7fa0e46
+
+	measure 'Total Shipments' = DISTINCTCOUNT('Armenia Export'[DECLARATION_NUMBER])
+		formatString: 0.00
+		lineageTag: eed565a1-9eef-4c5a-bb1c-6143f0257c43
+
+	measure 'Total Exporters' = DISTINCTCOUNT('Armenia Export'[EXPORTER_NAME_EN])
+		formatString: 0.00
+		lineageTag: ac364231-6696-4445-a6e7-eadff43faf13
+
+	measure 'Top HSCODE' =
+			
+			Var topRank = RANKX(ALL('Armenia Export'[HS_CODE]), [Total Shipments],,DESC)
+			Var result = SWITCH(
+			    TRUE(),
+			    topRank <= [TOP50 Exporter Rank], 1, BLANK())
+			return result
+		formatString: 0
+		lineageTag: 6cc9edc3-d0ba-4988-a922-23973c8ba135
+
+	measure 'Make Transparent' = ```
+			
+			      IF(not
+			         [IsFiltered],
+			         "#FFFFFF00", -- returns transparent if Check Filtered is True
+			         "#005D91"
+			      )
+			```
+		lineageTag: 6c2c78f5-474d-474c-9ac1-e55873a070d0
+
+	measure 'Make text Transparent' = ```
+			
+			      IF(not
+			         [IsFiltered],
+			         "", -- returns transparent if Check Filtered is True
+			         "GO"
+			      )
+			```
+		lineageTag: e3ba5f34-de70-4541-83b5-e22005cac3fb
+
+	measure IsFiltered = ISFILTERED('Armenia Export'[EXPORTER_NAME_EN]) || ISFILTERED('Armenia Export'[BUYER_NAME_EN]) || ISFILTERED('Armenia Export'[ORIGIN_COUNTRY]) || ISFILTERED('Armenia Export'[HS_CODE]) || ISFILTERED('Armenia Export'[DESTINATION_COUNTRY]) || ISFILTERED('Armenia Export'[TRADE_COUNTRY])
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 98762c67-24ef-410e-92d0-cd495908446f
+
+	measure 'Selected Top N' = ```
+			
+			var selectedN = SELECTEDVALUE(TopNTable[top N],10)
+			return 
+			selectedN
+			```
+		formatString: 0
+		lineageTag: 87ae5d55-6e55-4be5-bf0b-2347cee68388
+
+	measure 'Top N Exporters by Dynamic Metric' =
+			
+			VAR SelectedMetric = SELECTEDVALUE(Data[Data Order])
+			var TopRank = SWITCH(
+			    SelectedMetric,
+			    0, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Value], , DESC),
+			    1, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Quantity], , DESC),
+			    2, RANKX(ALL('Armenia Export'[EXPORTER_NAME]), [Total Records], , DESC, Dense),
+			    BLANK()
+			)
+			var result = SWITCH( TRUE(),
+			    TopRank <= [Selected Top N],1,BLANK()
+			)
+			RETURN
+			TopRank
+		formatString: 0
+		lineageTag: b0d2550d-0e0d-4b63-b3e1-8188838f47e0
+
+	measure 'Total HS_Code' = DISTINCTCOUNT('Armenia Export'[HS_CODE])
+		formatString: 0.00
+		lineageTag: e9a32f35-b690-4d93-a8a4-f7b0e145d238
+
+	column 'TOPN Value'
+		formatString: 0
+		lineageTag: a4a5189f-938c-4ff1-adcb-358572407b0a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TOPN Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'All Measures' = calculated
+		mode: import
+		source = Row("TOPN Value", BLANK())
+
+	annotation PBI_Id = a55b0ea4c1f04ddaa7406902a2cc7340
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

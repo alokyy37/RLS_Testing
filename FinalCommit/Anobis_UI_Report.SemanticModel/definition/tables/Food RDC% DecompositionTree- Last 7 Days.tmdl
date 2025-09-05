@@ -1,0 +1,115 @@
+table 'Food RDC% DecompositionTree- Last 7 Days'
+	lineageTag: 72f8c8cd-d3cb-4938-b255-673d7f2af241
+
+	column city
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: aa64120d-3e8b-4fd5-8eb4-92d8ba20288d
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 8cf386ff-5f03-47b9-a7a7-568d2a85a5cc
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 0fe9793c-aeca-4732-9c07-b87214782067
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 7ba23318-4215-49ed-9d00-0fa4600094a1
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupRDC
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 1a76d7b6-1fc6-4142-bfde-6504a847d06f
+		summarizeBy: sum
+		sourceColumn: GroupRDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9af40ab5-de52-4763-adf5-8eb83dc92a00
+		summarizeBy: sum
+		sourceColumn: GroupCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_slot
+		dataType: string
+		lineageTag: 959cc92d-2793-416c-999d-a5354fb1c3a4
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food RDC% DecompositionTree- Last 7 Days' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 7 Days\Food-Cancelation\Food-RDC'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast7Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast7DayFormatted = DateTime.ToText(EndofLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(' " & StartOfLast7DaysFormatted & " ') 
+				    | where created_on_ist < datetime(' " & EndofLast7DayFormatted & " ') 
+				    | extend cancelled = iff(order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '2', 1.0, 0.0) 
+				    | extend all_orders = iff(((order_status == 'completed' or order_status == 'cancelled' or order_status == 'processing') and order_type != 'SUBSCRIPTION'), 1.0, 0.0) 
+				    | summarize GroupRDC = iff((sum(cancelled) > 0.0 ) and (sum(all_orders) > 0.0),sum(cancelled)/sum(all_orders)*100,0.0), 
+				                GroupCount = count() by city, area, business_unit, business_classifier, time_slot",
+				   
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "4f391fe97d6ee924f972",
+  "position": {
+    "x": 5.6622088006902507,
+    "y": 564.39818809318376,
+    "z": 11000,
+    "height": 386.18421052631578,
+    "width": 445.39473684210526,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food CDC% Decomposition Tree- Last 7 Days"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food CDC% Decomposition Tree- Last 7 Days.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food CDC% Decomposition Tree- Last 7 Days"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food CDC% Decomposition Tree- Last 7 Days.area",
+              "nativeQueryRef": "area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food CDC% Decomposition Tree- Last 7 Days"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food CDC% Decomposition Tree- Last 7 Days.business_classifier",
+              "nativeQueryRef": "business_classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food CDC% Decomposition Tree- Last 7 Days"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food CDC% Decomposition Tree- Last 7 Days.business_unit",
+              "nativeQueryRef": "business_unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food CDC% Decomposition Tree- Last 7 Days"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food CDC% Decomposition Tree- Last 7 Days.time_slot",
+              "nativeQueryRef": "time_slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "CDC 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.CDC 7 Days",
+              "nativeQueryRef": "CDC%",
+              "displayName": "CDC%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ALL Measures"
+                  }
+                },
+                "Property": "CDC 7 Days"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "7fd73ebfee006cd9e700"
+}

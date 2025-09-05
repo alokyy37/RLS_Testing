@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "response_import_armenia"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "231ee63f-012d-9829-4903-8fa1d44fe077"
+  }
+}

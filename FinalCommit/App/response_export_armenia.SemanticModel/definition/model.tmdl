@@ -1,0 +1,41 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	dataSourceDefaultMaxConnections: 100
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["TOPN Exporter","TOPN Buyer","TOPN Origin Countries","TOPN Foreign Port","TOPN HS Codes","TOPN Destination Country","Query","Armenia Export","TOP 50 Exporter","TOP 50 Buyer","TOP 50 HS_Code","TOP 50 Trade Country","TOP 50 Origin Country","TopNTable","TOP 50 Destination Country"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+ref table 'TOPN Exporter'
+ref table 'All Measures'
+ref table 'TOPN Buyer'
+ref table Data
+ref table 'TOPN Origin Countries'
+ref table 'TOPN Foreign Port'
+ref table 'TOPN HS Codes'
+ref table 'TOPN Destination Country'
+ref table 'Armenia Export'
+ref table Date
+ref table 'TOP 50 Exporter'
+ref table Selection_Port
+ref table 'Selection_HS_Code '
+ref table Select_OriginCountry
+ref table TopNTable
+ref table 'TOP 50 Buyer'
+ref table 'TOP 50 HS_Code'
+ref table 'TOP 50 Trade Country'
+ref table 'TOP 50 Origin Country'
+ref table 'Selection Destination Country'
+ref table 'TOP 50 Destination Country'
+ref table DateTableTemplate_050b12e2-02cc-4faa-abb2-2084c129b1a4
+ref table LocalDateTable_39061bdc-1543-49ca-8af8-9976c34654c2
+
+ref cultureInfo en-IN
+

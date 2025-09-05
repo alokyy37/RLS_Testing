@@ -1,0 +1,50 @@
+table 'TopN Export_Country'
+	lineageTag: 60e6edd7-fe18-4e2d-9f82-b038349eb5b5
+
+	measure 'Export_Country Rank by' =
+			
+			IF(SELECTEDVALUE(Data[Value4]) = "Quantity",RANKX(ALL('Armenia Import'[EXPORT_COUNTRY]), [Total Quantity] , , DESC,Dense),
+			IF(SELECTEDVALUE(Data[Value4]) = "Records", RANKX(ALL('Armenia Import'[EXPORT_COUNTRY]), [Total Records] , , DESC,Dense),
+			RANKX(ALL('Armenia Import'[EXPORT_COUNTRY]), [Total Value] , , DESC,Dense) ))
+		formatString: 0
+		lineageTag: be787377-190c-4e53-a63c-e3b61209bec9
+
+	measure 'TOPN Export_Country_Rank' =
+			
+			IF('TopN Export_Country'[Export_Country Rank by]<=SELECTEDVALUE('TopN Export_Country'[Value]),1,0)
+		formatString: 0
+		lineageTag: 71ebc25a-77d3-4408-9858-3967ed16d3e0
+
+	measure 'Title Export_Country' = Selectedvalue('TopN Export_Country'[Metric]) & " Export Countries by " & SELECTEDVALUE(Data[Value4])
+		lineageTag: 2ff38a84-cb19-4276-86e8-4a7b4fc779cb
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: af70f3c5-d6cb-497b-a82d-7180007e350f
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: 572a2afa-6453-4227-8640-958395c638f5
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TopN Export_Country' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjRQ0lEK8Q9QADJidYB8UxjfFMw3gskDGbGxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Value = _t, Metric = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Value", Int64.Type}, {"Metric", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

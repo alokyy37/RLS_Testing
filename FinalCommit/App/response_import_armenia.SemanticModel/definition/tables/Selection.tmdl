@@ -1,0 +1,49 @@
+table Selection
+	lineageTag: a81b5dd9-92f4-40d2-a23c-573a074efd72
+
+	column Selection
+		lineageTag: bfae5695-449f-4b74-ba46-a4bff79ba8ba
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Selection Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Selection Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection Fields'
+		isHidden
+		lineageTag: 1b655c0f-d87c-4fba-9a09-bb938d3f6da7
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Selection Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection Order'
+		isHidden
+		formatString: 0
+		lineageTag: e55823b3-1d5b-483a-a429-331212d0f996
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Selection = calculated
+		mode: import
+		source =
+				{
+				    ("HS_CODE", NAMEOF('Armenia Import'[HS_CODE]), 0),
+				    ("IMPORTER_NAME", NAMEOF('Armenia Import'[IMPORTER_NAME_EN]), 1),
+				    ("SUPPLIER_NAME", NAMEOF('Armenia Import'[SUPPLIER_NAME_EN]), 2)
+				}
+
+	annotation PBI_Id = adc0920dc5164804bd06f05d9302d934
+

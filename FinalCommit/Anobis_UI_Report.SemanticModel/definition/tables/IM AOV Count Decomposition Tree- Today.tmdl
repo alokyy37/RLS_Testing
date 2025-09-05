@@ -1,0 +1,152 @@
+table 'IM AOV Count Decomposition Tree- Today'
+	lineageTag: 6de366f7-1f43-4be0-a426-ccfb77ffa51a
+
+	column City
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 7f499e0e-4d12-4761-9291-f0a33d9529e3
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 4a2dfb83-a707-46c9-9b9d-4e994c459955
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store ID'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1fe70a5c-ae56-4dcd-a9fa-ebe48a3541ff
+		summarizeBy: none
+		sourceColumn: Store ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Type'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 2a616d9d-e12c-4b95-93d2-042be7e75005
+		summarizeBy: none
+		sourceColumn: Delivery Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Slot'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1034b0f3-b6a7-4c10-9668-e10373f62646
+		summarizeBy: none
+		sourceColumn: Delivery Slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupGmv
+		dataType: double
+		sourceProviderType: double
+		lineageTag: bdb5e77a-61bd-443a-9d12-8366d7fdc2a4
+		summarizeBy: sum
+		sourceColumn: GroupGmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupCounter
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3c9b8f8f-fbff-4a30-811d-e9a75744e02d
+		summarizeBy: sum
+		sourceColumn: GroupCounter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 327f2560-7246-44fe-a8d6-594cd60e640c
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM AOV Count Decomposition Tree- Today' = m
+		mode: directQuery
+		queryGroup: IM\IM-Today\IM-Sales\IM_AOV
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				 
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				    Query = "let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    "& TableName & " 
+				    | where created_at_ist >= datetime('" & StartOfTodayFormatted & "')
+				    | where  created_at_ist <= datetime('" & CurrentDateTimeFormatted & "')
+				    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				            " & CombinedFilters & "
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GroupGmv = sum(gmv), GroupCounter = sum(counter) by city, region, zone, store_id, delivery_type, delivery_slot",
+				    
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"city", "City"}, {"region", "Region"}, {"zone", "Zone"}, {"store_id", "Store ID"}, {"delivery_type", "Delivery Type"}, {"delivery_slot", "Delivery Slot"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

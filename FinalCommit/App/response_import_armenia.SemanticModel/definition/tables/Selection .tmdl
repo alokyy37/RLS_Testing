@@ -1,0 +1,48 @@
+table 'Selection '
+	lineageTag: a808d319-dd5a-4158-90cb-b488cc1c93dc
+
+	column 'Selection '
+		lineageTag: bbc10002-7ea2-4e63-a86a-1bc3a7ffb675
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Selection  Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Selection  Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection  Fields'
+		isHidden
+		lineageTag: b307e248-679c-4a48-814c-f92a1d6f9334
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Selection  Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Selection  Order'
+		isHidden
+		formatString: 0
+		lineageTag: 5e62d607-5241-464e-99b3-45ee0b625fab
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Selection ' = calculated
+		mode: import
+		source =
+				{
+				    ("EXPORT_COUNTRY", NAMEOF('Armenia Import'[EXPORT_COUNTRY]), 0),
+				    ("ORIGIN_COUNTRY", NAMEOF('Armenia Import'[ORIGIN_COUNTRY]), 1)
+				}
+
+	annotation PBI_Id = 194d716f0016423f96ed85fd1316b6ac
+

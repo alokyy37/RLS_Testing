@@ -1,0 +1,50 @@
+table IM_City_Table
+	lineageTag: b2a3e0f6-3660-440d-9a68-5fbae756784f
+
+	column city
+		dataType: string
+		lineageTag: bc92c5d1-eaf8-43aa-9c99-5351506589cf
+		summarizeBy: none
+		sourceColumn: city
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": "__SelectAll__"
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition IM_City_Table = m
+		mode: directQuery
+		queryGroup: IM-Parameter
+		source =
+				let
+				    TableName = IMTableName,
+				    Query = "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    " & TableName & "
+				    | where isnotempty(city)
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    | distinct city ",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

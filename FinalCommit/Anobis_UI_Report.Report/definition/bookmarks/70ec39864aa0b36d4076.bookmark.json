@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "IM_Yesterday_CDC_FilterShow",
+  "name": "70ec39864aa0b36d4076",
+  "options": {
+    "targetVisualNames": [
+      "66a7c0bf6759ae5c0225",
+      "4a2e045089c155eee7cc",
+      "cacc4a553b3a5f18e019",
+      "65ab56524fde840c2633",
+      "479d0287d205246a262c",
+      "da15839bf455238bfeb7",
+      "39b65727959bb1088ba7",
+      "03580b4117c87e1d6b6c",
+      "74a749d6d3c07769957c",
+      "cc1876bf591257804571",
+      "a4e5d8f8772258d1bf16",
+      "b9a4ca7c1ff149373eee",
+      "493a39268331e7147d63",
+      "138d07aa694fb60922a5",
+      "3642097691b604ae69dc",
+      "10f089f29bb644f2b1f7",
+      "427f8f6cfb1c6b13c6be",
+      "0d20008ed5162d914940",
+      "d602b970f375e788c714",
+      "95d5a02e3cda7e2842c3",
+      "5e1cd318a5954b993f97",
+      "7d2f4466558960593b0e",
+      "8a76165a17bae888c678",
+      "b85a5b4f9bb3083253c0",
+      "b908fef40b6626379311",
+      "e3bbcf515846f14fd53b",
+      "e4de7e1d8dcc9826df8b",
+      "eb00eae2ed6b6927fae0",
+      "f0b875b9079282e97880",
+      "f61f032b2f0473802f8d",
+      "40d80f397e89af011c77",
+      "8895313c62edeaa45e8a",
+      "b916015ba8511deb5af8",
+      "9ed1d27110b493ebfe70"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "d4e0340005808ddd3c2e",
+    "sections": {
+      "d4e0340005808ddd3c2e": {
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "4a2e045089c155eee7cc": {
+            "isHidden": true,
+            "children": {
+              "f61f032b2f0473802f8d": {
+                "isHidden": false
+              }
+            }
+          },
+          "66a7c0bf6759ae5c0225": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

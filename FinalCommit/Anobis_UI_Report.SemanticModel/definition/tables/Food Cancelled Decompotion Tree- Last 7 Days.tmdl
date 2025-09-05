@@ -1,0 +1,96 @@
+table 'Food Cancelled Decompotion Tree- Last 7 Days'
+	lineageTag: 6b742333-ed93-493a-8856-39cbebf149c2
+
+	column city
+		dataType: string
+		lineageTag: 07e3b086-f6c4-4e1b-8cb6-0538a82218a5
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: a2adfdc7-885f-4e77-99a1-09d1242e8b9c
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 3275baf2-d111-46c7-a2e9-5fd5126acb40
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		lineageTag: 79ef3318-eaa2-40fa-9ce4-0c0cf155295c
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column count_
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d1adc3f-8ba1-4ad6-bf22-63ad900b0db9
+		summarizeBy: sum
+		sourceColumn: count_
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_slot
+		dataType: string
+		lineageTag: ff94de49-6296-4a69-9cda-c42ea6b6a47e
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food Cancelled Decompotion Tree- Last 7 Days' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 7 Days\Food-Cancelation\Food-Cancelled Orders'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast7Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast7DayFormatted = DateTime.ToText(EndofLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(' " & StartOfLast7DaysFormatted & " ') 
+				    | where created_on_ist < datetime(' " & EndofLast7DayFormatted & " ') 
+				    | where order_status == 'cancelled' 
+				    | summarize count() by city, area, business_unit, business_classifier, time_slot",
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

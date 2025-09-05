@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "69313f650dd03a304103",
+  "position": {
+    "x": 250.01592459035103,
+    "y": 156.0150244456506,
+    "z": 2000,
+    "height": 94.769230769230774,
+    "width": 226.46153846153845,
+    "tabOrder": 12000
+  },
+  "visualGroup": {
+    "displayName": "Grp-food AOV",
+    "groupMode": "ScaleMode"
+  }
+}

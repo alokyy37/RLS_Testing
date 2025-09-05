@@ -1,0 +1,60 @@
+table City_Table
+	lineageTag: 1f465927-85c7-4def-a181-063d71872058
+
+	column city
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: ba9c2f56-83bf-4791-9e7e-4cf52ccd98d0
+		summarizeBy: none
+		sourceColumn: city
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": "__SelectAll__"
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition City_Table = m
+		mode: directQuery
+		queryGroup: Food-Parameter
+		source = ```
+				let
+				
+				    // Reference all dynamic parameters
+				    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+				 
+				    // Build Dynamic Conditions
+				    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				
+				    TableName = FoodTableName,
+				    Query = "
+				    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    " & TableName & "
+				    | where isnotempty(city)
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				    | distinct city ",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "5e5326bb8510c6a753ed",
+  "position": {
+    "x": 13.078517349442318,
+    "y": 131.01265822784811,
+    "z": 8000,
+    "height": 93.068939093967316,
+    "width": 273.23793472015325,
+    "tabOrder": 8000
+  },
+  "visualGroup": {
+    "displayName": "Grp-FTU",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "23f097956d7acb2b6051"
+}

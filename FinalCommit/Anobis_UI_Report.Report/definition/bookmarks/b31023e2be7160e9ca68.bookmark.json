@@ -1,0 +1,86 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "IM_TodayCompleted_FS",
+  "name": "b31023e2be7160e9ca68",
+  "options": {
+    "targetVisualNames": [
+      "2667a5c2ab0e5d339777",
+      "44e644e2c0522c09c01c",
+      "00ade47608156b8075d5",
+      "9ab6b1f01e610801051c",
+      "89913e0e90cb180ec66c",
+      "a5e31b403be6151d203a",
+      "bbcb5e88332084d8ad92",
+      "5b990e5b6a5898230cba",
+      "e2580dc8c7d5d508d5c7",
+      "210c5ad8252ab64bd808",
+      "6a8f9e90bc862b08a06a",
+      "011b77d6eb9107d17e94",
+      "a922d69da33d0533502a",
+      "dd2ddbaa1f6998a638f8",
+      "8e2268ce470e187be819",
+      "b3cf6072bf7fe7357dd2",
+      "c009dd32d24ca1eb3434",
+      "5b4781e3339ec0353aa4",
+      "cc18796b91bd59c60900",
+      "10be8dfaadd9e51d4c55",
+      "138c27b00a0a60104ac7",
+      "29b1858e9cbbb75de962",
+      "763896ff2c201660e4bc",
+      "e0e3e1dda12bde053205",
+      "d91b9252700574c7bbdb",
+      "3123c70206bdd611a24e",
+      "cb6332b265357e1ae964",
+      "720a1c680401cd3e8506",
+      "e3c0dd5688062297b308",
+      "c94f414b8e098a202569",
+      "61beec856ca2dd20629a",
+      "b85607ea16e2b7065014",
+      "9f9f26d0e175dd30580e",
+      "638f5bdaa4e06a013e5e",
+      "0d452349cee62239018a",
+      "91a6c120ea6c438aa52e",
+      "005fdd45ad66d5c0ceeb"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "8a921851de8c6c4fd1f0",
+    "sections": {
+      "8a921851de8c6c4fd1f0": {
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "2667a5c2ab0e5d339777": {
+            "isHidden": false,
+            "children": {
+              "9ab6b1f01e610801051c": {
+                "isHidden": false
+              }
+            }
+          },
+          "44e644e2c0522c09c01c": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

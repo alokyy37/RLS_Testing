@@ -1,0 +1,23 @@
+table Date
+	lineageTag: 60ea9281-a8f7-4bb8-88f7-9b244270fd78
+
+	column Date
+		formatString: General Date
+		lineageTag: b3312200-643a-4df8-b9fd-fc7ca90c05c9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 8a90735d-d847-441b-9297-984e37944231
+			defaultHierarchy: LocalDateTable_fc95a240-b4e8-4354-8310-0b2a6bb0e74c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source = CALENDAR(MIN('Armenia Import'[Year]), MAX('Armenia Import'[Year]))
+
+	annotation PBI_Id = 11712788cbeb45809d44d742ab37e57f
+

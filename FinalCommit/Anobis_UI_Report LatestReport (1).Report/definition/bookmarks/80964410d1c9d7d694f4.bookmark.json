@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "Today",
+  "name": "80964410d1c9d7d694f4",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "8d7306d04ec959ea50c3",
+      "ee7158196110a636a5fe",
+      "8e04801c05f013270de9",
+      "e4b03b888b8c99bf45db",
+      "9cd8d1fb6f8985f49343",
+      "f659a7f847fa271281a4",
+      "aac9541b16a93b6fa0a7",
+      "6dd6a9b737a04e7938a2",
+      "657a93234143c2ebb759",
+      "63c09c9b32593ba7268d",
+      "cc164929f9c4b638aa9b",
+      "e62260a1c899c26b4858",
+      "bae590d9bd16fed2762f",
+      "46b85dbe4ce159c5b7ab"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "4060e770fa0227202e91",
+    "sections": {
+      "4060e770fa0227202e91": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "59385e28b416855949a7",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food"
+                    }
+                  },
+                  "Property": "today_food_aov"
+                }
+              },
+              "howCreated": 5
+            },
+            {
+              "name": "2277960804c35a09a397",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food"
+                    }
+                  },
+                  "Property": "yesterday_AOV_food"
+                }
+              },
+              "howCreated": 5
+            }
+          ]
+        },
+        "visualContainers": {}
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

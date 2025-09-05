@@ -1,0 +1,157 @@
+cultureInfo en-IN
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "all_measures.total_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.count_of_records": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Records"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Records": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "indiaimport.hs_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Import",
+			          "ConceptualProperty": "HS_CODE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HS Code": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "HS_CODE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "indiaimport.importer_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Import",
+			          "ConceptualProperty": "IMPORTER_NAME"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IMPORTER_NAME": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "IMPORTER NAME": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.total_quantity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Quantity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.totalquantity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "TotalQuantity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

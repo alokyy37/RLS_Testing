@@ -1,0 +1,209 @@
+cultureInfo en-IN
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "all_measures.total_quantity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Quantity"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "all_measures.total_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total Values": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.count_of_records": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Records"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Records": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total Records": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "indiaexport.hs_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Export",
+			          "ConceptualProperty": "HS_CODE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HS Code": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "HS_CODE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "indiaexport.unit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Export",
+			          "ConceptualProperty": "UNIT"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaexport.origin_country": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Export",
+			          "ConceptualProperty": "ORIGIN_COUNTRY"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaexport.port_of_shipment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Export",
+			          "ConceptualProperty": "PORT_OF_SHIPMENT"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaimport.hs_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IndiaImport",
+			          "ConceptualProperty": "HS_CODE"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaimport.importer_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IndiaImport",
+			          "ConceptualProperty": "IMPORTER_NAME"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaimport.supplier_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IndiaImport",
+			          "ConceptualProperty": "SUPPLIER_NAME"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "indiaexport.exporter_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Armenia Export",
+			          "ConceptualProperty": "EXPORTER_NAME"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IMPORTER_NAME": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "all_measures.count_of_shipments": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "All Measures",
+			          "ConceptualProperty": "Total Buyers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Shipments": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

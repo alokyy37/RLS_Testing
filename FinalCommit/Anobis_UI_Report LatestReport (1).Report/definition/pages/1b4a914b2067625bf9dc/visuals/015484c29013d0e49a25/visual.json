@@ -1,0 +1,196 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "015484c29013d0e49a25",
+  "position": {
+    "x": 15.629908552985475,
+    "y": 571.60982029337947,
+    "z": 5000,
+    "height": 372.92307692307691,
+    "width": 438.15384615384613,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "City"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Delivery Type"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.delivery_type",
+              "nativeQueryRef": "delivery_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Delivery Slot"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.delivery_slot",
+              "nativeQueryRef": "delivery_slot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Store ID"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.store_id",
+              "nativeQueryRef": "store_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Zone"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.zone",
+              "nativeQueryRef": "zone"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "IM GMV Decomposition Tree-Last 4 Weeks.region",
+              "nativeQueryRef": "region"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                        }
+                      },
+                      "Property": "sum_gmv"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(IM GMV Decomposition Tree-Last 4 Weeks.sum_gmv)",
+              "nativeQueryRef": "Sum of sum_gmv"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "IM GMV Decomposition Tree-Last 4 Weeks"
+                      }
+                    },
+                    "Property": "sum_gmv"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "d0a3bdd7919cc383a5a5"
+}

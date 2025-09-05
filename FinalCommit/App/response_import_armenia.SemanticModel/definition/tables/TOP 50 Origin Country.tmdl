@@ -1,0 +1,49 @@
+table 'TOP 50 Origin Country'
+	lineageTag: d8b87c99-6d68-4fd7-a92b-1c2a009d24ca
+
+	measure 'Origin_Country Rank by Value' = ```
+			
+			IF(SELECTEDVALUE(Data[Value4]) = "Quantity",RANKX(ALL('Armenia Import'[ORIGIN_COUNTRY]), [Total Quantity] , , DESC,Dense), 
+			IF(SELECTEDVALUE(Data[Value4]) = "Records", RANKX(ALL('Armenia Import'[ORIGIN_COUNTRY]), [Total Records] , , DESC,Dense),  
+			RANKX(ALL('Armenia Import'[ORIGIN_COUNTRY]), [Total Value] , , DESC,Dense) ))
+			```
+		formatString: 0
+		lineageTag: d4f23fc4-b219-4dd0-8788-481e198e05be
+
+	measure 'Origin_Country Top50 Title' = Selectedvalue('TOP 50 Origin Country'[Metric]) & " Origin Countries by " & SELECTEDVALUE(Data[Value4])
+		lineageTag: f8177e18-2604-4c0e-a7e2-26d077951267
+
+	measure 'TOP50 Origin_Country Rank' =
+			
+			IF('TOP 50 Origin Country'[Origin_Country Rank by Value]<=SELECTEDVALUE('TOP 50 Origin Country'[Value]),1,0)
+		formatString: 0
+		lineageTag: 1ebdece0-dadb-4c4a-80f4-40e9b0420901
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 31788b1c-2006-42fe-9f50-75b93fc69c51
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: 80e44b5b-be2d-4c70-9467-682c1dce2b22
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TOP 50 Origin Country' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjJQ0lEK8Q9QADJidaKVjGF8YwjfBMY3gfBNYXwgIzYWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Value = _t, Metric = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Value", Int64.Type}, {"Metric", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,49 @@
+table 'TOP 50 Buyer'
+	lineageTag: 47f449a5-323d-479e-b4cf-2215fe438c13
+
+	measure 'Buyer Rank by Value' = ```
+			
+			IF(SELECTEDVALUE(Data[Value4]) = "Quantity",RANKX(ALL('Armenia Export'[BUYER_NAME_EN]), [Total Quantity] , , DESC,Dense), 
+			IF(SELECTEDVALUE(Data[Value4]) = "Records", RANKX(ALL('Armenia Export'[BUYER_NAME_EN]), [Total Records] , , DESC,Dense), 
+			RANKX(ALL('Armenia Export'[BUYER_NAME_EN]), [Total Value] , , DESC,Dense) ))
+			```
+		formatString: 0
+		lineageTag: a547242b-7f40-4612-8e96-c9fbdc99538c
+
+	measure 'TOP50 Buyer Rank' =
+			
+			IF('TOP 50 Buyer'[Buyer Rank by Value]<=SELECTEDVALUE('TOP 50 Buyer'[Value]),1,0)
+		formatString: 0
+		lineageTag: 26300724-e41d-4be0-aef1-2de0a04b364e
+
+	measure Title_Buyer = Selectedvalue('TOP 50 Buyer'[Metric]) & " Buyers by " & SELECTEDVALUE(Data[Value4])
+		lineageTag: 7390d2f8-2ad2-43fd-a59d-0b42235e16ab
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 570f867f-66f8-4141-a4af-131b879d0f97
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: a588e085-5f7b-4148-8e70-99d3d4228e32
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TOP 50 Buyer' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjJQ0lEK8Q9QADJidaKVjGF8YwjfBMY3gfBNYXwgIzYWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Value = _t, Metric = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Value", Int64.Type}, {"Metric", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
