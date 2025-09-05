@@ -1,0 +1,93 @@
+table 'Food Cancelled Decompotion Tree- Yesterday'
+	lineageTag: ae0b1517-e9a1-45c1-b8ea-b01331ae3c97
+
+	column city
+		dataType: string
+		lineageTag: 70681441-4cf1-42a8-8174-6d42b129f018
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: 1096696a-9bf9-4d0c-a9de-86062e375c92
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: f2e4ce52-5f36-4d2b-80cf-09b368e87d2d
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_classifier
+		dataType: string
+		lineageTag: bd90d701-4910-4c9e-bcef-a20a42d5409c
+		summarizeBy: none
+		sourceColumn: business_classifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column count_
+		dataType: int64
+		formatString: 0
+		lineageTag: f6abf624-be22-4c35-92c9-0ab8d7577137
+		summarizeBy: sum
+		sourceColumn: count_
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_slot
+		dataType: string
+		lineageTag: 432ee5cd-6dfc-43d7-985f-f4fb8841f181
+		summarizeBy: none
+		sourceColumn: time_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food Cancelled Decompotion Tree- Yesterday' = m
+		mode: import
+		queryGroup: 'Food\Food- Yesterday\Food-Cancellation\Food-Cancelled Orders'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // // Format the query with dynamic start and end times for yesterday in IST
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime('" & StartOfYesterdayFormatted & "') 
+				    | where created_on_ist < datetime('" & EndOfYesterdayFormatted & "')
+				    | where order_status == 'cancelled'
+				    | where order_type != 'SUBSCRIPTION' 
+				    | summarize count() by city, area, business_unit, business_classifier, time_slot",
+				    
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
