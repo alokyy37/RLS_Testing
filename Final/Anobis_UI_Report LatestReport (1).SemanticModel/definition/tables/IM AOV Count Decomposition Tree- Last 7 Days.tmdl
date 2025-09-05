@@ -1,0 +1,117 @@
+table 'IM AOV Count Decomposition Tree- Last 7 Days'
+	lineageTag: 02154414-6456-4a13-af3d-3a7bf2d7b6b6
+
+	column City
+		dataType: string
+		lineageTag: 1c7bbd6e-4b97-45ae-8a5a-7fb74535aa9e
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 88ceeb03-f344-447f-8ff0-56337b5dd75a
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		lineageTag: 7a81713b-16af-481c-a517-acfe356314b5
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store ID'
+		dataType: string
+		lineageTag: db89bf30-83fe-4720-ac60-24d41c6623dd
+		summarizeBy: none
+		sourceColumn: Store ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Type'
+		dataType: string
+		lineageTag: 0be4144b-4123-4c74-b893-b526c340d126
+		summarizeBy: none
+		sourceColumn: Delivery Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupGmv
+		dataType: double
+		lineageTag: b8ac9722-af16-4665-9955-bb120bab8489
+		summarizeBy: sum
+		sourceColumn: GroupGmv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupCounter
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a6a07d8-62c7-4186-aa6b-a75f275bbe43
+		summarizeBy: sum
+		sourceColumn: GroupCounter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Slot'
+		dataType: string
+		lineageTag: e36fb025-2fda-4b74-9ef1-0e7c195eb3f4
+		summarizeBy: none
+		sourceColumn: Delivery Slot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM AOV Count Decomposition Tree- Last 7 Days' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 7 Days\IM-Sales\IM_AOV'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast7Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast7DayFormatted = DateTime.ToText(EndofLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_at_ist >= datetime(' " & StartOfLast7DaysFormatted & " ')
+				    | where created_at_ist < datetime(' " & EndofLast7DayFormatted & " ')
+				    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+				    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+				    | summarize GroupGmv = sum(gmv), GroupCounter = sum(counter) by city, region, zone, store_id, delivery_slot, delivery_type",
+				    
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"city", "City"}, {"region", "Region"}, {"zone", "Zone"}, {"store_id", "Store ID"}, {"delivery_type", "Delivery Type"}, {"delivery_slot", "Delivery Slot"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
