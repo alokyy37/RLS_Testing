@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "f5ef47ca1069182202c5",
+  "position": {
+    "x": 82.901085124377715,
+    "y": 55.678249323454011,
+    "z": 1000,
+    "height": 32,
+    "width": 197.53444880212007,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "FTR-WOW%",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "a9a07113667b20e10583"
+}
