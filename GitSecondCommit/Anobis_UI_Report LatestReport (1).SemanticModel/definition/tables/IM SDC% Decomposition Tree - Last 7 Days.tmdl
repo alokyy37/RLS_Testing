@@ -1,0 +1,115 @@
+table 'IM SDC% Decomposition Tree - Last 7 Days'
+	lineageTag: 35ca8c3a-ecbe-4158-9699-6314e871791e
+
+	column city
+		dataType: string
+		lineageTag: 2614c4f1-c914-4b01-aba7-03a20057f135
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: e8dcb64e-f42a-4b01-8fe0-22ca3ec0901e
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 5e670516-b779-44c1-b5e1-06a5212522d5
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		lineageTag: de9ab104-2da0-407b-9cee-ca2ec50517e5
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_type
+		dataType: string
+		lineageTag: 8df8d198-bcea-4ebb-a41c-16b69d0f9952
+		summarizeBy: none
+		sourceColumn: delivery_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_slot
+		dataType: string
+		lineageTag: f2314775-8114-4c6a-a905-23a6459a96c6
+		summarizeBy: none
+		sourceColumn: delivery_slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDC%
+		dataType: double
+		lineageTag: 353ee56d-1ab6-46d3-aeb2-4ae677244591
+		summarizeBy: sum
+		sourceColumn: SDC%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'IM SDC% Decomposition Tree - Last 7 Days' = m
+		mode: import
+		queryGroup: 'IM\IM-Last 7 Days\IM-Cancellation\IM-SDC'
+		source = ```
+				let
+				     // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 7 days ago in IST
+				    Last7Days = TodayDate - #duration(7, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast7Days = DateTime.FromText(Date.ToText(Last7Days) & " 00:00:00"),
+				    StartOfLast7DaysFormatted = DateTime.ToText(StartOfLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast7Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast7DayFormatted = DateTime.ToText(EndofLast7Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Format the query with dynamic start and end times for yesterday in IST
+				     Query = TableName & " 
+				        |where created_at_ist >= datetime('"& StartOfLast7DaysFormatted &"') 
+				        |where created_at_ist <= datetime('"& EndofLast7DayFormatted &"')
+				        | where updated_at_ist <= datetime('"& EndofLast7DayFormatted &"')   
+				            and dp_order_type == 'INSTAMART'
+				        | extend sdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_SWIGGY_DRIVEN_CANCELLATION', 1.0, 0.0)
+				        | extend delivered = iff(status == 'COMPLETED', 1.0, 0.0)
+				        | summarize
+				            SDCCount = sum(sdc_cancelled),
+				            DeliveredDistinctCount = dcount(iff(status == 'COMPLETED', order_id, ''))
+				            by city, region, zone,store_id, delivery_type, delivery_slot  // Group by city, region, and zone
+				        | extend ['SDC%']=round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * SDCCount / DeliveredDistinctCount), 2)
+				        | project city, region, zone,store_id, delivery_type, delivery_slot,['SDC%']
+				        | order by city, region, zone,store_id, delivery_type, delivery_slot  // Optional: Order by zone, then region, then city",
+				        
+				    // // Get data from Azure Data Explorer with the dynamic query
+				     Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

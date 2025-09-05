@@ -1,0 +1,972 @@
+relationship AutoDetected_634e7809-ad1d-4a46-9c27-0caa7e90a4ba
+	fromColumn: 'Food Cancelled Decompotion Tree- Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_97e5d789-894f-450a-882f-c703b75d70b1
+	fromColumn: 'Food Order Count decomposition tree-Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_fe8645f6-0f58-4f5d-821f-86bef4530a67
+	fromColumn: 'Food AOV Count Decomposition Tree- Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_7bcb37b5-eec2-4cea-963b-1536fcf35276
+	fromColumn: 'Food GMV Decomposition Tree-Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_c1a952fc-cd30-49bd-a01f-44554644f6bc
+	fromColumn: 'Food Order Count decomposition tree-Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_1ef34c23-5f64-4ec9-a1a9-2a9798d9564a
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_23f39fe0-8d76-4eeb-bc9e-e77b64f30c29
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_f0379090-9deb-4567-b8e2-2ed14c8a88ea
+	fromColumn: 'Food GMV Decomposition Tree-Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_e7e52363-39fe-4a2f-93c5-013d3509225f
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_207300c3-3952-4221-90ae-6eb1fd870893
+	fromColumn: 'Food SDC% Decomposition Tree-Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_1a93f6c9-dde5-4156-9ade-7bc46e3cecbe
+	fromColumn: 'Food RDC% Decompotion Tree- Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_7e3c8ade-41c2-45f7-9e64-d9b7c4677323
+	fromColumn: 'Food Transacting Resturants Decomposition Tree-Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_2c6f78bf-c7f6-44b7-9b4d-07afc5bff4e3
+	fromColumn: 'Food Transacting Users Decomposition Tree-Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_aa0a010d-49ab-4fca-838d-cbd165e144d0
+	fromColumn: 'Food SDC% Decomposition Tree-Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_0d6c4cb1-20f6-4aa4-b2aa-ca8d83842944
+	fromColumn: 'Food RDC% DecompositionTree- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_2f52c750-39a2-45a6-97a2-181100d6653b
+	fromColumn: 'Food CDC% Decomposition Tree- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_ed437490-9806-4da8-906f-02f0e916de33
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_e8a8f9b6-be9e-4ced-a674-f82af2129a9c
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 7 Days'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_a81c239e-e0b9-491e-b3dd-bd76fae79856
+	fromColumn: 'Food Order Count decomposition tree-Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_723fbb58-b02f-47d9-aca5-b1bcc938f976
+	fromColumn: 'Food GMV Decomposition Tree-Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_cf86854f-9185-4e2f-acaf-329da76d18a6
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_2a1356f9-3dc3-4d6e-a5f7-ed7ef059e2eb
+	fromColumn: 'Food CDC% Decomposition Tree- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_8f1e6343-ff17-4a11-a966-926da331c4f9
+	fromColumn: 'Food RDC% DecompositionTree- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_bcade0aa-0815-4ddf-91f4-131fd124303d
+	fromColumn: 'Food SDC% Decomposition Tree-Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_f8fe1ba8-f160-4dcb-9f6c-aa02d8d4f7a5
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_e23029c7-d4bb-4306-8cd4-d7b980878c0d
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 4 Weeks'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_fdad800c-8b58-4385-a718-27754688e21b
+	fromColumn: 'Food Cancelled Decompotion Tree- Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_f342aa75-b9e4-4592-93b3-ec455dfe4a24
+	fromColumn: 'Food Order Count decomposition tree-Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_901a899d-b9f9-4029-bb24-13baaed2082b
+	fromColumn: 'Food AOV Count Decomposition Tree- Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_70efeaaa-8197-4776-89ca-eadb03aa1345
+	fromColumn: 'Food GMV Decomposition Tree-Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_06e46dd9-eac1-43d4-8ad1-021732615927
+	fromColumn: 'Food Order Count decomposition tree-Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_d7453407-58f5-48ea-9675-7bead97d2bce
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_09a85026-6715-4080-a502-7190094f0d2e
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_d9def0c8-198f-4376-8662-23b3b75cad18
+	fromColumn: 'Food GMV Decomposition Tree-Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_9896fa98-9736-495b-bbfd-df9d691462df
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_624461b9-62ed-4403-bcef-259f17af071e
+	fromColumn: 'Food Transacting Resturants Decomposition Tree-Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_bf21ca61-07ba-4b00-b981-3616cbf9139c
+	fromColumn: 'Food Transacting Users Decomposition Tree-Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_9254a9b9-189f-4c15-8ccc-e64883f0235e
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_f94d207e-3712-4325-ae30-07c1ee593d9c
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_088691ef-30f1-463a-abf5-2c138df9564d
+	fromColumn: 'Food Order Count decomposition tree-Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_97d99357-7401-4212-8664-bff0adaf4e74
+	fromColumn: 'Food GMV Decomposition Tree-Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_253c96dd-1564-405c-a4b6-1c800ae15fa0
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_f58fb150-5f12-4d54-81e0-8e10dfdb8c0a
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_6f87371a-3ee9-44fa-8d24-4549997493de
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship AutoDetected_4c031395-9b18-4caa-afdf-c1c03ff5ee12
+	fromColumn: 'Food CDC% Decomposition Tree- Yesterday'.business_unit
+	toColumn: BusinessUnit_Table.business_unit
+
+relationship AutoDetected_4c07e5a0-5672-4c1d-af76-91db06635528
+	fromColumn: 'Food Order Count decomposition tree-Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_d8574d3f-76de-4834-8fba-c269544c6b9a
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_05a1c1e2-9bf7-415f-9784-6f9b50e6fbdf
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_b36bba0b-e182-49d5-bb78-090ab4e6ce32
+	fromColumn: 'Food GMV Decomposition Tree-Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_a4aae965-52d4-4e33-816a-1fa0b22b0149
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_f41c76f2-055f-4d36-92af-56aace799907
+	fromColumn: 'Food SDC% Decomposition Tree-Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_33ed8a5a-a048-4d7d-a71a-ee0e4126bc99
+	fromColumn: 'Food RDC% DecompositionTree- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_6fd23c6d-08e3-4358-8bcb-88aa724eb154
+	fromColumn: 'Food CDC% Decomposition Tree- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_5e926df5-0613-48fa-831c-f56ed64fa109
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_fcde320b-1c48-49ff-aa73-acdec1a2987c
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 7 Days'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_68f6e770-861f-4748-a986-1a878965737b
+	fromColumn: 'Food Order Count decomposition tree-Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_30fe0298-6dcf-4242-b06a-bd9d6ef1f337
+	fromColumn: 'Food GMV Decomposition Tree-Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_4dccd21c-2419-49e1-87b5-79eedc35bcad
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_c3325a14-ed20-4234-bf7a-ef74d1b0de29
+	fromColumn: 'Food CDC% Decomposition Tree- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_a8189b89-cb38-4023-ab32-36e8d458e575
+	fromColumn: 'Food RDC% DecompositionTree- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_bc4e06fa-6082-43cb-b68e-97c510f5df50
+	fromColumn: 'Food SDC% Decomposition Tree-Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_b052fd74-d901-40aa-b723-eb14cd782939
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_2f25049c-4b41-4b91-8178-66e931c4185b
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 4 Weeks'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_b21f35ec-750c-4e59-9e20-c3bb44d66e49
+	fromColumn: 'Food Cancelled Decompotion Tree- Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_d58cc859-f779-458a-8d03-4fece3de8c7f
+	fromColumn: 'Food Order Count decomposition tree-Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_8b2570bc-e9e0-4bf0-809c-832efd6b14dd
+	fromColumn: 'Food AOV Count Decomposition Tree- Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_14265ffa-6a11-4e60-a8b0-2b8d57477ecf
+	fromColumn: 'Food GMV Decomposition Tree-Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_db456c39-f499-434c-a36a-3583796aca0e
+	fromColumn: 'Food CDC% Decomposition Tree- Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_e3544fb5-326e-4834-876d-6d7bda6f56de
+	fromColumn: 'Food SDC% Decomposition Tree-Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_ec4e0aaf-dffe-462a-966c-aebc2b5aea5f
+	fromColumn: 'Food RDC% Decompotion Tree- Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_b2dfc068-65e0-4fe9-b381-cf00065af648
+	fromColumn: 'Food Transacting Resturants Decomposition Tree-Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship AutoDetected_28198c1e-1eb5-4e57-a9c8-0f51a7807737
+	fromColumn: 'Food Transacting Users Decomposition Tree-Yesterday'.time_slot
+	toColumn: TimeSlot_Table.time_slot
+
+relationship d9094481-2bcb-6dd3-c6b2-5444f21272c1
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.City
+	toColumn: IM_City_Table.city
+
+relationship 97cd07e8-68e5-ad33-33c8-d7b8c0518993
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.Zone
+	toColumn: Zone_Table.zone
+
+relationship f67c98d7-0c09-728f-90f8-56f7e5fd4498
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 1fa103b9-99fe-c77e-c111-c4213cbc1659
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 5b022d5c-f619-1107-36a0-73aa0ca3680d
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.City
+	toColumn: IM_City_Table.city
+
+relationship fb37f2d3-3771-195c-86b2-bb2d8080b666
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.City
+	toColumn: IM_City_Table.city
+
+relationship 3c312b5e-5e52-7074-6943-87ec16fe70db
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 8133d97e-484a-cb1e-cdba-a4654e2ba977
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 27e37e94-4692-b3f7-06b2-484ea2fa39e3
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 54821e77-3217-db7c-da8e-ae552eaaf2a7
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.Zone
+	toColumn: Zone_Table.zone
+
+relationship bbabf0f3-1e47-19a4-55c2-3be3bbda4779
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 93b0d8ee-bc80-3f56-b5cf-e8091a6b95de
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship d99bf54f-a66a-23e8-6d1d-41abb12396cb
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.City
+	toColumn: IM_City_Table.city
+
+relationship d04c8ec9-92da-1121-9580-095740cac328
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.City
+	toColumn: IM_City_Table.city
+
+relationship be233441-6885-4e3d-17e0-9ea3f2c47c0a
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.City
+	toColumn: IM_City_Table.city
+
+relationship ed69542f-705a-d0a2-11dd-9081f5571a28
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 01eb5bb8-7285-fe99-c078-b9b4726370b3
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship d11182b1-7092-70e4-0b9d-e735ad26bbc6
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 42c742db-3a0b-d7b0-59f4-039dd29fefb3
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 33b27827-0893-c880-8505-fa0e1e14407d
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 14312853-0c3d-ae83-57c0-881ca5020b6a
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 0aee8230-f3d2-d6ae-4a68-cdb55f60f265
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 2d8b411d-2a50-f53c-6914-e30b8ce9f861
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 737a91e7-521b-ef90-222c-0110d3b01b7c
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 65a28630-55ce-88ef-03dc-aa2f1fbdc112
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.City
+	toColumn: IM_City_Table.city
+
+relationship a3795773-2bd3-13dd-57e8-98820cf28217
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.City
+	toColumn: IM_City_Table.city
+
+relationship 91f128b1-6e4d-ed2f-9cde-e09503d43d70
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.City
+	toColumn: IM_City_Table.city
+
+relationship 01c958bd-b7ed-516f-5f4f-44b7637f5e9e
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 3a870371-47a6-1054-feca-4f68b04ebaa0
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 0b4922be-ebda-0360-3c0d-00fe0232bad7
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 9484641e-0359-958d-ac8e-896ff75eb0a3
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship ceefa598-5029-ff2f-1a21-d15e16f61e37
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 20c3bf9c-ea6a-c99c-152f-f3d5b170a6ce
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 55e6f372-0870-182c-89c6-4acbbf5a3c94
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.Zone
+	toColumn: Zone_Table.zone
+
+relationship bd5512cf-ba90-62ef-1034-cca017b46f98
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 6f8ca357-4a11-35af-efed-6204d1011df9
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.Zone
+	toColumn: Zone_Table.zone
+
+relationship f0ddb4e5-bd97-6a2d-0387-4dd332753d2b
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.City
+	toColumn: IM_City_Table.city
+
+relationship 1c101b8e-6669-82ed-de50-8f653bab7bee
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.City
+	toColumn: IM_City_Table.city
+
+relationship ac64ff68-0807-6c9e-bc99-ecc117529820
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.City
+	toColumn: IM_City_Table.city
+
+relationship 6ee81951-ff62-1437-a02b-60cf031bc467
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 83f2b0ac-c676-c309-9f7e-15d6e36169c6
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 5ba041f6-fe6c-4131-9063-2942e5430379
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.Zone
+	toColumn: Zone_Table.zone
+
+relationship 39c20ede-501a-7217-2d93-a778d8e5049a
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship b553aa09-d3d2-6bd4-a2b7-d6a227bcd66f
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship 6ff6839b-63dc-7ba7-27db-969f54c4d7ce
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.'Delivery Type'
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship f00b9767-a276-21ff-f884-04061ca3eb69
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship ce89ff6c-e49b-3875-1a80-38eef65b7937
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 454590de-5c04-3178-e123-01607ee02417
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.'Delivery Slot'
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship AutoDetected_a1387a47-6b63-47fe-b9c7-29b8bab2e9cf
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.city
+	toColumn: IM_City_Table.city
+
+relationship AutoDetected_c09f7c3b-77c7-4a1d-8a18-d1f3d9d771c8
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship AutoDetected_4352720e-59ff-48bf-b539-e19dee0eb9fb
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.city
+	toColumn: IM_City_Table.city
+
+relationship AutoDetected_eecc1c30-994d-4a2a-a2da-95053e37d37d
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship AutoDetected_4b057405-df13-4c3b-a0a1-cce76a9b6991
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.city
+	toColumn: IM_City_Table.city
+
+relationship AutoDetected_1bf1aab7-4c3e-4ed0-818a-af14e8b8a998
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship AutoDetected_b7758fa4-29e8-4ec6-9833-d499bda7cb0b
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.city
+	toColumn: IM_City_Table.city
+
+relationship AutoDetected_52038ef5-817e-4c61-b00c-e4169a301681
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship AutoDetected_3e3c53e1-a56b-4795-9e1d-5d435d242df5
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.city
+	toColumn: IM_City_Table.city
+
+relationship AutoDetected_349a3435-3b97-4b01-8d9c-bd89942c5f63
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship d89a20ca-f334-5339-bda6-bd9c1aa14cd4
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship 958c7411-1a79-f7cf-48d6-304cb255cec1
+	fromColumn: 'Food Order Count decomposition tree-Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship d60eb663-b54a-8198-b940-71fb1749e59f
+	fromColumn: 'Food Order Count decomposition tree-Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship c2b90366-a739-8ce4-895a-477cfd511c89
+	fromColumn: 'Food Order Count decomposition tree-Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship ce134ed9-ceb8-bc2a-2f09-cf1e19193dcc
+	fromColumn: 'Food Order Count decomposition tree-Yesterday'.city
+	toColumn: City_Table.city
+
+relationship c364f87e-60d2-aed0-bd57-3771c186b09e
+	fromColumn: 'Food Order Count decomposition tree-Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship b255cdfe-d8ff-d391-8ebb-e17ce02e6b17
+	fromColumn: 'Food Order Count decomposition tree-Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship d7c1fceb-fe27-9ada-8cdb-77e0174580b5
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.Region
+	toColumn: Region_Table.region
+
+relationship 22ca07cd-2db3-c510-95ea-f8fec98c1f48
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.Region
+	toColumn: Region_Table.region
+
+relationship cb5fccbe-68ee-0ab5-1441-372a514e981c
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.Region
+	toColumn: Region_Table.region
+
+relationship ff3fac43-f3a6-fbd6-d236-8832c239c6ea
+	fromColumn: 'Food AOV Count Decomposition Tree- Yesterday'.city
+	toColumn: City_Table.city
+
+relationship 34f1bf1d-312a-d335-c163-b61505e8b47a
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 60da1f09-aa01-059d-ad2c-c1604c00415d
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship d223af1e-ec49-5083-6334-43949d3e5ba9
+	fromColumn: 'Food AOV Count Decomposition Tree- Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 5bf571dc-2c68-ad38-9972-3b51b994ef5d
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship 570fc98c-3e5c-6e08-a12a-9a79c0e1ddb7
+	fromColumn: 'Food AOV Count Decomposition Tree- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship a20b9cca-e2bc-a602-8ee7-0c365df53ba5
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship 275a7625-02c9-c602-882d-233a8d23b9c1
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship 4c721ee0-a1da-34ad-d24a-55ea65f7239b
+	fromColumn: 'Food Cancelled Decompotion Tree- Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 14bbcbb1-5bc1-e2df-6ee1-373bcdbb3e8e
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 8d67ee70-b2b3-3339-d554-aaea35e613ad
+	fromColumn: 'Food Cancelled Decompotion Tree- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship 19ab9447-877d-d8dd-f909-1f6598e6ca54
+	fromColumn: 'Food Cancelled Decompotion Tree- Yesterday'.city
+	toColumn: City_Table.city
+
+relationship 1c0f94e0-06d1-36bf-7270-f4f43e760e87
+	fromColumn: 'Food GMV Decomposition Tree-Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship 6ecf232a-12ae-9c91-990a-22ae1759f7ca
+	fromColumn: 'Food GMV Decomposition Tree-Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship ebda9786-a183-4ec9-5122-bae4de0c97a2
+	fromColumn: 'Food GMV Decomposition Tree-Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 98caedff-2ea6-a9a3-ece2-3394f834fffd
+	fromColumn: 'Food GMV Decomposition Tree-Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 8d151616-36e6-8289-be2a-4b3d21ec4df1
+	fromColumn: 'Food GMV Decomposition Tree-Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship c001cbd3-c8b9-9b66-5b56-c1da68638090
+	fromColumn: 'Food GMV Decomposition Tree-Yesterday'.area
+	toColumn: City_Table.city
+
+relationship 865d36ae-e41f-45d3-38af-17383a15294a
+	fromColumn: 'Food CDC% Decomposition Tree- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship 1d16afd4-d729-ab7d-55ab-5f244adb97b3
+	fromColumn: 'Food CDC% Decomposition Tree- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship 9bd29a7e-3956-d8e8-e165-4d44b9541633
+	fromColumn: 'Food CDC% Decomposition Tree- Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 3d07f6ad-6c71-95f7-3f30-bc4c2788fe84
+	fromColumn: 'Food CDC% Decomposition Tree- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship f8a0a9ef-c98c-f5c8-2624-45cd4cbdab55
+	fromColumn: 'Food CDC% Decomposition Tree- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 58703c2d-4d7c-f2cc-a351-bbdde274a7e6
+	fromColumn: 'Food CDC% Decomposition Tree- Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 9cfa8b26-2e30-3a84-8c92-39aa9e5bf721
+	fromColumn: 'Food CDC% Decomposition Tree- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship 4e59ddc6-661e-0184-cb5f-39f12ae1ad12
+	fromColumn: 'Food CDC% Decomposition Tree- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship d223b5a0-0469-a73f-d955-085ee3fed15e
+	fromColumn: 'Food CDC% Decomposition Tree- Yesterday'.city
+	toColumn: City_Table.city
+
+relationship f408d6b3-4c06-e096-38a3-47b53fc7a89d
+	fromColumn: 'Food RDC% DecompositionTree- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship b0d28f4a-b897-1745-8f9f-a736162941ff
+	fromColumn: 'Food RDC% DecompositionTree- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship ef2b4357-6327-4023-dfc8-4ce16e3acda4
+	fromColumn: 'Food RDC% Decompotion Tree- Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship da6a7f74-be5f-c830-2c8b-a645104d52ae
+	fromColumn: 'Food RDC% DecompositionTree- Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship adba417a-5670-a64e-0748-da8e4edafca9
+	fromColumn: 'Food RDC% DecompositionTree- Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 9bdf89c5-05a6-4230-b66f-75d4eaf5cbe5
+	fromColumn: 'Food RDC% Decompotion Tree- Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 396f0280-ffbe-bf03-d8a2-57f88f18fc83
+	fromColumn: 'Food RDC% DecompositionTree- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 15bba066-fff9-3143-64b5-868ff7a3ea6d
+	fromColumn: 'Food RDC% DecompositionTree- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship 989f5b08-d342-4348-a8a2-4eee2714daed
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.zone
+	toColumn: Zone_Table.zone
+
+relationship 3b1a78e8-cc59-4a1c-a2aa-868cb6e8734d
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.zone
+	toColumn: Zone_Table.zone
+
+relationship 3b9797cb-4729-44be-8292-392beb1845dd
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.zone
+	toColumn: Zone_Table.zone
+
+relationship eece1f14-c0b0-486d-b478-73ab78cf9ade
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 219ba881-db96-4449-9ba1-05a8f8895eeb
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 8e38d692-a898-417a-bf62-b3c520750fd1
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 51a16943-c040-4a7c-b940-31259d57fa19
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.region
+	toColumn: Region_Table.region
+
+relationship 000b716d-3de9-40d7-9c83-6ea20a6e3aac
+	fromColumn: 'IM SDC% Decomposition Tree - Last 4 Weeks'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship e88caae8-01f1-4cbd-8ef2-99d8e088686b
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 6c2779df-bc92-4d60-aabe-32e012d5d805
+	fromColumn: 'IM SDC% Decomposition Tree - Last 7 Days'.region
+	toColumn: Region_Table.region
+
+relationship 6ed01131-0c0c-450d-9ad3-fe03c89dcb76
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship 3d523f7b-77fa-4ca3-bbce-0f7a5f131129
+	fromColumn: 'IM SDC% Decomposition Tree - Yesterday'.region
+	toColumn: Region_Table.region
+
+relationship 61c2edb2-a113-43c6-b62c-111c420146dd
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.city
+	toColumn: IM_City_Table.city
+
+relationship 0c2c1de1-9326-4755-b47b-0bfd03019109
+	fromColumn: 'Food RDC% Decompotion Tree- Yesterday'.city
+	toColumn: City_Table.city
+
+relationship 3fc2d6e9-c0a5-4ce4-a276-11f76b067c99
+	fromColumn: 'Food SDC% Decomposition Tree-Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship d476b883-91fd-455a-a6ae-ff51d4cd34f4
+	fromColumn: 'Food SDC% Decomposition Tree-Last 4 Weeks'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 641c0ad0-6544-4d23-98c5-197812d39280
+	fromColumn: 'Food SDC% Decomposition Tree-Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship 6f16bbcf-c54c-439a-a7b9-6ec1e7fa94f6
+	fromColumn: 'Food SDC% Decomposition Tree-Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship ea5521b2-6d53-4444-b6ce-8c24df40790f
+	fromColumn: 'Food SDC% Decomposition Tree-Last 7 Days'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship 9819c298-da7c-43ae-90ef-416126ab0ce9
+	fromColumn: 'Food SDC% Decomposition Tree-Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 8153e4e5-b627-44b2-9659-16596b22142b
+	fromColumn: 'Food SDC% Decomposition Tree-Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 9dc8550d-c0cc-4cf6-8a0b-b64fc60523cd
+	fromColumn: 'Food SDC% Decomposition Tree-Yesterday'.business_classifier
+	toColumn: BusinessClassifier_Table.business_classifier
+
+relationship f4c3acb4-3fda-401e-886b-e8c9153bf865
+	fromColumn: 'Food SDC% Decomposition Tree-Yesterday'.city
+	toColumn: City_Table.city
+
+relationship f240af8d-8ff0-4ddc-b012-e24d9e205c3f
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship b79060ec-d9d6-4c31-916f-d4ae26ff13ab
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship 79bd7eec-5571-414c-b3f7-859b647d7a66
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship e4eac727-df1f-4f29-a576-c6eccb8654e5
+	fromColumn: 'Food Transacting Restaurants Decomposition Treee- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship 466bd4aa-cf79-4fee-a99a-5997c64d356a
+	fromColumn: 'Food Transacting Resturants Decomposition Tree-Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship 9f43d6a2-b6cf-4bea-a6ca-5dea78492a06
+	fromColumn: 'Food Transacting Resturants Decomposition Tree-Yesterday'.city
+	toColumn: City_Table.city
+
+relationship 8b45176f-0e9e-4f3e-88cb-4836d6acd5a3
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 4 Weeks'.area
+	toColumn: Area_Table.area
+
+relationship 5cab62fd-ba2d-4fbf-8501-a32d1b2861c3
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 4 Weeks'.city
+	toColumn: City_Table.city
+
+relationship cff39f65-ac0b-4540-a477-f0a729ccd3e7
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 7 Days'.area
+	toColumn: Area_Table.area
+
+relationship e96d1594-d037-4e6a-8b9a-91381e309877
+	fromColumn: 'Food Transacting Users Decomposition Tree- Last 7 Days'.city
+	toColumn: City_Table.city
+
+relationship a750b243-ecaa-4555-a50c-41363b38ff9b
+	fromColumn: 'Food Transacting Users Decomposition Tree-Yesterday'.area
+	toColumn: Area_Table.area
+
+relationship fc1bbdcf-8ab4-4876-ba43-ef0446e9ce08
+	fromColumn: 'Food Transacting Users Decomposition Tree-Yesterday'.city
+	toColumn: City_Table.city
+
+relationship c0df68f0-22f6-4798-90ca-04399169a934
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.Region
+	toColumn: Region_Table.region
+
+relationship dd65ba44-73e3-4801-a37f-98437d038ab8
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 4 Weeks'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship e4d6b98b-425e-48f1-b5f9-d7bcf0ab8d4c
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.Region
+	toColumn: Region_Table.region
+
+relationship 82de642b-0459-40cf-ae89-1fb18f72ac33
+	fromColumn: 'IM AOV Count Decomposition Tree- Last 7 Days'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship 22549411-d63f-40b2-bca6-8eeb251702d7
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.Region
+	toColumn: Region_Table.region
+
+relationship b09a86a9-3cc6-4429-8e2a-53576ce44b83
+	fromColumn: 'IM AOV Count Decomposition Tree- Yesterday'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship b169cc69-90b9-43cc-af93-08d40c83827d
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.Region
+	toColumn: Region_Table.region
+
+relationship 6bfcc49e-e327-4d4c-b1e0-2de1aa7026ac
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 4 Weeks'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship ba58a5ac-c97c-4a85-beff-c2a020ad7935
+	fromColumn: 'IM Cancelled Decompotion Tree- Last 7 Days'.Region
+	toColumn: Region_Table.region
+
+relationship 093e38cf-6319-4bc5-8b79-8bff9bec01dd
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.Region
+	toColumn: Region_Table.region
+
+relationship 5d71a838-0f01-458c-8f09-a7d1416d4fcf
+	fromColumn: 'IM Cancelled Decompotion Tree- Yesterday'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship 44f45703-748e-4b0a-a8cf-d46bebb2a939
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship c1e6e369-3293-4685-be6d-a5a6bfa1f250
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.region
+	toColumn: Region_Table.region
+
+relationship 6a809120-476f-4726-b977-6369551a079a
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 768d8c72-2099-461d-8c7e-4c00d4c71819
+	fromColumn: 'IM CDC% Decomposition Tree - Last 4 Weeks'.zone
+	toColumn: Zone_Table.zone
+
+relationship a542b065-7d3c-447f-b5d2-343bf3de5fb1
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship fb29de47-d14f-49db-82b6-46fbec1630d6
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.region
+	toColumn: Region_Table.region
+
+relationship 48acf22d-05cb-45d8-81d6-510d1368919d
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 00afdb66-6c52-441d-a031-5678538a044c
+	fromColumn: 'IM CDC% Decomposition Tree - Last 7 Days'.zone
+	toColumn: Zone_Table.zone
+
+relationship b95c1884-b62f-4707-90a4-70b6f91c80c3
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.delivery_slot
+	toColumn: DeliverySlot_Table.delivery_slot
+
+relationship faf42fad-723d-4ea9-b6b1-f9f9cdb32d6e
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.delivery_type
+	toColumn: DeliveryType_Table.delivery_type
+
+relationship d8c55d3d-03e0-499d-9265-eee12bc3cf57
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.region
+	toColumn: Region_Table.region
+
+relationship f376bbed-06af-4505-909e-b9e11915be95
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.store_id
+	toColumn: StoreID_Table.store_id
+
+relationship 5ffad5fa-d26d-4f4b-a506-a1c194778b66
+	fromColumn: 'IM CDC% Decomposition Tree - Yesterday'.zone
+	toColumn: Zone_Table.zone
+
+relationship 09da7da7-e6c2-4bc7-a19a-75cc502204d0
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.Region
+	toColumn: Region_Table.region
+
+relationship 1a2018f2-dc35-47ee-a196-a3994b544705
+	fromColumn: 'IM GMV Decomposition Tree-Last 4 Weeks'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship b74b795a-0247-440a-94ba-4d4dfb0e0a5b
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.Region
+	toColumn: Region_Table.region
+
+relationship 7f830c71-3827-4730-999f-640b9152c09a
+	fromColumn: 'IM GMV Decomposition Tree-Last 7 Days'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship 7d0c5285-9b3d-4d58-836c-6e9b739e30c6
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.Region
+	toColumn: Region_Table.region
+
+relationship b7fa158f-c2af-46ed-aa04-930112164041
+	fromColumn: 'IM GMV Decomposition Tree-Yesterday'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship e341924e-304b-4a0b-9c6d-17fb61003d6e
+	fromColumn: 'IM Order Count decomposition tree-Last 4 Weeks'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship cae8749c-d6cf-4722-abb3-b3eb11116d78
+	fromColumn: 'IM Order Count decomposition tree-Last 7 Days'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
+relationship 6acaf2d4-de5d-4090-b89d-3f61b04d6fe5
+	fromColumn: 'IM Order Count decomposition tree-Yesterday'.'Store ID'
+	toColumn: StoreID_Table.store_id
+
