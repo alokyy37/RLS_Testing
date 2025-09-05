@@ -1,0 +1,161 @@
+table 'IM BigNo-Today'
+	lineageTag: 3840efb2-dab5-40b3-8d56-65523f931d11
+
+	column CompletedOrders
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a2693556-050e-4a91-97f2-71bcddc5b6b3
+		summarizeBy: sum
+		sourceColumn: CompletedOrders
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOV
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 06fb7811-2d8b-4b52-8c72-c7079ecb2837
+		summarizeBy: sum
+		sourceColumn: AOV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GMV
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 6da82203-87b2-437a-9192-b59d466a29f1
+		summarizeBy: sum
+		sourceColumn: GMV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CancelledOrders
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 682edb7a-e001-4033-900b-cb45283e8c82
+		summarizeBy: sum
+		sourceColumn: CancelledOrders
+
+		annotation SummarizationSetBy = Automatic
+
+	column CDC%
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 5a25c7ce-af0b-4790-b5f8-358db935c7a6
+		summarizeBy: none
+		sourceColumn: CDC%
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDC%
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: cfb112b7-f998-4f50-a71b-bc7b8ca9b08e
+		summarizeBy: none
+		sourceColumn: SDC%
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM BigNo-Today' = m
+		mode: directQuery
+		queryGroup: IM\IM-Today\IM-UpdatedTime
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				
+				    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+				    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+				    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				    
+				    // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				     
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				
+				    // Format the query with dynamic start and end times for yesterday in IST
+				     Query =  
+				    "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    ); 
+				    let startDate = datetime("&StartOfTodayFormatted&");
+				    let endDate = datetime("&CurrentDateTimeFormatted&");
+				    "& TableName & "
+				    | where created_at_ist >= startDate and created_at_ist <= endDate
+				    | where updated_at_ist <= endDate
+				          and ((hasAllAccess > 0) or (city in (userCities)))
+				    | where dp_order_type == 'INSTAMART'
+				    // Completed Orders (and for AOV/GMV)
+				    | extend is_completed = (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED')
+				    | extend is_main_order = (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level))
+				    | extend is_cancelled = (status == 'CANCELLED')
+				    // CDC logic (if you want to include it with the main range, or use the code block below for CDC-specific range)
+				    | extend cdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_CUSTOMER_DRIVEN_CANCELLATION', 1.0, 0.0)
+				    | extend sdc_cancelled = iff(cancel_type == 'CANCEL_TYPE_SWIGGY_DRIVEN_CANCELLATION', 1.0, 0.0)
+				    | extend delivered = iff(status == 'COMPLETED', order_id, '')
+				    // Summarize all metrics
+				    | summarize
+				    CompletedOrders = sum(iff(is_completed and is_main_order, 1, 0)),
+				    AOV = sum(iff(is_completed and is_main_order, gmv, 0.0)) / sum(iff(is_completed and is_main_order, 1, 0)),
+				    GMV = sum(iff(is_completed and is_main_order, gmv, 0.0)),
+				    CancelledOrders = sum(iff(is_cancelled and is_main_order, 1, 0)),
+				    // CDC logic (if using the main range)
+				    CDCCount = sum(cdc_cancelled ),
+				    SDCCount = sum(sdc_cancelled),
+				    DeliveredDistinctCount = dcount(delivered)
+				    | extend ['CDC%'] = strcat(round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * CDCCount / DeliveredDistinctCount),2), ' %')
+				    | extend ['SDC%'] = strcat(round(iff(DeliveredDistinctCount == 0, 0.0, 100.0 * SDCCount / DeliveredDistinctCount),2), ' %')
+				    | project
+				        CompletedOrders,
+				    AOV,
+				    GMV,
+				    CancelledOrders,
+				    ['CDC%'],
+				    ['SDC%']",
+				        
+				    // // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

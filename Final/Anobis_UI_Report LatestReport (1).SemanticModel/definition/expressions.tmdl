@@ -1,0 +1,878 @@
+expression Cluster = "https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text", List = {"https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com", "https://trd-tmr5b6twv9s1stvwa6.z4.kusto.fabric.microsoft.com"}, DefaultValue = "https://trd-rb6aweuqwuww86rzbr.z6.kusto.fabric.microsoft.com"]
+	lineageTag: 17f4e5c1-e22b-4030-bfde-e8b49f7c2f3c
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression DB = "nonprod" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text", List = {"nonprod", "metrics"}, DefaultValue = "nonprod"]
+	lineageTag: 6085438b-6531-4b44-86d2-1384897fed4d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression FoodTableName = "food_output_table" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text"]
+	lineageTag: 26f94ed6-7227-4b4c-bbfd-0827aef5a686
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression IMTableName = "instamart_output_table" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text"]
+	lineageTag: 0099b415-c2cd-4f86-9d07-37e7ba1ab05e
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression City_Parameter = "" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = "Text"]
+	lineageTag: 0bb539b6-7e39-4185-8166-e4e444a8cbe2
+	queryGroup: Food-Parameter
+	parameterValuesColumn: City_Table.city
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression Area_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 8e185764-2dce-485f-8df0-f991c5c8b65d
+	queryGroup: Food-Parameter
+	parameterValuesColumn: Area_Table.area
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression BusinessClassifier_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 5f1d811f-ba15-48d0-a255-2bade4e4033d
+	queryGroup: Food-Parameter
+	parameterValuesColumn: BusinessClassifier_Table.business_classifier
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression BusinessUnit_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 230802d2-38ae-4710-8849-fd536b307ef0
+	queryGroup: Food-Parameter
+	parameterValuesColumn: BusinessUnit_Table.business_unit
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression TimeSlot_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 14f6203b-5048-45a9-b89a-994965d7a755
+	queryGroup: Food-Parameter
+	parameterValuesColumn: TimeSlot_Table.time_slot
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression IM_City_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: a76c54ee-e0c1-4d5d-9e95-195504501de1
+	queryGroup: IM-Parameter
+	parameterValuesColumn: IM_City_Table.city
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression Region_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 25d36a15-41fc-449c-953b-5c84a853abaa
+	queryGroup: IM-Parameter
+	parameterValuesColumn: Region_Table.region
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression Zone_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 0a5a91b3-4bf2-435e-952b-5e3ec4eb4ee2
+	queryGroup: IM-Parameter
+	parameterValuesColumn: Zone_Table.zone
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression StoreID_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 6d2fc44a-a303-491e-a686-a8db5a662af3
+	queryGroup: IM-Parameter
+	parameterValuesColumn: StoreID_Table.store_id
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression DeliveryType_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 797139e8-2f28-4272-91e9-137586bcb457
+	queryGroup: IM-Parameter
+	parameterValuesColumn: DeliveryType_Table.delivery_type
+
+	annotation PBI_ResultType = Null
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression DeliverySlot_Parameter = null meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 5e4a0447-069e-4967-805b-3f15f600fe5d
+	queryGroup: IM-Parameter
+	parameterValuesColumn: DeliverySlot_Table.delivery_slot
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Null
+
+expression 'Food Orders Count Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		
+		    // // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // // Format the query with dynamic start and end times for yesterday in IST
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime('" & StartOfTodayFormatted & "') 
+		    | where created_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where updated_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where order_status == 'completed' 
+		    | where order_type != 'SUBSCRIPTION' 
+		        "& CombinedFilters &"
+		    | summarize count()",
+		
+		    // // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 40736e02-ae1a-4a29-a16b-73485d58201b
+	queryGroup: 'Food\Food-Today\Food- Sales\Food- Completed Orders'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food AOV Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime('" & StartOfTodayFormatted & "') 
+		    | where created_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where updated_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where order_status == 'completed' 
+		    | where order_type != 'SUBSCRIPTION' 
+		        "& CombinedFilters &"
+		    | summarize avg(gmv_total)",
+		
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 96a51a0c-3dab-4a5c-aca8-d7f5780e5bea
+	queryGroup: 'Food\Food-Today\Food- Sales\Food-AOV'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food GMV Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		      // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ") 
+		    | where created_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ") 
+		    | where updated_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ") 
+		    | where order_status == 'completed' 
+		    | where order_type != 'SUBSCRIPTION' 
+		        "& CombinedFilters &"
+		    | summarize sum(gmv_total)",
+		
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: ed8fb02e-88da-4b5d-998a-62b6abff1a62
+	queryGroup: 'Food\Food-Today\Food- Sales\Food- GMV'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food Cancelled Orders Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime('" & StartOfTodayFormatted & "')
+		    | where created_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where updated_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where order_status == 'cancelled'  
+		        "& CombinedFilters &"
+		    | summarize count()",
+		
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 6c653a91-ff22-465e-9739-bc63dbdad8a4
+	queryGroup: 'Food\Food-Today\Food- Cancellation\Food-Cancelled Orders'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food CDC% Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where created_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where updated_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		            "& CombinedFilters &"
+		    | extend cancelled = iff(order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '3', 1.0, 0.0) 
+		    | extend all_orders = iff(((order_status == 'completed' or order_status == 'cancelled' or order_status == 'processing') and order_type != 'SUBSCRIPTION'), 1.0, 0.0) 
+		    | summarize sum(cancelled)/sum(all_orders)*100",
+		 
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 02a15348-6077-4e26-9181-263d2e6d2567
+	queryGroup: 'Food\Food-Today\Food- Cancellation\Food-CDC'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food SDC% Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where created_on_ist <= datetime('" & CurrentDateTimeFormatted & "')
+		    | where updated_on_ist <= datetime('" & CurrentDateTimeFormatted & "') 
+		        "& CombinedFilters &"
+		    | extend cancelled = iff(order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '1', 1.0, 0.0) 
+		    | extend all_orders = iff(((order_status == 'completed' or order_status == 'cancelled' or order_status == 'processing') and order_type != 'SUBSCRIPTION'), 1.0, 0.0) 
+		    | summarize sum(cancelled)/sum(all_orders)*100",
+		 
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 2e6cbb83-153b-4acc-984c-ad0e9ca05e83
+	queryGroup: 'Food\Food-Today\Food- Cancellation\Food-SDC'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food RDC% Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		      // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where  created_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where  updated_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		        "& CombinedFilters &"
+		    | extend cancelled = iff(order_status == 'cancelled' and order_type != 'SUBSCRIPTION' and canceled_reason == '2', 1.0, 0.0) 
+		    | extend all_orders = iff(((order_status == 'completed' or order_status == 'cancelled' or order_status == 'processing') and order_type != 'SUBSCRIPTION'), 1.0, 0.0) 
+		    | summarize sum(cancelled)/sum(all_orders)*100",
+		 
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: bca08d8e-c877-4d8f-9261-ff192a61459e
+	queryGroup: 'Food\Food-Today\Food- Cancellation\Food-RDC'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food Transacting Resturants Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where  created_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		     | where updated_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where order_status == 'completed' 
+		        "& CombinedFilters &"
+		    | where isnotempty(restaurantId) 
+		    | distinct restaurantId 
+		    | count",
+		  
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 5a48ee3e-a21b-4665-9684-135a09473bfb
+	queryGroup: 'Food\Food-Today\Food- food supply\Food-FTR'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Food Transacting Users Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = FoodTableName,
+		
+		          // Reference all dynamic parameters
+		    CityParam = if Value.Is(City_Parameter, type list) then City_Parameter else {City_Parameter},
+		    AreaParam = if Value.Is(Area_Parameter, type list) then Area_Parameter else {Area_Parameter},
+		    BUParam = if Value.Is(BusinessUnit_Parameter, type list) then BusinessUnit_Parameter else {BusinessUnit_Parameter},
+		    BCParam = if Value.Is(BusinessClassifier_Parameter, type list) then BusinessClassifier_Parameter else {BusinessClassifier_Parameter},
+		    TimeSlotParam = if Value.Is(TimeSlot_Parameter, type list) then TimeSlot_Parameter else {TimeSlot_Parameter},
+		
+		    // Build Dynamic Conditions
+		    CityCondition = if List.NonNullCount(CityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(CityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    AreaCondition = if List.NonNullCount(AreaParam) > 0 then " | where area in (" & Text.Combine(List.Transform(AreaParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BUCondition = if List.NonNullCount(BUParam) > 0 then " | where business_unit in (" & Text.Combine(List.Transform(BUParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    BCCondition = if List.NonNullCount(BCParam) > 0 then " | where business_classifier in (" & Text.Combine(List.Transform(BCParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    TimeSlotCondition = if List.NonNullCount(TimeSlotParam) > 0 then " | where time_slot in (" & Text.Combine(List.Transform(TimeSlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		
+		
+		    // Combine All Filters
+		    CombinedFilters = CityCondition & AreaCondition & BUCondition & BCCondition & TimeSlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_on_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where  created_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where  updated_on_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where order_status == 'completed' 
+		    | where order_type != 'SUBSCRIPTION' 
+		        "& CombinedFilters &"
+		    | distinct user_id 
+		    | count",
+		  
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 3cdfa445-ae09-4eb2-8b59-b9a8e5833f22
+	queryGroup: Food\Food-Today\Food-Consumers\Food-FTU
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'IM GMV Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = IMTableName,
+		
+		    // Reference all dynamic parameters
+		    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+		    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+		    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+		    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+		    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+		    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+		
+		    // BUild Dynamic Conditions
+		    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    
+		    // Combine All Filters
+		    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    
+		    Query = TableName & " 
+		    | where created_at_ist >= datetime(" & Text.From(StartOfTodayFormatted) & ")
+		    | where  created_at_ist <= datetime(" & Text.From(CurrentDateTimeFormatted) & ")
+		    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+		            " & CombinedFilters & "  
+		    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+		    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+		    | summarize sum(gmv)",
+		
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: d2d036a9-623d-4067-96dd-865a57b92699
+	queryGroup: IM\IM-Today\IM-Sales\IM-GMV
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'IM AOV Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // // // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = IMTableName,
+		
+		    // Reference all dynamic parameters
+		    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+		    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+		    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+		    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+		    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+		    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+		
+		    // BUild Dynamic Conditions
+		    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    
+		    // Combine All Filters
+		    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    | where created_at_ist >= datetime(' " & StartOfTodayFormatted & " ')
+		    | where  created_at_ist <= datetime(' " & CurrentDateTimeFormatted & " ')
+		    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+		            "& CombinedFilters &"   
+		    | extend counter = case(order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level), 1, 0) 
+		    | where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+		    | summarize sum(gmv)/sum(counter)",
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 352d6f52-c1e2-4d72-a1b4-9455b1ccf172
+	queryGroup: IM\IM-Today\IM-Sales\IM_AOV
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'IM Orders Count Today' = ```
+		let
+		    // Get current date and time in UTC
+		    TodayDateTimeZone = DateTimeZone.UtcNow(),
+		
+		    // Convert UTC time to IST
+		    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+		
+		    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+		
+		    StartOfToday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+		
+		    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+		    StartOfTodayFormatted = DateTime.ToText(StartOfToday, "yyyy-MM-dd HH:mm:ss"),
+		    CurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " " & TodaysTime),
+		    CurrentDateTimeFormatted = DateTime.ToText(CurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+		
+		    // Reference the Table Name parameter dynamically
+		    TableName = IMTableName,
+		
+		    // Reference all dynamic parameters
+		    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+		    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+		    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+		    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+		    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+		    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+		
+		    // BUild Dynamic Conditions
+		    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+		    
+		    // Combine All Filters
+		    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+		
+		    // Format the query with dynamic start and end times
+		    Query = TableName & " 
+		    |where created_at_ist >= datetime('"& StartOfTodayFormatted &"') 
+		    |where created_at_ist <= datetime('"& CurrentDateTimeFormatted &"')
+		    | where updated_at_ist <= datetime('"& CurrentDateTimeFormatted &"') 
+		           "& CombinedFilters &"  
+		    |where dp_order_type == 'INSTAMART' and (status == 'DELIVERY_DELIVERED' or status == 'COMPLETED') 
+		     and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level)) 
+		    |summarize count()",
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+		```
+	lineageTag: 40560a61-b229-4bd9-9dba-44f671af66d8
+	queryGroup: IM\IM-Today\IM-Sales\IM-Orders
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression City_Table6 =
+		let
+		    TableName = FoodTableName,
+		    Query = "
+		    let currentUser = current_principal_details()['UserPrincipalName'];
+		    let userCities = toscalar(
+		        Anobis_RLSTable
+		        | where UserEmail_ID == currentUser
+		        | summarize make_list(city)
+		    );
+		    let hasAllAccess = toscalar(
+		        Anobis_RLSTable
+		        | where UserEmail_ID == currentUser and city == 'ALL'
+		        | count
+		    );
+		    " & TableName & "
+		    | where isnotempty(city)
+		      and ((hasAllAccess > 0) or (city in (userCities)))
+		    | distinct city ",
+		
+		    // Get data from Azure Data Explorer with the dynamic query
+		    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+		in
+		    Source
+	lineageTag: a49a24a6-45b1-49a9-85b1-ab7d2456f6a4
+	queryGroup: Food-Parameter
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

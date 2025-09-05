@@ -1,0 +1,59 @@
+table 'Food Orders Count (last 4 Weeks)'
+	lineageTag: 16b8f944-3503-478b-997c-e63b33bce818
+
+	column count_
+		dataType: int64
+		formatString: 0
+		lineageTag: 82d24480-d476-4ea7-b6db-b80a12f92363
+		summarizeBy: sum
+		sourceColumn: count_
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Food Orders Count (last 4 Weeks)' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 4 weeks\Food- Sales\Food-Orders'
+		source = ```
+				let
+				 // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 28 days ago in IST
+				    Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				    // Set the start of the last 28 days to 12:00 AM IST
+				    StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				    StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast28Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast28DayFormatted = DateTime.ToText(EndofLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(' " & StartOfLast28DaysFormatted & " ') 
+				    | where created_on_ist < datetime(' " & EndofLast28DayFormatted & " ') 
+				    | where order_status == 'completed' 
+				    | where order_type != 'SUBSCRIPTION' 
+				    | summarize count()",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
