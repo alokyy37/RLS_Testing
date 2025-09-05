@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "cb5f46de0ca19a686089",
+  "position": {
+    "x": 11.725526484280905,
+    "y": 2.3355918803977365,
+    "z": 0,
+    "height": 90,
+    "width": 211
+  },
+  "visualGroup": {
+    "displayName": "grp-kpi-cancelled orders",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "42b83a167cd5d5d540a5"
+}
