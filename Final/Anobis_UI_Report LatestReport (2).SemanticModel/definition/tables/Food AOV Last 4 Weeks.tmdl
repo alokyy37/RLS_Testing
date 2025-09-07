@@ -1,0 +1,61 @@
+table 'Food AOV Last 4 Weeks'
+	lineageTag: 0a99be6a-b221-4605-b75e-6e50864e1d15
+
+	column avg_gmv_total
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 22022766-fce7-4977-a909-70a0411c0175
+		summarizeBy: sum
+		sourceColumn: avg_gmv_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Food AOV Last 4 Weeks' = m
+		mode: import
+		queryGroup: 'Food\Food- Last 4 weeks\Food- Sales\Food-AOV'
+		source = ```
+				let
+				// Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST (Indian Standard Time, UTC +5:30)
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get today's date in IST (removes the time part)
+				
+				    TodaysTime = Time.ToText(DateTime.Time(TodaysDateTime), "HH:mm:ss"),
+				
+				    TodayDate = DateTime.Date(TodaysDateTime),
+				
+				    // Get the date 28 days ago in IST
+				    Last28Days = TodayDate - #duration(28, 0, 0, 0),
+				
+				    // Set the start of the last 7 days to 12:00 AM IST
+				    StartOfLast28Days = DateTime.FromText(Date.ToText(Last28Days) & " 00:00:00"),
+				    StartOfLast28DaysFormatted = DateTime.ToText(StartOfLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				    EndofLast28Days = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) &  " 00:00:00"),
+				    EndofLast28DayFormatted = DateTime.ToText(EndofLast28Days, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = FoodTableName,
+				
+				    // Format the query with dynamic start and end times
+				    Query = TableName & " 
+				    | where created_on_ist >= datetime(" & Text.From(StartOfLast28DaysFormatted) & ") 
+				    | where created_on_ist < datetime(" & Text.From(EndofLast28DayFormatted) & ") 
+				    | where order_status == 'completed' 
+				    | where order_type != 'SUBSCRIPTION' 
+				    | summarize avg(gmv_total)",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster, DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
