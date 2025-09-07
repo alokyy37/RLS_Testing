@@ -1,0 +1,358 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "F_Last4Weeks_Completed_FH",
+  "name": "a1091b9070385201da06",
+  "options": {
+    "targetVisualNames": [
+      "1067031fbe80900eeaea",
+      "9e662df8630de160639a",
+      "0d8994cb1dbaeb08a709",
+      "47ef0995597ba865ce69",
+      "cb215ac983311804a5b1",
+      "82d0fc3e8ea48283eed0",
+      "0cb1d222b40e0d40e844",
+      "9321f00ed28316001683",
+      "1c1eea371ba0a7d06c54",
+      "b0274abbe290180a01db",
+      "0f9c1bc680034bd7e8d9",
+      "8469a5e7ec3c6e69a67e",
+      "b6b52980e1c8806926cc",
+      "55ff944ba700b1b6a263",
+      "3ef5a907fbb5460c53d1",
+      "36672d44472fdf778916",
+      "7d3020886812d0219116",
+      "4fd9842c9bdd3eb5d29c",
+      "8a36d90a7658a7d9a3a4",
+      "fabea47e7e1ae915a7a0",
+      "00e4fb431ef0543d33ed",
+      "a458aea705250a6d9a42",
+      "19cf2b5372a8dda570dc",
+      "58ce97c0e9940b09600b",
+      "60b936303352bc0b8722",
+      "507d83e3950b326c2e51",
+      "ea040c48ec20a66154cd",
+      "f942d12879c124b0794d",
+      "69fe541dc0345dc9ee7e",
+      "012196c0185dc701b772",
+      "ef03675844c71d000005",
+      "eb4c67e07423d009de00",
+      "b0a2bb8a927ce7c066ac",
+      "a31dff88cd5adbd2ba94",
+      "2ebfbc744e0d7ab7be8d",
+      "c5ab0a232c5e03883c29",
+      "4f98e707ea7590c9ec91"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "f85512145cc24117962b",
+    "sections": {
+      "f85512145cc24117962b": {
+        "visualContainers": {
+          "0d8994cb1dbaeb08a709": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a458aea705250a6d9a42": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "19cf2b5372a8dda570dc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "58ce97c0e9940b09600b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "60b936303352bc0b8722": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "507d83e3950b326c2e51": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ea040c48ec20a66154cd": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f942d12879c124b0794d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "69fe541dc0345dc9ee7e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "012196c0185dc701b772": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ef03675844c71d000005": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "eb4c67e07423d009de00": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "b0a2bb8a927ce7c066ac": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a31dff88cd5adbd2ba94": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "2ebfbc744e0d7ab7be8d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c5ab0a232c5e03883c29": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4f98e707ea7590c9ec91": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "4fd9842c9bdd3eb5d29c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "fabea47e7e1ae915a7a0": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Orders Count Last 7 Weeks Line"
+                        }
+                      },
+                      "Property": "created_on_ist"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Orders Count Last 7 Weeks Line"
+                        }
+                      },
+                      "Property": "created_on_ist"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "55ff944ba700b1b6a263": {
+            "singleVisual": {
+              "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Order Count decomposition tree-Last 4 Weeks"
+                            }
+                          },
+                          "Property": "count_"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "1067031fbe80900eeaea": {
+            "isHidden": false,
+            "children": {
+              "47ef0995597ba865ce69": {
+                "isHidden": false
+              },
+              "0cb1d222b40e0d40e844": {
+                "isHidden": false,
+                "children": {
+                  "9321f00ed28316001683": {
+                    "children": {
+                      "1c1eea371ba0a7d06c54": {
+                        "isHidden": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "9e662df8630de160639a": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

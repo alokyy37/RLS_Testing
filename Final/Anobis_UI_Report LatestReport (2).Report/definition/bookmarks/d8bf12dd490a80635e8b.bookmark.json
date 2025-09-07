@@ -1,0 +1,349 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "F_YesterdayGMV_FH",
+  "name": "d8bf12dd490a80635e8b",
+  "options": {
+    "targetVisualNames": [
+      "a366218030a9d900067e",
+      "701e3f9bc1b199199451",
+      "4b64732090684aa5606d",
+      "e3e83439cad0299c9d05",
+      "1eb8d3600c87c99b73a5",
+      "4035376d105e07b3b008",
+      "2dbfc6e4e500070357ce",
+      "2c130d25741290a91c57",
+      "f0a87f90b0e376145281",
+      "f6b89ab9b13e0b80abcb",
+      "2ef2c0803b58b59c667f",
+      "80bfa7873514e885582a",
+      "5d5fa47910e121de00e2",
+      "a22264151221d20b11da",
+      "a6e78d274e8ec1f60f0c",
+      "fb566c91771eda97d155",
+      "c0ce3161681290b00a63",
+      "a1bfe4488058c9c26a05",
+      "a93e2f3891b1b601e782",
+      "91db5b7f355dd74e1151",
+      "9173c3d4031f10ae635b",
+      "2f9fe404e9d06854637e",
+      "ed8b99c0c2d45062c92e",
+      "041f9c4c10e373c4ca03",
+      "e2fb1a7e596c8a467892",
+      "c6b1e6e19118d957572a",
+      "0931d2eace90344b6b13",
+      "3d17adfd9e19061d2dcc",
+      "1f9504119eb0e0b0e5ce",
+      "b02da414b6e8cae58593",
+      "7ead26605425090ca83a",
+      "badb182fe1b071125378",
+      "b7291a03cd8687165ab9",
+      "44227ea1ee75c0c069c0",
+      "2d25e4179ec646d69476",
+      "1f84f5f3b994010d43cc",
+      "700c4d920303385600e6"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "0ff0119153bf4d683373",
+    "sections": {
+      "0ff0119153bf4d683373": {
+        "visualContainers": {
+          "4b64732090684aa5606d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2f9fe404e9d06854637e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ed8b99c0c2d45062c92e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "041f9c4c10e373c4ca03": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e2fb1a7e596c8a467892": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "c6b1e6e19118d957572a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0931d2eace90344b6b13": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3d17adfd9e19061d2dcc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1f9504119eb0e0b0e5ce": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b02da414b6e8cae58593": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7ead26605425090ca83a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "badb182fe1b071125378": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "b7291a03cd8687165ab9": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "44227ea1ee75c0c069c0": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "2d25e4179ec646d69476": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "1f84f5f3b994010d43cc": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "700c4d920303385600e6": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c0ce3161681290b00a63": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food GMV (Yesterday Line)"
+                        }
+                      },
+                      "Property": "created_on_ist"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food GMV (Yesterday Line)"
+                        }
+                      },
+                      "Property": "created_on_ist"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a93e2f3891b1b601e782": {
+            "singleVisual": {
+              "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food GMV Decomposition Tree-Yesterday"
+                            }
+                          },
+                          "Property": "GMV"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "80bfa7873514e885582a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "a366218030a9d900067e": {
+            "isHidden": false,
+            "children": {
+              "e3e83439cad0299c9d05": {
+                "isHidden": false
+              },
+              "5d5fa47910e121de00e2": {
+                "isHidden": false
+              }
+            }
+          },
+          "701e3f9bc1b199199451": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

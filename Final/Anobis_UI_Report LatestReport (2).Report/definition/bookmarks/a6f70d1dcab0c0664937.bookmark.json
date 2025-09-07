@@ -1,0 +1,411 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "F_Last7Days_AOV_FS",
+  "name": "a6f70d1dcab0c0664937",
+  "options": {
+    "targetVisualNames": [
+      "96d5ffe697090e809a46",
+      "46411553868c72eb61e9",
+      "42e49c50e979a88a8984",
+      "30cc54f52a75666b6be0",
+      "e646721a801728250de0",
+      "ca6a9cf5580bb8052336",
+      "b232ca2e44eb0548b253",
+      "7d9ae0658665038d4911",
+      "7fd275b80e74a6114105",
+      "6f3a259005d2deed8992",
+      "2c8b28eac13d4b6b7c06",
+      "f0a17b226060490c04e7",
+      "8dade82f38d9d1c090b8",
+      "5a32aaa080104d1a7709",
+      "71b4f451d84e61e94567",
+      "764e05d040eba2dae558",
+      "8b056a0ab8910706a875",
+      "8d4cbb9d2793d686a3d9",
+      "1180467ec70509dcb9a5",
+      "00298941c26dba092e4c",
+      "ca3ad3b54c934e10a507",
+      "b4c8f3e2b88d8a78b549",
+      "80c41fe36eeb8e105283",
+      "258fbe84e0a95b8727ea",
+      "b3f346d688e1a1862538",
+      "2727f20d6c0810d9ce0c",
+      "24b2b3472c709d538a9d",
+      "06aea5b322102c32998e",
+      "c8bee1e1a1623cae1c3c",
+      "55d8c516a38a39be4811",
+      "d9a8a82d7eec72784007",
+      "c22788dd1882b5a9041a",
+      "1b944c030d021531cb46"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "eab408c0d1f07c5bbc43",
+    "sections": {
+      "eab408c0d1f07c5bbc43": {
+        "visualContainers": {
+          "1b944c030d021531cb46": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "258fbe84e0a95b8727ea": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2c8b28eac13d4b6b7c06": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "30cc54f52a75666b6be0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "42e49c50e979a88a8984": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5a32aaa080104d1a7709": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6f3a259005d2deed8992": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "71b4f451d84e61e94567": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessUnit_Table"
+                        }
+                      },
+                      "Property": "business_unit"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "764e05d040eba2dae558": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7d9ae0658665038d4911": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7fd275b80e74a6114105": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8b056a0ab8910706a875": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8d4cbb9d2793d686a3d9": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8dade82f38d9d1c090b8": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "b232ca2e44eb0548b253": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b3f346d688e1a1862538": {
+            "singleVisual": {
+              "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ALL Measures"
+                        }
+                      },
+                      "Property": "AOV 7 Days"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "c22788dd1882b5a9041a": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food AOV Last 7 Days Line"
+                        }
+                      },
+                      "Property": "Week"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ca6a9cf5580bb8052336": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e646721a801728250de0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f0a17b226060490c04e7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "80c41fe36eeb8e105283": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1180467ec70509dcb9a5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "00298941c26dba092e4c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b4c8f3e2b88d8a78b549": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ca3ad3b54c934e10a507": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food updatedTime"
+                            }
+                          },
+                          "Property": "max_updated_on_ist"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "46411553868c72eb61e9": {
+            "isHidden": true,
+            "children": {
+              "2727f20d6c0810d9ce0c": {
+                "isHidden": false,
+                "children": {
+                  "24b2b3472c709d538a9d": {
+                    "children": {
+                      "c8bee1e1a1623cae1c3c": {
+                        "isHidden": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "96d5ffe697090e809a46": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

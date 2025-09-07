@@ -1,0 +1,342 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "F_Last7Days_Cancelled_FS",
+  "name": "fa8feacd60197dc1d365",
+  "options": {
+    "targetVisualNames": [
+      "2beb0782c53988002ee0",
+      "efd906288ed3094c6056",
+      "693f1ba41e3842e002bb",
+      "97db0f00947359a856eb",
+      "7fb015d59420cac161c2",
+      "cf7aaa1bb02903498ab0",
+      "d7aa4dafac4202031a17",
+      "f282b5f002bd0050e3a4",
+      "e565bae0d90dd0d0a749",
+      "e27e30aca2755c14c154",
+      "7b2cea41a80b5122e0e6",
+      "448975fabccdd52a8009",
+      "a97664c387570e0d0947",
+      "9c65f43315603a14a1dd",
+      "608149f515d7d94e7ea1",
+      "c772a3b1e3d5ad9e13de",
+      "13d07d5a760805eeea6d",
+      "d7251333a6fa4fca6055",
+      "cf6d46c20ac1eb25c500",
+      "f1b7184803372e63dae0",
+      "59c7f885009b9070313b",
+      "0529ca2344b6a0487be1",
+      "e29f8a0069521ea2f2e5",
+      "df733a2eb96c792ab6a9",
+      "08c62641a7aec57b7aff",
+      "9d31ebd436236216a954",
+      "9922a600ab82329b9836",
+      "a113e37e392c020bf398",
+      "ef9aa110a3bb8d521a07",
+      "c46d29174e0ea12acd23",
+      "356db37ed7ba879aa358",
+      "caaebbf532dea5602635",
+      "2a22fd83a60a2a7d5540",
+      "78d029da45820e075118",
+      "18c441dc9dd605b03d65"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "d1465f83174c39de8471",
+    "sections": {
+      "d1465f83174c39de8471": {
+        "visualContainers": {
+          "cf6d46c20ac1eb25c500": {
+            "singleVisual": {
+              "visualType": "decompositionTreeVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food Cancelled Decompotion Tree- Last 7 Days"
+                            }
+                          },
+                          "Property": "count_"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "0529ca2344b6a0487be1": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food Cancelled Orders Line Last 7 Days"
+                        }
+                      },
+                      "Property": "Day Name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9922a600ab82329b9836": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "13d07d5a760805eeea6d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2beb0782c53988002ee0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "efd906288ed3094c6056": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "693f1ba41e3842e002bb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "97db0f00947359a856eb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7fb015d59420cac161c2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cf7aaa1bb02903498ab0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d7aa4dafac4202031a17": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f282b5f002bd0050e3a4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e565bae0d90dd0d0a749": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e27e30aca2755c14c154": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7b2cea41a80b5122e0e6": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "448975fabccdd52a8009": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a97664c387570e0d0947": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "9c65f43315603a14a1dd": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "608149f515d7d94e7ea1": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c772a3b1e3d5ad9e13de": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "59c7f885009b9070313b": {
+            "isHidden": true,
+            "children": {
+              "356db37ed7ba879aa358": {
+                "children": {
+                  "caaebbf532dea5602635": {
+                    "isHidden": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

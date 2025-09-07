@@ -1,0 +1,370 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "F_Last7Days_GMV_FS",
+  "name": "96bbf05cbc6aad272a40",
+  "options": {
+    "targetVisualNames": [
+      "3967913f27320b78ac09",
+      "1b244a103da1628eaa5c",
+      "594c9a279ce9020501ba",
+      "bd95665a0dee353276cd",
+      "e0d27af857034359b360",
+      "b087b1eee5099e040906",
+      "7f98a7900c190935ac00",
+      "282ceffa13ab10400a01",
+      "1b1f1cbb9133c9325733",
+      "444e23146170335e4a9c",
+      "b00076c080eed3223013",
+      "f2a4247ea34285119cda",
+      "3f93ddcbc438e1995049",
+      "f39d30d75092ecdc0bcb",
+      "0c96e450562081926002",
+      "899d9a6271cce7a07e04",
+      "7629a58c64d3db55b0c0",
+      "1e4498de0a3dfa23698a",
+      "0c179453b4dba7f79a85",
+      "61ebc275d705641b8400",
+      "6e794ac55d1e607473d5",
+      "7a0e59dff6b63bb398a9",
+      "b0b0659e153be1e5204a",
+      "0ab36346eb57be853179",
+      "16ac8baeb0c176b993c9",
+      "a3cdcaa54d24fa0252d1",
+      "72c31816cdb2926995e5",
+      "9b831bab02215899b3a8",
+      "2fd4422ad2fa0eaaee71",
+      "d30c4aea664a8ac8a201",
+      "6a287483b85907390a73",
+      "f7b5a7971e6b2754ada1",
+      "219c9946a29040819c4a",
+      "47163e566e6000a0dc00"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "79a79749365310dec9b6",
+    "sections": {
+      "79a79749365310dec9b6": {
+        "visualContainers": {
+          "0c179453b4dba7f79a85": {
+            "singleVisual": {
+              "visualType": "decompositionTreeVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food GMV Decomposition Tree-Last 7 Days"
+                            }
+                          },
+                          "Property": "sum_gmv_total"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "61ebc275d705641b8400": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Food updatedTime"
+                            }
+                          },
+                          "Property": "max_updated_on_ist"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "a3cdcaa54d24fa0252d1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9b831bab02215899b3a8": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Food GMV (Last 7 Days Line)"
+                        }
+                      },
+                      "Property": "Day Name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "7629a58c64d3db55b0c0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "3967913f27320b78ac09": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1b244a103da1628eaa5c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "594c9a279ce9020501ba": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bd95665a0dee353276cd": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e0d27af857034359b360": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b087b1eee5099e040906": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7f98a7900c190935ac00": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "282ceffa13ab10400a01": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1b1f1cbb9133c9325733": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "444e23146170335e4a9c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "b00076c080eed3223013": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "f2a4247ea34285119cda": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BusinessClassifier_Table"
+                        }
+                      },
+                      "Property": "business_classifier"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3f93ddcbc438e1995049": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "f39d30d75092ecdc0bcb": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Area_Table"
+                        }
+                      },
+                      "Property": "area"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "0c96e450562081926002": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "899d9a6271cce7a07e04": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "6e794ac55d1e607473d5": {
+            "isHidden": true,
+            "children": {
+              "d30c4aea664a8ac8a201": {
+                "children": {
+                  "6a287483b85907390a73": {
+                    "isHidden": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

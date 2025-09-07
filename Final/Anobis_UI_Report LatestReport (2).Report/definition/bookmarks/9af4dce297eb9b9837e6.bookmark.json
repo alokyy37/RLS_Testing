@@ -1,0 +1,434 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "IM_Last4Weeks_Cancelled_FS",
+  "name": "9af4dce297eb9b9837e6",
+  "options": {
+    "targetVisualNames": [
+      "f4221f2b6092052d6856",
+      "4cd1d36a6e7d62cbd38a",
+      "4f3a1e80a653c26b8e17",
+      "1c6b02897cb00e0a4650",
+      "47a33bb8e0b40de9c714",
+      "11378e7d000344090098",
+      "ba02ce606d5d6e3cc8ac",
+      "8ac4baf9b4a95a314c80",
+      "bfce0c96a650080b049e",
+      "e8914428ad465c3235d0",
+      "3770268678517e071048",
+      "4a8c5c622603678e05b3",
+      "29fe57283c6814c0b2ba",
+      "36818f68bacba5aa8507",
+      "dbbade35e10ee90c0b27",
+      "42a111850a874cdba60d",
+      "db12283dec2cb35d0b66",
+      "b24e993600067c307612",
+      "98b8e8e814459bc80730",
+      "0cd8b4a634e6e60e61d0",
+      "b5d1d015a85a6844ed0b",
+      "a83d6d223cc0ed0969bc",
+      "bbdf332ee7aba7ed7405",
+      "d610e3d6ec5009228b5d",
+      "48c0e9a3b08ad6d01075",
+      "d577c10b43dc10d9c6d4",
+      "a8dccf8a8604a21402bc",
+      "cf6cb01a8e0575d21800",
+      "eedb8e059aa064d4a3a2",
+      "222b3db6c923a0744b4b",
+      "8c031160ecae900c7c03",
+      "819d584978d8834703a9",
+      "2f1319fba2c351ad0adb",
+      "cdfe2ba4002b9dd1a24b",
+      "62e1ad9473ab6d375e93",
+      "5055add47bd9a26e4f52",
+      "44db974efbf834077dca"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "4faed0c146d1c274d56d",
+    "sections": {
+      "4faed0c146d1c274d56d": {
+        "visualContainers": {
+          "4f3a1e80a653c26b8e17": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1c6b02897cb00e0a4650": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "StoreID_Table"
+                        }
+                      },
+                      "Property": "store_id"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "47a33bb8e0b40de9c714": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "11378e7d000344090098": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ba02ce606d5d6e3cc8ac": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8ac4baf9b4a95a314c80": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bfce0c96a650080b049e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e8914428ad465c3235d0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3770268678517e071048": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4a8c5c622603678e05b3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "29fe57283c6814c0b2ba": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "36818f68bacba5aa8507": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "dbbade35e10ee90c0b27": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {}
+            }
+          },
+          "42a111850a874cdba60d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "StoreID_Table"
+                        }
+                      },
+                      "Property": "store_id"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "db12283dec2cb35d0b66": {
+            "singleVisual": {
+              "visualType": "advancedSlicerVisual",
+              "objects": {
+                "merge": {
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "b24e993600067c307612": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Zone_Table"
+                        }
+                      },
+                      "Property": "zone"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "98b8e8e814459bc80730": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM_City_Table"
+                        }
+                      },
+                      "Property": "city"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "0cd8b4a634e6e60e61d0": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "b5d1d015a85a6844ed0b": {
+            "singleVisual": {
+              "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "IM Cancelled Decompotion Tree- Last 4 Weeks"
+                            }
+                          },
+                          "Property": "count_"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "bbdf332ee7aba7ed7405": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "cdfe2ba4002b9dd1a24b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "5055add47bd9a26e4f52": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM Cancelled Orders Last 4 Weeks Line"
+                        }
+                      },
+                      "Property": "created_at_ist"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "IM Cancelled Orders Last 4 Weeks Line"
+                        }
+                      },
+                      "Property": "created_at_ist"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "f4221f2b6092052d6856": {
+            "isHidden": false
+          },
+          "4cd1d36a6e7d62cbd38a": {
+            "isHidden": true,
+            "children": {
+              "48c0e9a3b08ad6d01075": {
+                "isHidden": true,
+                "children": {
+                  "d577c10b43dc10d9c6d4": {
+                    "isHidden": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
