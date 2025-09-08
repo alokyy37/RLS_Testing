@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "Last 7 days",
+  "name": "83a457841d58b01a19b4",
+  "options": {
+    "targetVisualNames": [
+      "87bfca2cb284dbadf736",
+      "f47594bfaee89fe0d226",
+      "591efd2b49db71d6e9f3",
+      "974382b921918988164d",
+      "71859f15e3cea9b41d49",
+      "786c9a56a4743470dd87",
+      "9fb6ece5953ec3cb21b8",
+      "43ff169efe48c49fbc25",
+      "670b5b01a4d546f579fa",
+      "d200321cfb66e074f914",
+      "e9b64794297d3f3e6c4a",
+      "49ecef416d8156b1878c",
+      "ad202675ce1fd3a20228",
+      "c97bb046ea87478f81d7"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "3f7e859e9d704660cf39",
+    "sections": {
+      "3f7e859e9d704660cf39": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "49d00fa1b17b11f296ed",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food"
+                    }
+                  },
+                  "Property": "today_GMV_food"
+                }
+              },
+              "howCreated": 5
+            },
+            {
+              "name": "9421a66c0cb3e757283e",
+              "type": "Categorical",
+              "expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food"
+                    }
+                  },
+                  "Property": "yesterday_GMV_food"
+                }
+              },
+              "howCreated": 5
+            }
+          ]
+        },
+        "visualContainers": {}
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

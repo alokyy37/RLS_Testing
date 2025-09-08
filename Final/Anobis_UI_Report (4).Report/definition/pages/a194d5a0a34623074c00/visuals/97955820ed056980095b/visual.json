@@ -1,0 +1,172 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "97955820ed056980095b",
+  "position": {
+    "x": 4.0564864391120725,
+    "y": 562.35194548579329,
+    "z": 4000,
+    "height": 382.76923076923077,
+    "width": 445.53846153846155,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "distributionvisualswiggyEFB7F2422A0641C7A27BAC90EC208426",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food RDC% DecompositionTree- Last 7 Days"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Food RDC% DecompositionTree- Last 7 Days.city",
+              "nativeQueryRef": "city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food RDC% DecompositionTree- Last 7 Days"
+                    }
+                  },
+                  "Property": "area"
+                }
+              },
+              "queryRef": "Food RDC% DecompositionTree- Last 7 Days.area",
+              "nativeQueryRef": "area"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food RDC% DecompositionTree- Last 7 Days"
+                    }
+                  },
+                  "Property": "business_classifier"
+                }
+              },
+              "queryRef": "Food RDC% DecompositionTree- Last 7 Days.business_classifier",
+              "nativeQueryRef": "business_classifier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food RDC% DecompositionTree- Last 7 Days"
+                    }
+                  },
+                  "Property": "business_unit"
+                }
+              },
+              "queryRef": "Food RDC% DecompositionTree- Last 7 Days.business_unit",
+              "nativeQueryRef": "business_unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Food RDC% DecompositionTree- Last 7 Days"
+                    }
+                  },
+                  "Property": "time_slot"
+                }
+              },
+              "queryRef": "Food RDC% DecompositionTree- Last 7 Days.time_slot",
+              "nativeQueryRef": "time_slot"
+            }
+          ]
+        },
+        "ftu": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ALL Measures"
+                    }
+                  },
+                  "Property": "RDC 7 Days"
+                }
+              },
+              "queryRef": "ALL Measures.RDC 7 Days",
+              "nativeQueryRef": "RDC%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ALL Measures"
+                  }
+                },
+                "Property": "RDC 7 Days"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "4506e549e607b19952e9"
+}
