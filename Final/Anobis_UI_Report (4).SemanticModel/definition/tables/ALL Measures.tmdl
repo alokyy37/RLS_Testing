@@ -1,0 +1,2872 @@
+table 'ALL Measures'
+	lineageTag: d5f31804-b7f4-48c7-a67c-d4d190f15e1d
+
+	measure 'AOV 7 Days' =
+			
+			var totalgmv = SUMX('Food AOV Count Decomposition Tree- Last 7 Days', 'Food AOV Count Decomposition Tree- Last 7 Days'[GroupAvgGmv] * 'Food AOV Count Decomposition Tree- Last 7 Days'[GroupCount])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Last 7 Days'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 353bb10b-ba9e-4348-a311-2bd63a1f8994
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AOV =
+			
+			var totalgmv = SUMX('Food AOV Count Decomposition Tree- Today', 'Food AOV Count Decomposition Tree- Today'[GroupAvgGmv] * 'Food AOV Count Decomposition Tree- Today'[GroupCount])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Today'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\1-Today
+		lineageTag: 891e04fd-3849-4e39-8414-f70b76e64232
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOV yesterday' =
+			
+			var totalgmv = SUMX('Food AOV Count Decomposition Tree- Yesterday', 'Food AOV Count Decomposition Tree- Yesterday'[GroupAvgGmv] * 'Food AOV Count Decomposition Tree- Yesterday'[GroupCount])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Yesterday'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\2-Yesterday
+		lineageTag: f3097b8d-b4db-41fb-9fb4-abc4d2feb930
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CDC 7 Days' =
+			
+			var totalcdc = SUMX('Food CDC% Decomposition Tree- Last 7 Days', 'Food CDC% Decomposition Tree- Last 7 Days'[GroupCDC] * 'Food CDC% Decomposition Tree- Last 7 Days'[GroupCount])
+			var totalcount = SUM('Food CDC% Decomposition Tree- Last 7 Days'[GroupCount])
+			RETURN
+			DIVIDE(totalcdc, totalcount, 0)
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: c8fca810-3704-4ebe-ba56-5be39fa185e9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CDC Today' =
+			
+			var totalgmv = SUMX('Food CDC% Decomposition Tree- Today', 'Food CDC% Decomposition Tree- Today'[GroupCDC] * 'Food CDC% Decomposition Tree- Today'[GroupCount])
+			var totalcount = SUM('Food CDC% Decomposition Tree- Today'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\1-Today
+		lineageTag: 6a529767-cf4c-47fe-be70-3153d35e2c4f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CDC Yesterday' =
+			
+			var totalcdc = SUMX('Food CDC% Decomposition Tree- Yesterday', 'Food CDC% Decomposition Tree- Yesterday'[GroupCDC] * 'Food CDC% Decomposition Tree- Yesterday'[GroupCount])
+			var totalcount = SUM('Food CDC% Decomposition Tree- Yesterday'[GroupCount])
+			RETURN
+			DIVIDE(totalcdc, totalcount, 0)
+		displayFolder: Food\2-Yesterday
+		lineageTag: 244f01f4-13a7-441e-bc32-59cdb87b3ba9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RDC 4 Weeks' =
+			
+			var totalcdc = SUMX('Food RDC% DecompositionTree- Last 4 Weeks', 'Food RDC% DecompositionTree- Last 4 Weeks'[GroupRDC] * 'Food RDC% DecompositionTree- Last 4 Weeks'[GroupCount])
+			var totalcount = SUM('Food RDC% DecompositionTree- Last 4 Weeks'[GroupCount])
+			RETURN
+			DIVIDE(totalcdc, totalcount, 0)
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 48d1f040-b5ac-4230-b335-644c43b00598
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RDC 7 Days' =
+			
+			var totalcdc = SUMX('Food RDC% DecompositionTree- Last 7 Days', 'Food RDC% DecompositionTree- Last 7 Days'[GroupRDC] * 'Food RDC% DecompositionTree- Last 7 Days'[GroupCount])
+			var totalcount = SUM('Food RDC% DecompositionTree- Last 7 Days'[GroupCount])
+			RETURN
+			DIVIDE(totalcdc, totalcount, 0)
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: abcb0cf2-4b68-44c3-bf96-6e7e671c1206
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RDC Today' =
+			
+			var totalrdc = SUMX('Food RDC% Decompotion Tree- Today', 'Food RDC% Decompotion Tree- Today'[GroupRDC] * 'Food RDC% Decompotion Tree- Today'[GroupCount])
+			var totalcount = SUM('Food RDC% Decompotion Tree- Today'[GroupCount])
+			RETURN
+			DIVIDE(totalrdc, totalcount, 0)
+		displayFolder: Food\1-Today
+		lineageTag: b00830f8-67f9-477e-b10c-58213018b009
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RDC Yesterday' =
+			
+			var totalrdc = SUMX('Food RDC% Decompotion Tree- Yesterday', 'Food RDC% Decompotion Tree- Yesterday'[GroupRDC] * 'Food RDC% Decompotion Tree- Yesterday'[GroupCount])
+			var totalcount = SUM('Food RDC% Decompotion Tree- Yesterday'[GroupCount])
+			RETURN
+			DIVIDE(totalrdc, totalcount, 0)
+		displayFolder: Food\2-Yesterday
+		lineageTag: df6a2b63-07cd-470a-b9ef-117c0c949efe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SDC Today' =
+			
+			var totalsdc = SUMX('Food SDC% Decomposition Tree- Today', 'Food SDC% Decomposition Tree- Today'[GroupSDC] * 'Food SDC% Decomposition Tree- Today'[GroupCount])
+			var totalcount = SUM('Food SDC% Decomposition Tree- Today'[GroupCount])
+			RETURN
+			DIVIDE(totalsdc, totalcount, 0)
+		displayFolder: Food\1-Today
+		lineageTag: 8ed28bcb-fe0b-4299-b6fe-b16230047a3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SDC 4 Weeks' =
+			
+			var totalsdc = SUMX('Food SDC% Decomposition Tree-Last 4 Weeks', 'Food SDC% Decomposition Tree-Last 4 Weeks'[GroupSDC] * 'Food SDC% Decomposition Tree-Last 4 Weeks'[GroupCount])
+			var totalcount = SUM('Food SDC% Decomposition Tree-Last 4 Weeks'[GroupCount])
+			RETURN
+			DIVIDE(totalsdc, totalcount, 0)
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: f77fddbc-cd32-4721-badf-c3f720184985
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SDC 7 Days' =
+			
+			var totalsdc = SUMX('Food SDC% Decomposition Tree-Last 7 Days', 'Food SDC% Decomposition Tree-Last 7 Days'[GroupSDC] * 'Food SDC% Decomposition Tree-Last 7 Days'[GroupCount])
+			var totalcount = SUM('Food SDC% Decomposition Tree-Last 7 Days'[GroupCount])
+			RETURN
+			DIVIDE(totalsdc, totalcount, 0)
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 15906aaa-97f7-4e92-9359-526e5e27d01b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SDC Yesterday' =
+			
+			var totalsdc = SUMX('Food SDC% Decomposition Tree-Yesterday', 'Food SDC% Decomposition Tree-Yesterday'[GroupSDC] * 'Food SDC% Decomposition Tree-Yesterday'[GroupCount])
+			var totalcount = SUM('Food SDC% Decomposition Tree-Yesterday'[GroupCount])
+			RETURN
+			DIVIDE(totalsdc, totalcount, 0)
+		displayFolder: Food\2-Yesterday
+		lineageTag: 5b6be87e-c523-45b3-bf6b-30000aa901db
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Arrow AOV Color Last 4 Weeks' = ```
+			
+			IF(
+			                MAX('Food WOW% AOV-Last 4 Weeks'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 7442c4ca-68de-4505-9a9c-e8f69e2f36d3
+
+	measure 'Arrow WOW% AOV Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% AOV-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% AOV-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 25aa8fba-41da-44e3-9b45-083ca99dcb3b
+
+	measure 'Arrow AOV Color Last 7 Days' = ```
+			
+			IF(
+			                MAX('Food WOW% AOV-Last 7 Days'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 52232680-4592-437f-b7a6-32db3fc24dc0
+
+	measure 'Arrow WOW% AOV Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% AOV-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% AOV-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: ba5828e1-9b07-4bdd-bb3f-50263b3072fb
+
+	measure 'Arrow AOV Color' = ```
+			
+			IF(
+			                MAX('Food WOW% AOV-Today'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 8fcb3887-25b5-4b76-87be-266e88d43dcb
+
+	measure 'Arrow WOW% AOV' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% AOV-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% AOV-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 59608eaa-1cf1-473c-870e-4edc6daf6796
+
+	measure 'Arrow AOV Color yesterday' = ```
+			
+			IF(
+			                MAX('Food WOW% AOV-Yesterday'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 3e34e00b-ef18-456a-a659-74db9f55a2d4
+
+	measure 'Arrow WOW% AOV-yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% AOV-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% AOV-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 2c596b51-9cf9-43e8-b641-8d6cac8d5936
+
+	measure 'Arrow Cancelled Color Last 4 Weeks' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Cancelled- Last 4 Weeks'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limeGreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: ecbf240c-4f94-45d5-a773-2165d88d11ba
+
+	measure 'Arrow WOW% cancelled Last 4 Weeks' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660)  // Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Cancelled- Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% Cancelled- Last 4 Weeks'[print_0])> 0, Up, line))
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 8fe03b66-2d59-48eb-b103-d3e59987088c
+
+	measure 'Arrow Cancelled Color Last 7 Days' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Cancelled- Last 7 Days'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return red
+			                "tomato"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 1154b54f-d05b-4cbd-bfde-8b53360616c6
+
+	measure 'Arrow WOW% cancelled Last 7 Days' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660)  // Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Cancelled- Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% Cancelled- Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: ad684ade-0cc8-4dca-bccd-0698ca9d4d47
+
+	measure 'Arrow Cancelled Color' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Cancelled- Today'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limegreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: b85e6619-f449-4621-9d62-b5170eec62b4
+
+	measure 'Arrow WOW% cancelled' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660)  // Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Cancelled- Today'[print_0]) < 0, Down, IF(MAX('Food WOW% Cancelled- Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 406edfc5-1153-47ed-8da5-d80db260a05b
+
+	measure 'Arrow Cancelled Color Yesterday' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Cancelled- Yesterday'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limeGreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: dcef4e88-dfef-4294-8aa6-a08235179b90
+
+	measure 'Arrow WOW% cancelled- yesterday' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660) //Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(Max('Food WOW% Cancelled- Yesterday'[print_0]) < 0, Down, IF(Max('Food WOW% Cancelled- Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 05069884-5aaf-4216-b861-eb1f49dcaa8b
+
+	measure 'Arrow CDC Color Last 4 weeks' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% CDC-Last 4 Weeks'[print_0]) > 0, 
+			                "Tomato",  // If the value is positive, return green
+			                "LimeGreen"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 1f8f712c-55ed-46db-a503-2d0672edac74
+
+	measure 'Arrow WOW% CDC Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% CDC-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% CDC-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: caedde86-3b14-4f0d-a1b5-2b900717f640
+
+	measure 'Arrow CDC Color Last 7 Days' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% CDC-Last 7 Days'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: d858f5e2-9fa3-4ba4-a594-4e36c8e96609
+
+	measure 'Arrow WOW% CDC Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% CDC-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% CDC-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: a5f9b293-8255-4cea-b66a-47b7135387db
+
+	measure 'Arrow CDC Color' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% CDC-Today'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 0c491537-8393-4baf-af32-f537d2e9e934
+
+	measure 'Arrow WOW% CDC' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% CDC-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% CDC-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 27101189-a3ce-4274-a6ab-02a80c36b70b
+
+	measure 'Arrow CDC Color Yesterday' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% CDC-Yesterday'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 1973e835-b1ca-4e99-b470-e68170893155
+
+	measure 'Arrow WOW% CDC Yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% CDC-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% CDC-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 9fa72540-7814-4928-b798-105bd2862f6b
+
+	measure 'Arrow Order Color Last 4 Weeks' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Completed Order-Last 4 weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 64a0f4de-042b-43db-b7aa-336404f64721
+
+	measure 'Arrow WOW% Order Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Completed Order-Last 4 weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% Completed Order-Last 4 weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 8f30795a-7b94-4c26-ac69-1ce7cb863300
+
+	measure 'Arrow Order Color Last 7 Days' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Completed Order-Last 7 Days'[print_0]) > 0, 
+			                "LimeGreen",  // If the value is positive, return green
+			                "Tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 3341b998-963b-4db3-a7f4-9e28fd83c4f2
+
+	measure 'Arrow WOW% Order Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Completed Order-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% Completed Order-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 98e3e4c1-8a87-458a-b241-954ca9d842ac
+
+	measure 'Arrow Order Color yesterday' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Completed Order-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 1eb85e4d-5812-4220-b49a-e7fc8875f373
+
+	measure 'Arrow WOW% Order- yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Completed Order-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% Completed Order-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 663ff148-1210-47c2-83a4-3ff4c06fb5f6
+
+	measure 'Arrow Order Color' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% Completed Orders Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 2e52283f-0d22-4a53-aca6-c60a9e620677
+
+	measure 'Arrow WOW% Order' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% Completed Orders Today'[print_0]) < 0, Down, IF(MAX('Food WOW% Completed Orders Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 609b5822-841f-4764-adcb-419c622260da
+
+	measure 'Arrow FTR Color Last 4 Weeks' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTR-Last 4 Weeks'[print_0]) > 0, 
+			                "LimeGreen",  // If the value is positive, return green
+			                "Tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 25e1aab6-4606-48db-9618-50cb4d02e218
+
+	measure 'Arrow WOW% FTR Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTR-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% FTR-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 3a290b34-d2d6-49ed-9ef4-dba16564e965
+
+	measure 'Arrow FTR Color Last 7 Days' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTR-Last 7 Days'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 1b8703d7-04e7-4d17-b85b-0a2fcc6a0576
+
+	measure 'Arrow WOW% FTR Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTR-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% FTR-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: ec5b459c-d2d2-4443-ab6d-e0e27db6cf5d
+
+	measure 'Arrow FTR Color' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTR-Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: c325c680-671b-46a8-8d04-15c56a24b204
+
+	measure 'Arrow WOW% FTR' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTR-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% FTR-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 65674520-a898-4924-9472-d4d1224e172b
+
+	measure 'Arrow FTR Color Yesterday' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTR-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 1f7f6e9f-398d-4c88-928e-42c8d0093cd0
+
+	measure 'Arrow WOW% FTR yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTR-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% FTR-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 5e956314-6f1e-4313-a149-78302b40face
+
+	measure 'Arrow FTU Color Last 4 Weeks' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTU-Last 4 Weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 79ae5955-6f0b-4d2a-b76f-52a8bf2a16fd
+
+	measure 'Arrow WOW% FTU Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTU-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% FTU-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: dda5ad41-20ef-40a5-a5c0-354d20e561b5
+
+	measure 'Arrow FTU Color Last 7 Days' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTU-Last 7 Days'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 419ac1e1-f90d-4119-bb25-37956eeed6dd
+
+	measure 'Arrow WOW% FTU Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTU-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% FTU-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: d9fe46df-ebb0-4daf-b8b5-7fcb24f4083c
+
+	measure 'Arrow FTU Color' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTU-Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 9d96be9b-00f8-48b9-a085-8314b17d2cce
+
+	measure 'Arrow WOW% FTU' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTU-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% FTU-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: aa973063-3d2c-460d-9853-55ee7cf8723d
+
+	measure 'Arrow FTU Color Yesterday' = ```
+			
+			    
+			                IF(
+			                MAX('Food WOW% FTU-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: bb8ef427-4ecb-4da0-9baf-fddf5b3f4f73
+
+	measure 'Arrow WOW% FTU Yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% FTU-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% FTU-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 811bd1bf-d468-4d57-8bd4-98a77bc35ec2
+
+	measure 'Arrow GMV Color Last 4 Weeks' = ```
+			
+			                IF(
+			                MAX('Food WOW% GMV- Last 4 Weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 0fdc441f-fe9f-4d94-9094-fb01ca70b625
+
+	measure 'Arrow WOW% gmv Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% GMV- Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% GMV- Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: d7d92bc5-3131-4cd2-b9d9-fcd51b9421ff
+
+	measure 'Arrow GMV Color Last 7 Days' = ```
+			
+			                IF(
+			                MAX('Food WOW% GMV- Last 7 Days'[print_0]) > 0, 
+			                "LimeGreen",  // If the value is positive, return green
+			                "Tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 54f8952c-a4d7-45d1-85b0-5ecb9ae3c9c2
+
+	measure 'Arrow WOW% gmv Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% GMV- Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% GMV- Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 138ec208-3eba-44ff-990d-3e44e2684c97
+
+	measure 'Arrow GMV Color' = ```
+			
+			                IF(
+			                MAX('Food WOW% GMV-Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 158355b7-0a33-4e61-a9f9-78b9d9ca439d
+
+	measure 'Arrow WOW% gmv' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% GMV-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% GMV-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 1519d952-7a71-4281-bde0-a93d34e12f35
+
+	measure 'Arrow GMV Color yesterday' = ```
+			
+			                IF(
+			                MAX('Food WOW% GMV-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 2738ca6c-b943-4470-880f-e785008f4966
+
+	measure 'Arrow WOW% GMV yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% GMV-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% GMV-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: de9f6857-1d98-449c-82a8-982aca24b835
+
+	measure 'Arrow RDC Color Last 4 Weeeks' = ```
+			
+			                IF(
+			                MAX('Food WOW% RDC- Last 4 Weeks'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: c4a7cb46-f423-4954-8140-9ebc78aa83b4
+
+	measure 'Arrow WOW% RDC Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% RDC- Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% RDC- Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: ba6397b1-c90e-4c48-9fa1-7756a01725a7
+
+	measure 'Arrow RDC Color Last 7 Days' = ```
+			
+			                IF(
+			                MAX('Food WOW% RDC- Last 7 Days'[print_0]) > 0, 
+			                "Tomato",  // If the value is positive, return green
+			                "LimeGreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 7c8d498d-593b-4670-a6d5-85be5fdce05c
+
+	measure 'Arrow WOW% RDC Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% RDC- Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% RDC- Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: ca99688a-6e3e-4caf-98fe-98c32920deb9
+
+	measure 'Arrow RDC Color' = ```
+			
+			                IF(
+			                MAX('Food WOW% RDC-Today'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limegreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 88946da6-5a22-432e-bcb2-26fe8f6d23b0
+
+	measure 'Arrow WOW% RDC' = ```
+			
+			    VAR Down = UNICHAR(9660) // down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% RDC-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% RDC-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: d5a6feed-de24-4a0a-b6d0-7db49c589ace
+
+	measure 'Arrow RDC Color Yesterday' = ```
+			
+			                IF(
+			                MAX('Food WOW% RDC-Yesterday'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: ef8643ab-e916-4dc1-bd25-ff026b425bc7
+
+	measure 'Arrow WOW% RDC Yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% RDC-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% RDC-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 06e6dfbf-33d8-41b8-8209-0da6d0cda86b
+
+	measure 'Arrow SDC Color Last 4 weeks' = ```
+			
+			                IF(
+			                MAX('Food WOW% SDC-Last 4 Weeks'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: c355b5de-89e2-4c7f-ba26-b87819823e01
+
+	measure 'Arrow WOW% SDC Last 4 Weeks' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% SDC-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('Food WOW% SDC-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 256c453a-f194-46c4-8fa9-f2089276ebf3
+
+	measure 'Arrow SDC Color Last 7 Days' = ```
+			
+			                IF(
+			                MAX('Food WOW% SDC-Last 7 Days'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 7a71b9a8-2e38-4bb2-8ad6-38d716aac2fb
+
+	measure 'Arrow WOW% SDC Last 7 Days' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% SDC-Last 7 Days'[print_0]) < 0, Down, IF(MAX('Food WOW% SDC-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 0be8544c-99d3-446d-8f4e-c1ca4f73e5a3
+
+	measure 'Arrow SDC Color' = ```
+			
+			                IF(
+			                MAX('Food WOW% SDC-Today'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limegreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 87c7818a-9644-40ed-989c-37f8c6ae391b
+
+	measure 'Arrow WOW% SDC' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% SDC-Today'[print_0]) < 0, Down, IF(MAX('Food WOW% SDC-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\1-Today
+		lineageTag: 235fcda3-6a2b-4f7a-9d7b-03e5a88ba453
+
+	measure 'Arrow SDC Color yesterday' = ```
+			
+			                IF(
+			                MAX('Food WOW% SDC-Yesterday'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return green
+			                "limeGreen"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 49dd1d72-4fa6-4ed7-bbd8-57787d8d30ad
+
+	measure 'Arrow WOW% SDC yesterday' = ```
+			
+			    VAR Down = UNICHAR(9660) //down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('Food WOW% SDC-Yesterday'[print_0]) < 0, Down, IF(MAX('Food WOW% SDC-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: Food\2-Yesterday
+		lineageTag: 6b55c83e-7ef6-47f5-9e7a-d39ae4f11688
+
+	measure 'IM AOV' =
+			
+			var totalgmv = SUM('IM AOV Count Decomposition Tree- Today'[GroupGmv])
+			var totalcount = SUM('IM AOV Count Decomposition Tree- Today'[GroupCounter])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: InstaMart\1-Today
+		lineageTag: fc27e8bb-904f-407f-9778-2dc4c6cb9137
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'IM AOV Yesterday' =
+			
+			var totalgmv = SUM('IM AOV Count Decomposition Tree- Yesterday'[GroupGmv])
+			var totalcount = SUM('IM AOV Count Decomposition Tree- Yesterday'[GroupCounter])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 5aeba3e2-0441-425a-98bb-0e7485dc64aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Arrow AOV Color IM-L4W' = ```
+			
+			IF(
+			                MAX('IM WOW% AOV-Last 4 Weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: 88247a4a-3a66-4975-b457-d550ec6f3137
+
+	measure 'Arrow WOW% AOV IM -L4D' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% AOV-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('IM WOW% AOV-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: 80c2864b-3866-434b-9d50-ab8ccb97e0a2
+
+	measure 'Arrow AOV Color IM-L7D' = ```
+			
+			IF(
+			                MAX('IM WOW% AOV-Last 7 Days'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: dce5fe13-5fa0-4276-bbf8-1b6e01152a10
+
+	measure 'Arrow WOW% AOV IM -L7D' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% AOV-Last 7 Days'[print_0]) < 0, Down, IF(MAX('IM WOW% AOV-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: ba485894-dabd-494c-b370-d8d9053da252
+
+	measure 'Arrow AOV Color IM-T' = ```
+			
+			IF(
+			                MAX('IM WOW% AOV-Today'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: 98429202-483b-45d5-9575-7ce0e806dc74
+
+	measure 'Arrow WOW% AOV IM -T' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% AOV-Today'[print_0]) < 0, Down, IF(MAX('IM WOW% AOV-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: e4518cfe-7b05-4319-9ced-ca5a59e64bb5
+
+	measure 'Arrow AOV Color IM - Y' = ```
+			
+			IF(
+			                MAX('IM WOW% AOV-Yesterday'[print_0]) > 0, 
+			                "limegreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 6fd3799a-8ec2-42cc-a135-870756849b45
+
+	measure 'Arrow WOW% AOV IM- Y' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% AOV-Yesterday'[print_0]) < 0, Down, IF(MAX('IM WOW% AOV-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: dc62d210-c637-4884-a1f3-f5be4502fe44
+
+	measure 'Arrow Cancelled Color IM -L4W' = ```
+			
+			    
+			                IF(
+			                MAX('IM WOW% Cancelled Orders-Last 4 Weeks'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limeGreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: 8a5abfd9-da38-4378-8ed2-2c7e455c4783
+
+	measure 'Arrow WOW% Cancelled IM -L4W' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Cancelled Orders-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('IM WOW% Cancelled Orders-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: c4df6fcd-966f-4ac1-af3a-88733e560eef
+
+	measure 'Arrow Cancelled Color IM -T' = ```
+			
+			    
+			                IF(
+			                MAX('IM WOW% Cancelled- Today'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limegreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: a45ff973-350b-4443-a3ad-42086be76a36
+
+	measure 'IM WOW% cancelled- T' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660)  // Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Cancelled- Today'[print_0]) < 0, Down, IF(MAX('IM WOW% Cancelled- Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: fb436994-0c2c-4774-a2da-221ad8003fdd
+
+	measure 'Arrow Cancelled Color IM -Y' = ```
+			
+			    
+			                IF(
+			                MAX('IM WOW% Cancelled- Yesterday'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limeGreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: e9dff8a1-a652-4623-8888-68036b04c24e
+
+	measure 'IM WOW% cancelled- Y' = ```
+			
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR Down = UNICHAR(9660)  // Down
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Cancelled- Yesterday'[print_0]) < 0, Down, IF(MAX('IM WOW% Cancelled- Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 48df114c-5a38-4c52-bbeb-6283a1b633e1
+
+	measure 'Arrow Cancelled Color IM -L7D' = ```
+			
+			    
+			                IF(
+			                MAX('IM WOW% Cancelled-Last 7 Days'[print_0]) > 0, 
+			                "tomato",  // If the value is positive, return red
+			                "limeGreen"  // If the value is negative, return green
+			               )
+			
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: cfcbaa11-6f16-45cc-99c0-ec54bc7e2418
+
+	measure 'Arrow WOW% Cancelled IM -L7D' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Cancelled-Last 7 Days'[print_0]) < 0, Down, IF(MAX('IM WOW% Cancelled-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: efe3f42f-fddc-42d9-b2d2-581886c0233e
+
+	measure 'Arrow Order Color IM L7D' = ```
+			
+			IF(
+			                MAX('IM WOW% Completed Order-Last 7 Days'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: 4fa6220f-2528-495e-94be-6f282ce6eecb
+
+	measure 'Arrow WOW% Order IM L7D' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Completed Order-Last 7 Days'[print_0]) < 0, Down, IF(MAX('IM WOW% Completed Order-Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: ecb0cff5-520a-4f5b-8120-b9fb72a8d54d
+
+	measure 'Arrow Order Color IM' = ```
+			
+			IF(
+			                MAX('IM WOW% Completed Order-Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: 7a7729ac-0b21-4d57-806a-ac1aa1f3129f
+
+	measure 'Arrow WOW% Order IM' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Completed Order-Today'[print_0]) < 0, Down, IF(MAX('IM WOW% Completed Order-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: b212c764-3730-424e-9a8e-de94f8e912dd
+
+	measure 'Arrow Order Color IM - Y' = ```
+			
+			IF(
+			                MAX('IM WOW% Completed Order-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 4c094fef-3595-4b48-a3f3-d6313128ee46
+
+	measure 'Arrow WOW% Order IM- Y' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Completed Order-Yesterday'[print_0]) < 0, Down, IF(MAX('IM WOW% Completed Order-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 24a5d6be-3f46-4d0c-8d0c-2912dc47bd56
+
+	measure 'Arrow GMV Color IM-L7D' = ```
+			
+			IF(
+			                MAX('IM WOW% GMV- Last 7 Days'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: b6d99a3c-72d7-45de-9808-484a84040141
+
+	measure 'Arrow WOW% GMV IM -L4W' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% GMV-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('IM WOW% GMV-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: c55193d3-cb8c-421b-b759-110cd5d7e40f
+
+	measure 'Arrow WOW% GMV IM -L7D' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% GMV- Last 7 Days'[print_0]) < 0, Down, IF(MAX('IM WOW% GMV- Last 7 Days'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\3-Last 7 Days
+		lineageTag: 17b16394-32c2-4a0e-82b7-aeb00b14f6dd
+
+	measure 'Arrow GMV Color IM-L4W' = ```
+			
+			IF(
+			                MAX('IM WOW% GMV-Last 4 Weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: 863457da-b38d-47b6-bbf4-f12ed3ae85cb
+
+	measure 'Arrow GMV Color IM-T' = ```
+			
+			IF(
+			                MAX('IM WOW% GMV-Today'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: ddf6f58d-8f8e-4331-ba36-f178fd30e601
+
+	measure 'Arrow WOW% GMV IM -T' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% GMV-Today'[print_0]) < 0, Down, IF(MAX('IM WOW% GMV-Today'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\1-Today
+		lineageTag: 08bd850b-93c3-48e6-bdb1-f847d39b2dea
+
+	measure 'Arrow GMV Color IM - Y' = ```
+			
+			IF(
+			                MAX('IM WOW% GMV-Yesterday'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 15d6df6d-d82e-4a3d-bf9a-08dfa55cd9df
+
+	measure 'Arrow WOW% GMV IM- Y' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% GMV-Yesterday'[print_0]) < 0, Down, IF(MAX('IM WOW% GMV-Yesterday'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\2-Yesterday
+		lineageTag: 58df5e92-e62f-4402-94fe-6bb24dff4e66
+
+	measure 'Arrow Order Color IM L4W' = ```
+			
+			IF(
+			                MAX('IM WOW% Orders-Last 4 Weeks'[print_0]) > 0, 
+			                "limeGreen",  // If the value is positive, return green
+			                "tomato"  // If the value is negative, return red
+			               )
+			
+			
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: 96a4a339-aa28-4cc1-8b6e-0816541ab651
+
+	measure 'Arrow WOW% Order IM L4W' = ```
+			
+			    VAR Down = UNICHAR(9660) //Red down arrow
+			    VAR Up = UNICHAR(9650)    // Up Arrow
+			    VAR line = UNICHAR(8211)  // - for no changevalue
+			    RETURN
+			       IF(MAX('IM WOW% Orders-Last 4 Weeks'[print_0]) < 0, Down, IF(MAX('IM WOW% Orders-Last 4 Weeks'[print_0])> 0, Up, line)
+			       )
+			```
+		displayFolder: InstaMart\4-Last 4 Weeks
+		lineageTag: b678d91e-b2eb-4f47-af88-d4be9f4ee8e8
+
+	measure 'AOV 4 Weeks' =
+			
+			var totalgmv = SUMX('Food AOV Count Decomposition Tree- Last 4 Weeks', 'Food AOV Count Decomposition Tree- Last 4 Weeks'[GroupAvgGmv] * 'Food AOV Count Decomposition Tree- Last 4 Weeks'[GroupCount])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Last 4 Weeks'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: e9c24bec-ec74-43c1-b1eb-fb0da7f42aab
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CDC 4 Weeks' =
+			
+			var totalcdc = SUMX('Food CDC% Decomposition Tree- Last 4 Weeks', 'Food CDC% Decomposition Tree- Last 4 Weeks'[GroupCDC] * 'Food CDC% Decomposition Tree- Last 4 Weeks'[GroupCDC])
+			var totalcount = SUM('Food CDC% Decomposition Tree- Last 4 Weeks'[GroupCount])
+			RETURN
+			DIVIDE(totalcdc, totalcount, 0)
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: d678e656-492c-428b-973e-ebccf2939d75
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'IM AOV-L7D' =
+			
+			var totalgmv = SUM('IM AOV Count Decomposition Tree- Last 7 Days'[GroupGmv])
+			var totalcount = SUM('IM AOV Count Decomposition Tree- Last 7 Days'[GroupCounter])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		lineageTag: 17f5157f-1c91-41df-b6a5-9988b50f0f17
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'IM AOV-L4W' =
+			
+			var totalgmv = SUM('IM AOV Count Decomposition Tree- Last 4 Weeks'[GroupGmv])
+			var totalcount = SUM('IM AOV Count Decomposition Tree- Last 4 Weeks'[GroupCounter])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		lineageTag: cda6031d-a5fe-484d-b8da-bdebe5bcf9b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Food AOV-L4W' =
+			
+			var totalgmv = SUM('Food AOV Count Decomposition Tree- Last 4 Weeks'[GroupAvgGmv])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Last 4 Weeks'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: bd8867c6-9319-45ab-8900-4d2a75a9ccc8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Food AOV-L7D' =
+			
+			var totalgmv = SUM('Food AOV Count Decomposition Tree- Last 7 Days'[GroupAvgGmv])
+			var totalcount = SUM('Food AOV Count Decomposition Tree- Last 7 Days'[GroupCount])
+			RETURN
+			DIVIDE(totalgmv, totalcount, 0)
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 3bbce905-6004-4049-b153-4441035c7678
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOV % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% AOV-Today'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: d6170657-8e7f-45c8-839d-2f8438c15416
+
+	measure 'AOV % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('Food WOW% AOV-Yesterday'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			 
+			```
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 408d7cad-6b75-4924-8835-a962c9e0fab1
+
+	measure 'AOV %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% AOV-Last 7 Days'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: bb51116a-375a-47ca-af7a-4f242b95f2eb
+
+	measure 'AOV %-L4W' = ```
+			
+			VAR _Value = MAX('Food WOW% AOV-Last 4 Weeks'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			 
+			```
+		lineageTag: 33f0c071-1673-405a-bfea-0ee79e219790
+
+	measure 'Completed Orders %-L7D' = ```
+			
+			VAR _Value = MAX('Food WOW% Completed Order-Last 7 Days'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 88d4592f-d39b-4883-b9ed-bfa6fab18f7e
+
+	measure 'Completed Orders %-L4W' = ```
+			
+			VAR _Value = MAX('Food WOW% Completed Order-Last 4 weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: e850aef1-d66f-435b-afd3-5ca79dec7016
+
+	measure 'Completed Orders % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% Completed Orders Today'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: 5ee0dc4b-c25e-4b8d-83b5-0786ed096f6c
+
+	measure 'Completed Orders %-Yesterday' = ```
+			
+			VAR _Value = MAX('Food WOW% Completed Order-Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    ) 
+			```
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 6421df74-bcbc-4da4-b0d6-b210ea1a7941
+
+	measure 'GMV % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% GMV-Today'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: c7a43417-4f50-40f6-a3f0-ac9276a95737
+
+	measure 'GMV % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('Food WOW% GMV-Yesterday'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			 
+			```
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 252c74ef-f8eb-4809-939f-35dbe135c892
+
+	measure 'GMV %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% GMV- Last 7 Days'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\3-Last 7 Days
+		lineageTag: 96ba7e57-b8c2-42fe-b1c6-dd68aea2ad77
+
+	measure 'GMV %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% GMV- Last 4 Weeks'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\4-Last 4 Weeks
+		lineageTag: 27ee5dfe-8e4c-47b4-834e-25c20e6fe484
+
+	measure 'Cancelled % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% Cancelled- Today'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: 74701c95-70f0-4a3d-bd84-aab02cfdffef
+
+	measure 'Cancelled % WOW-Yesterday' =
+			
+			VAR _Value = MAX('Food WOW% Cancelled- Yesterday'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 98559fd4-86ff-49c1-9a09-efa1cbf43900
+
+	measure 'Cancelled %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% Cancelled- Last 7 Days'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 1eab4eda-fd20-45b8-9528-b5d1a25a1945
+
+	measure 'Cancelled %-L4W' = ```
+			
+			VAR _Value = MAX('Food WOW% Cancelled- Last 4 Weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: ed85c123-f1d6-46b0-ba1b-34f4b3fa57f3
+
+	measure 'CDC % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% CDC-Today'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: a1e93fb7-8d5a-4499-8b29-fe8957d1b82f
+
+	measure 'CDC % WOW-Yesterday' =
+			
+			VAR _Value = MAX('Food WOW% CDC-Yesterday'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 44b1ccd1-aaac-4575-a4a6-a8f941e62fe3
+
+	measure 'CDC % -L7D' =
+			
+			VAR _Value = MAX('Food WOW% CDC-Last 7 Days'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 3a6c0ec6-63d7-4491-8748-35661c7e17eb
+
+	measure 'CDC %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% CDC-Last 4 Weeks'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: f3e98732-416a-4059-a0b9-d82b2748c2d0
+
+	measure 'RDC % WOW-Today' = ```
+			
+			VAR _Value = MAX('Food WOW% RDC-Today'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: 5048d298-d06b-4fe1-95e7-0cf399f1b480
+
+	measure 'RDC %-Yesterday' = ```
+			
+			VAR _Value = MAX('Food WOW% RDC-Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: e21d5b82-22f3-4858-9661-4c190b6ae84f
+
+	measure 'RDC %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% RDC- Last 7 Days'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 09a43bc9-b83c-4c39-a7a0-0274bce7364a
+
+	measure 'RDC %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% RDC- Last 4 Weeks'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 69036455-55d2-44c5-8587-83c0bb85a24d
+
+	measure 'SDC % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% SDC-Today'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: 04ee6295-7de0-4578-a835-cb9e977dabb1
+
+	measure 'SDC %-Yesterday' =
+			
+			VAR _Value = MAX('Food WOW% SDC-Yesterday'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 9878bbb3-878c-4c87-b5ef-e81a7f431c40
+
+	measure 'SDC %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% SDC-Last 7 Days'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 96234158-8578-4aa7-b514-a55d17dc55e2
+
+	measure 'SDC %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% SDC-Last 4 Weeks'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 722c0323-8ef7-4cd5-be24-960b3969a326
+
+	measure 'Transacting Restaurants % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% FTR-Today'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: a51b827b-0022-4db5-b684-23ba211947a9
+
+	measure 'Transacting Restaurants %-Yesterday' =
+			
+			VAR _Value = MAX('Food WOW% FTR-Yesterday'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\2-Yesterday\Food % WOW-Yesterday
+		lineageTag: 4f76f896-9129-415d-8224-896437a3843e
+
+	measure 'Transacting Restaurants %-L7D' = ```
+			
+			VAR _Value = MAX('Food WOW% FTR-Last 7 Days'[print_0])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 9594a459-eed8-4682-98fb-5f754959e09a
+
+	measure 'Transacting Restaurants %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% FTR-Last 4 Weeks'[print_0])
+			RETURN
+			IF (
+			NOT ISBLANK(_Value),
+			FORMAT(_Value, "0.00") & " % WOW",
+			BLANK()
+			)
+		lineageTag: 8803ed7b-0e6f-421d-a689-f62d1cbb2064
+
+	measure 'Transacting Users %-L4W' =
+			
+			VAR _Value = MAX('Food WOW% FTU-Last 4 Weeks'[print_0])
+			RETURN
+			IF (
+			NOT ISBLANK(_Value),
+			FORMAT(_Value, "0.00") & " % WOW",
+			BLANK()
+			)
+		lineageTag: 1004e065-766d-465e-9dd3-e104370fe75c
+
+	measure 'Transacting Users %-L7D' =
+			
+			VAR _Value = MAX('Food WOW% FTU-Last 7 Days'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: a1348a83-e503-4c21-9128-ea04003b181c
+
+	measure 'Transacting Users % WOW-Today' =
+			
+			VAR _Value = MAX('Food WOW% FTU-Today'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		displayFolder: Food\1-Today\Food % WOW-Today
+		lineageTag: 6a3bc6e1-6c21-4bd2-85cc-e1588b8dcd0d
+
+	measure 'Transacting Users %-Yesterday' =
+			
+			VAR _Value = MAX('Food WOW% FTU-Yesterday'[print_0]) // Use MAX() as your color measure does
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+		lineageTag: 9c6abfd2-9656-48aa-b21b-215aa8965551
+
+	measure CDC-Today =
+			
+			VAR _Value = MAX('Food-BigNo-Today'[CDC])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: 108e8fc7-3bd1-4855-bb10-c25b2508a18e
+
+	measure CDC-Yesterday =
+			
+			VAR _Value = MAX('Food CDC% (Yesterday)'[Column1])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: 36be50fb-55ab-44c5-8148-4a42b750bca3
+
+	measure CDC-L7D =
+			
+			VAR _Value = MAX('Food CDC% Last 7 Days'[Column1])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: 8eefeeb1-5b1d-4aac-9b76-fce8e9e5db55
+
+	measure CDC-L4W =
+			
+			VAR _value = MAX('Food CDC% Last 7 Days'[Column1])
+			 RETURN
+			 IF (
+			    NOT ISBLANK(_value),
+			    FORMAT(_value,"0.00") & " %",
+			    BLANK()
+			 )
+		lineageTag: 4bf923c6-0236-484f-b384-2f9d668ef720
+
+	measure SDC-Yesterday =
+			
+			VAR _Value = MAX('Food SDC% (Yesterday)'[Column1])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: a796ed26-1955-4707-bc15-3c79f930bc35
+
+	measure SDC-Today =
+			
+			VAR _Value = MAX('Food-BigNo-Today'[SDC])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: 89ef2f7f-95b6-44e7-94f7-bc5685b393bc
+
+	measure SDC-L7D =
+			
+			VAR _Value = MAX('Food SDC% Last 7 Days'[Column1])
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " %",
+			        BLANK()
+			    )
+		lineageTag: e8ef80fe-f127-4b32-ac34-867436879754
+
+	measure SDC-L4W =
+			
+			VAR _value = MAX('Food SDC% Last 4 Weeks'[Column1])
+			RETURN
+			IF ( NOT ISBLANK(_value),
+			FORMAT(_value,"0.00") & " %",
+			BLANK()
+			)
+		lineageTag: 0aca164a-9692-45e1-a35f-da9c57f466b6
+
+	measure RDC-L4W =
+			
+			VAR _value = MAX('Food RDC% Last 4 Weeks'[Column1])
+			RETURN
+			IF ( NOT ISBLANK(_value),
+			FORMAT(_value,"0.00") & " %",
+			BLANK()
+			)
+		lineageTag: adf87d59-3575-485b-ade2-1f2ded43b9fc
+
+	measure RDC-L7D =
+			
+			VAR _value = MAX('Food RDC% Last 7 Days'[Column1])
+			RETURN
+			IF ( NOT ISBLANK(_value),
+			FORMAT(_value,"0.00") & " %",
+			BLANK()
+			)
+		lineageTag: 00ea3639-961e-4f36-a1f6-c79fd41dfd42
+
+	measure RDC-Yesterday =
+			
+			VAR _value = MAX('Food RDC% (Yesterday)'[Column1])
+			RETURN
+			IF ( NOT ISBLANK(_value),
+			FORMAT(_value,"0.00") & " %",
+			BLANK()
+			)
+		lineageTag: 820f8ab3-82f6-4929-a6fc-a43c0faee7fc
+
+	measure RDC-Today =
+			
+			VAR _value = MAX('Food-BigNo-Today'[RDC])
+			RETURN
+			IF ( NOT ISBLANK(_value),
+			FORMAT(_value,"0.00") & " %",
+			BLANK()
+			)
+		lineageTag: 612755ce-e1dd-4bed-818a-080911d959aa
+
+	measure 'IM Completed Orders % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('IM WOW% Completed Order-Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 4112c06c-a8a5-43b1-90f6-4062a826affb
+
+	measure 'IM Completed Orders % WOW-L7D' = ```
+			
+			VAR _Value = MAX('IM WOW% Completed Order-Last 7 Days'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: ec98b873-4ac6-49aa-989f-4564e3faa1ab
+
+	measure 'IM Completed Orders % WOW-Today' = ```
+			
+			VAR _Value = MAX('IM WOW% Completed Order-Today'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 27f095c2-d8c7-4797-89c8-bb86df6d3990
+
+	measure 'IM Completed Orders % WOW-L4W' = ```
+			
+			VAR _Value = MAX('IM WOW% Orders-Last 4 Weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 3a56eaa2-d5f8-4571-83bf-18eab6a1657c
+
+	measure 'IM AOV % WOW-L4W' = ```
+			
+			VAR _Value = MAX('IM WOW% AOV-Last 4 Weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 6f36651a-096c-44d3-9996-0c9a166e5b95
+
+	measure 'IM AOV % WOW-L7D' = ```
+			
+			VAR _Value = MAX('IM WOW% AOV-Last 7 Days'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: db4b5aea-92c9-4378-98fa-b86f777ce081
+
+	measure 'IM AOV % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('IM WOW% AOV-Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: c1371620-1028-42fe-8296-bd7e16dc8617
+
+	measure 'IM AOV % WOW-Today' = ```
+			
+			VAR _Value = MAX('IM WOW% AOV-Today'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 3b212e41-3c7a-4253-b21d-49ec164f3b5e
+
+	measure 'IM GMV % WOW-Today' = ```
+			
+			VAR _Value = MAX('IM WOW% GMV-Today'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 3c1c604d-f7e3-40cc-8ab3-9039dcbab60d
+
+	measure 'IM GMV % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('IM WOW% GMV-Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 7fd76be5-4dbd-49c3-bbad-6fda1296772f
+
+	measure 'IM GMV % WOW-L7D' = ```
+			
+			VAR _Value = MAX('IM WOW% GMV- Last 7 Days'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: b74ab1d7-17d4-4c30-b7dd-792f246001c9
+
+	measure 'IM GMV % WOW-L4W' = ```
+			
+			VAR _Value = MAX('IM WOW% GMV-Last 4 Weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: bacd13d2-74d7-4ba6-9168-e4b5b626e929
+
+	measure 'IM Cancelled % WOW-Today' = ```
+			
+			VAR _Value = MAX('IM WOW% Cancelled- Today'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 87732573-72ae-4ce6-ace1-f5714835c9a5
+
+	measure 'IM Cancelled % WOW-Yesterday' = ```
+			
+			VAR _Value = MAX('IM WOW% Cancelled- Yesterday'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 29b7292d-d2df-480a-a1df-6b6077e33171
+
+	measure 'IM Cancelled % WOW-L7D' = ```
+			
+			VAR _Value = MAX('IM WOW% Cancelled-Last 7 Days'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: df4ddb99-5a97-42af-a3b1-d752d354a7c3
+
+	measure 'IM Cancelled % WOW-L4W' = ```
+			
+			VAR _Value = MAX('IM WOW% Cancelled Orders-Last 4 Weeks'[print_0]) 
+			RETURN
+			    IF (
+			        NOT ISBLANK(_Value),
+			        FORMAT(_Value, "0.00") & " % WOW",
+			        BLANK()
+			    )
+			```
+		lineageTag: 7b73e4d2-eeca-48be-a3b8-5fb46437aed1
+
+	measure HV_FTU_54PN_T = IF([HV_FTU_54] = "#161617", "", "Food TU-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 9639ef3f-b4b1-4baf-9f47-ae2dfcef52ef
+
+	measure HV_FCFO_48 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "48"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: ba5447dc-8f95-4ea4-b36c-9aeb0bf66f52
+
+	measure HV_FCFO_48T = IF([HV_FCFO_48] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: e05c5497-e75e-41e0-824c-bd8db9e4251a
+
+	measure HV_FCFO_48PN_T = IF([HV_FCFO_48] = "#161617", "", "Food Completed Orders-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 54a805d2-e648-4d47-86a1-dbc5f7dd5dac
+
+	measure HV_FGMV_49 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "49"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 1f06cdd6-be31-463a-af3c-ebf7dbfd9ba0
+
+	measure HV_FGMV_49T = IF([HV_FGMV_49] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: df20343d-97bd-4073-ae87-4221e0f1ae56
+
+	measure HV_FGMV_49PN_T = IF([HV_FGMV_49] = "#161617", "", "Food GMV-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: e8c08634-db71-43a6-b175-c1dcd6fea686
+
+	measure HV_FCFO_161 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "161"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 78845c27-4cb5-4d02-98f3-8c26fffcb5ed
+
+	measure HV_FCFO_161T = IF([HV_FCFO_161] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 2685c3f6-2cda-4bf5-9617-8cc2667c3bd4
+
+	measure HV_FCFO_161PN_T = IF([HV_FCFO_161] = "#161617", "", "Food Cancelled-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 40951698-5056-4b61-ac18-660b108568b5
+
+	measure HV_FAOV_50 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "50"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: b7160a95-6082-4d12-bc9d-c2330e8cca7d
+
+	measure HV_FAOV_50T = IF([HV_FAOV_50] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 85e50b71-bcb6-4d6c-8e6f-1dfe5e079dc8
+
+	measure HV_FAOV_50PN_T = IF([HV_FAOV_50] = "#161617", "", "Food AOV-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: cf7ed7f6-cadf-49f9-b50e-fbb4aa610769
+
+	measure HV_FCDC_51 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "51"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 5c235135-f0e4-4c81-bf0b-d9dfe1861bb0
+
+	measure HV_FCDC_51T = IF([HV_FCDC_51] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 9b62242b-1182-4882-83a2-b4e21432ccd8
+
+	measure HV_FCDC_51PN_T = IF([HV_FCDC_51] = "#161617", "", "Food CDC%-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: d2c2ba5f-ce87-4b79-9e89-485f0e472213
+
+	measure HV_FRDC_52 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "52"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: d9275eca-5856-4c10-b5b1-0039c67d5ae3
+
+	measure HV_FRDC_52T = IF([HV_FRDC_52] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: c34ea314-0109-4ba2-9d6b-10b74e4ec57c
+
+	measure HV_FRDC_52PN_T = IF([HV_FRDC_52] = "#161617", "", "Food RDC%-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: ec11b1f0-c79c-4ae5-bbb4-348e648017ac
+
+	measure HV_FSDC_53 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "53"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: d545694c-90f9-4fb1-ab04-308ceed8f255
+
+	measure HV_FSDC_53T = IF([HV_FSDC_53] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 58d7a73a-b961-4224-ae26-41edc8fb4753
+
+	measure HV_FSDC_53PN_T = IF([HV_FSDC_53] = "#161617", "", "Food SDC%-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 6758576f-6067-4048-abae-81ca6d41bb33
+
+	measure HV_FTR_72 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "72"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: dc561a59-ede6-40fe-b7c9-58417844f121
+
+	measure HV_FTR_72T = IF([HV_FTR_72] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 22bfb8e3-c4cf-4303-aa98-075fb5709a92
+
+	measure HV_FTR_72PN_T = IF([HV_FTR_72] = "#161617", "", "Food TR-Today")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 99fe6eda-edad-4e28-b438-a793185e4f54
+
+	measure HV_FTU_54 = ```
+			
+			VAR CurrentUser = USERPRINCIPALNAME()
+			VAR ShouldHide = CALCULATE(
+			    COUNTROWS(Anobis_RLS_MV),
+			    FILTER(
+			        Anobis_RLS_MV, 
+			        Anobis_RLS_MV[UserEmail_ID] = CurrentUser && 
+			        Anobis_RLS_MV[metric] = "54"
+			    )
+			) > 0
+			RETURN
+			IF(ShouldHide, "#ffffff00", "#161617")
+			```
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: d0b56607-eca2-47ca-93b7-f9eed0ae314d
+
+	measure HV_FTU_54T = IF([HV_FTU_54] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: ae55d790-5d3c-45a5-8ba6-8fb0f4737d69
+
+	measure HV_FAOV_50PN_Y = IF([HV_FAOV_50] = "#161617", "", "Food AOV-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 6f78ed8d-360d-48fe-90ea-65cc6e2bdca5
+
+	measure HV_FCFO_48PN_Y = IF([HV_FCFO_48] = "#161617", "", "Food Completed Orders-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 2bffa73f-d1ec-47e2-8ba4-5ba47d402cd0
+
+	measure HV_FGMV_49PN_Y = IF([HV_FGMV_49] = "#161617", "", "Food GMV-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: add92e2e-2b8c-4a15-9ba5-7f4910bd53d4
+
+	measure HV_FCDC_51PN_Y = IF([HV_FCDC_51] = "#161617", "", "Food CDC%-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 926f878d-f764-4ed1-981a-f731e146dad1
+
+	measure HV_FRDC_52PN_Y = IF([HV_FRDC_52] = "#161617", "", "Food RDC%-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: f700f58f-ea40-4acc-b170-336268b87111
+
+	measure HV_FSDC_53PN_Y = IF([HV_FSDC_53] = "#161617", "", "Food SDC%-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 3ec9233f-ef19-434c-8c5b-43dc3181a239
+
+	measure HV_FTR_72PN_Y = IF([HV_FTR_72] = "#161617", "", "Food TR-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 1fca5817-aed5-424c-8f92-1bdfd6a48d8b
+
+	measure HV_FTU_54PN_Y = IF([HV_FTU_54] = "#161617", "", "Food TU-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: cbd00e1d-43e8-425f-ba15-d7f3ed1bde2d
+
+	measure HV_FAOV_50PN_L7D = IF([HV_FAOV_50] = "#161617", "", "Food AOV-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 5068c2dd-3ab2-4eef-846a-0e349b63db86
+
+	measure HV_FCFO_48PN_L7D = IF([HV_FCFO_48] = "#161617", "", "Food Completed Orders-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 671420c0-9915-4c5b-8b1f-301831ffd8e4
+
+	measure HV_FGMV_49PN_L7D = IF([HV_FGMV_49] = "#161617", "", "Food GMV-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 2b666e2b-4444-4d2c-85cc-b8a124bb21b6
+
+	measure HV_FTU_54PN_L7D = IF([HV_FTU_54] = "#161617", "", "Food TU-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 3480ceab-5574-450e-b8d0-4a964511404b
+
+	measure HV_FTR_72PN_L7D = IF([HV_FTR_72] = "#161617", "", "Food TR-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 0f489709-f90b-42c1-b1d8-9875e3dc7669
+
+	measure HV_FAOV_50PN_L4W = IF([HV_FAOV_50] = "#161617", "", "Food AOV-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 259aa5ec-4155-415f-846f-5dc56c0c2421
+
+	measure HV_FCFO_48PN_L4W = IF([HV_FCFO_48] = "#161617", "", "Food Completed Orders-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 1d7770cd-bead-423c-b0ff-9a4c3cabe4f3
+
+	measure HV_FGMV_49PN_L4W = IF([HV_FGMV_49] = "#161617", "", "Food GMV-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 40755004-3006-4a5d-b70f-c98638ac4933
+
+	measure HV_FCDC_51PN_L7D = IF([HV_FCDC_51] = "#161617", "", "Food CDC%-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 9faa70d6-b7c9-4c67-9896-c1756278cfa4
+
+	measure HV_FCDC_51PN_L4W = IF([HV_FCDC_51] = "#161617", "", "Food CDC%-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: a478d42b-59c5-46ed-a5f4-cb6a5b2031ac
+
+	measure HV_FRDC_52PN_L7D = IF([HV_FRDC_52] = "#161617", "", "Food RDC%-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 21770ac6-d087-4975-80e1-227267bbe00a
+
+	measure HV_FRDC_52PN_L4W = IF([HV_FRDC_52] = "#161617", "", "Food RDC%-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 46dbe68f-7f82-4ce3-8686-0efc7a1c7294
+
+	measure HV_FSDC_53PN_L7D = IF([HV_FSDC_53] = "#161617", "", "Food SDC%-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: ddda1bbc-086f-4a1c-a878-e2afb4291243
+
+	measure HV_FSDC_53PN_L4W = IF([HV_FSDC_53] = "#161617", "", "Food SDC%-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: f70ab095-558c-4ae5-aeb3-9fccb93152cd
+
+	measure HV_FTR_72PN_L4W = IF([HV_FTR_72] = "#161617", "", "Food TR-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 94c4d490-250d-4475-a4c8-1db6d77bed1a
+
+	measure HV_FTU_54PN_L4W = IF([HV_FTU_54] = "#161617", "", "Food TU-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 7cd9548b-c576-4122-8466-c1ca2a1b7e78
+
+	measure HV_FCFO_161PN_Y = IF([HV_FCFO_161] = "#161617", "", "Food Cancelled-Yesterday")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 028d0391-62e6-4cea-866d-ff8b6c82699c
+
+	measure HV_FCFO_161PN_L7D = IF([HV_FCFO_161] = "#161617", "", "Food Cancelled-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: f613273e-991f-4aad-9900-386b9d275174
+
+	measure HV_FCFO_161PN_L4W = IF([HV_FCFO_161] = "#161617", "", "Food Cancelled-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual Food
+		lineageTag: 6288408b-13a9-48c8-8b8c-75fdd1007648
+
+	measure HV_IMCO_117 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "117" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 4d3c846f-fd1d-4a33-a120-69701c375ead
+
+	measure HV_IMCO_117T = IF([HV_IMCO_117] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: f0685561-0cec-441d-9da3-53ab723da831
+
+	measure HV_IMCO_117PN_T = IF( [HV_IMCO_117] = "#161617", "", "IM Completed Orders-Today" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 6b47ab6b-878f-4361-b72d-da861e33b160
+
+	measure HV_IMCO_117PN_Y = IF([HV_IMCO_117] = "#161617", "", "IM Completed Orders-Yesterday")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 1a450309-1091-4af3-b436-fd3ca0b7cb84
+
+	measure HV_IMCO_117PN_L7D = IF([HV_IMCO_117] = "#161617", "", "IM Completed Orders-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 4da3e4a3-4cf9-41e0-97d4-c915d88203f7
+
+	measure HV_IMCO_117PN_L4W = IF([HV_IMCO_117] = "#161617", "", "IM Completed Orders-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 311f1adf-fa4d-4454-9c0c-7fc81bb27baa
+
+	measure HV_IMAOV_119 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "119" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 076b2516-b7e9-481f-9be6-ce32900312c9
+
+	measure HV_IMAOV_119PN_L4W = IF([HV_IMAOV_119] = "#161617", "", "IM AOV-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 5dbf0310-ccbe-49ba-baa1-9373475eabbb
+
+	measure HV_IMAOV_119PN_L7D = IF([HV_IMAOV_119] = "#161617", "", "IM AOV-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: cab88727-437f-45d7-8537-fc97d2fd858a
+
+	measure HV_IMAOV_119PN_T = IF( [HV_IMAOV_119] = "#161617", "", "IM AOV-Today" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 0c3b1809-9a53-47f6-af08-2e422daeded5
+
+	measure HV_IMAOV_119PN_Y = IF([HV_IMAOV_119] = "#161617", "", "IM AOV-Yesterday")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 930eeef9-675c-49df-b4a1-0e648fb67443
+
+	measure HV_IMAOV_119T = IF([HV_IMAOV_119] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 56c4dc3f-889c-429b-9696-d0af2ebb7cb4
+
+	measure HV_IMGMV_118 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "118" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 65e8017f-76a7-48a2-bab0-dd1053fe783f
+
+	measure HV_IMGMV_118PN_L4W = IF([HV_IMGMV_118] = "#161617", "", "IM GMV-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: f4fa034f-0e42-4984-a568-0eef3d759a26
+
+	measure HV_IMGMV_118PN_L7D = IF([HV_IMGMV_118] = "#161617", "", "IM GMV-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 43202e5e-6b93-4f50-ae20-d44aa97d089e
+
+	measure HV_IMGMV_118PN_T = IF( [HV_IMGMV_118] = "#161617", "", "IM GMV-Today" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 80445cd8-f8f1-4a6f-b0c2-4938a5b1d5c4
+
+	measure HV_IMGMV_118PN_Y = IF([HV_IMGMV_118] = "#161617", "", "IM GMV-Yesterday")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 3d648039-2ec2-4b08-97b9-e2cba74189a6
+
+	measure HV_IMGMV_118T = IF([HV_IMGMV_118] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 72aaec0a-8697-421e-9cf8-f4298a0e4d7b
+
+	measure HV_IMCO_164 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "164" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 24d98982-45f7-4647-b3df-4a2d6afbefcc
+
+	measure HV_IMCO_164PN_L4W = IF([HV_IMCO_164] = "#161617", "", "IM Cancelled-Last 4 Weeks")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: cd99fd5a-5c41-4593-84d1-1cee4ba8d8f9
+
+	measure HV_IMCO_164PN_L7D = IF([HV_IMCO_164] = "#161617", "", "IM Cancelled-Last 7 Days")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 4aca63c5-8c33-4ddd-ad4d-c7e55adf7877
+
+	measure HV_IMCO_164PN_T = IF( [HV_IMCO_164] = "#161617", "", "IM Cancelled-Today" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: decdeb6c-a918-4638-a5cd-92c0fb33ba52
+
+	measure HV_IMCO_164PN_Y = IF([HV_IMCO_164] = "#161617", "", "IM Cancelled-Yesterday")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 2f5bec35-5367-4e34-9846-4a4162306d53
+
+	measure HV_IMCO_164T = IF([HV_IMCO_164] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: a51224d3-5b05-40ef-bb1f-f35c2e6a4337
+
+	measure HV_IMCDC_123 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "123" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: fa4f5e01-cd3a-49c0-8236-70c7e319fadf
+
+	measure HV_IMCDC_123PN_L4W = IF([HV_IMCDC_123] = "#161617", "", "IM CDC%-L4W")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 31ddc7c6-8e22-4d2e-9f5a-1378cad38f46
+
+	measure HV_IMCDC_123PN_L7D = IF([HV_IMCDC_123] = "#161617", "", "IM CDC%-L7D")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 15444a38-39fc-479b-877c-e6b28bf8193a
+
+	measure HV_IMCDC_123PN_T = IF( [HV_IMCDC_123] = "#161617", "", "IM CDC%-TODAY" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: b2508c4c-8507-46d9-90de-8cb664815714
+
+	measure HV_IMCDC_123PN_Y = IF([HV_IMCDC_123] = "#161617", "", "IM CDC%-YESTERDAY")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: eeb383b0-b206-4776-b069-911e73cf7d95
+
+	measure HV_IMCDC_123T = IF([HV_IMCDC_123] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 99d51085-686b-44d2-a821-c0f1e904b711
+
+	measure HV_IMSDC_121 =
+			VAR CurrentUser = USERPRINCIPALNAME( )
+			VAR ShouldHide =
+			    CALCULATE(
+			        COUNTROWS( Anobis_RLS_MV ),
+			        FILTER( Anobis_RLS_MV, Anobis_RLS_MV[UserEmail_ID] = CurrentUser && Anobis_RLS_MV[metric] = "121" )
+			    )
+			        > 0
+			RETURN
+			    IF( ShouldHide, "#ffffff00", "#161617" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: b62dcfda-03d2-444a-acfe-bf77eb911850
+
+	measure HV_IMSDC_121PN_L4W = IF([HV_IMSDC_121] = "#161617", "", "IM SDC%-L4W")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 3eb0b2c4-bc08-47b2-95fc-6397d6bf7a4e
+
+	measure HV_IMSDC_121PN_L7D = IF([HV_IMSDC_121] = "#161617", "", "IM SDC%-L7D")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 04a483c7-ea71-453b-bd05-04f67d797ee9
+
+	measure HV_IMSDC_121PN_T = IF( [HV_IMSDC_121] = "#161617", "", "IM SDC%-TODAY" )
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: c739b10f-b7d7-4087-bbc5-79e7e3518f46
+
+	measure HV_IMSDC_121PN_Y = IF([HV_IMCDC_123] = "#161617", "", "IM CDC%-YESTERDAY")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: e1a23f46-97eb-492c-9443-c3fc9488a3ed
+
+	measure HV_IMSDC_121T = IF([HV_IMSDC_121] = "#161617", "Metric Not Available", "")
+		displayFolder: Hide Visual\Hide Visual IM
+		lineageTag: 02bf4212-cccf-4cb8-8b0b-c9c1d2778e17
+
+	measure RLSFilter = ```
+			VAR UserEmail =
+			    IF(
+			        ISBLANK(USERPRINCIPALNAME()),
+			        USERNAME(),
+			        USERPRINCIPALNAME()
+			    )
+			
+			VAR UserCities =
+			    CALCULATETABLE(
+			        VALUES(Anobis_RLS_MV[city]),
+			        FILTER(
+			            ALL(Anobis_RLS_MV),
+			            Anobis_RLS_MV[UserEmail_ID] = UserEmail
+			        )
+			    )
+			
+			VAR HasAllAccess =
+			    CALCULATE(
+			        COUNTROWS(Anobis_RLS_MV),
+			        FILTER(
+			            ALL(Anobis_RLS_MV),
+			            Anobis_RLS_MV[UserEmail_ID] = UserEmail &&
+			            Anobis_RLS_MV[city] = "cities"
+			        )
+			    )
+			
+			VAR SelectedCity = SELECTEDVALUE(City_Table[city])
+			
+			RETURN
+			    IF(
+			        HasAllAccess > 0 ||
+			        SelectedCity IN UserCities,
+			        1,
+			        0
+			    )
+			
+			```
+		lineageTag: 8d72284b-27d6-42c5-addd-441a883caf0f
+
+	column Value
+		formatString: 0
+		lineageTag: 095611bb-4b98-453c-bd14-6f6c2bcd3851
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'ALL Measures' = calculated
+		mode: import
+		source = {BLANK()}
+
+	annotation PBI_Id = 34fce00303d243da8f63763ed2938554
+

@@ -1,0 +1,130 @@
+table 'IM Cancelled Orders (Yesterday Line)'
+	lineageTag: 154b9188-ec96-457d-90e2-16954a2bc940
+
+	column COUNT_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 8c0a6574-6f45-4907-b481-eebf6fe5a364
+		summarizeBy: sum
+		sourceColumn: COUNT_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at_ist
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1eb56f56-938a-4ab3-8384-6e7257a5be4b
+		summarizeBy: none
+		sourceColumn: created_at_ist
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time_period
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: caf48e3f-689e-4c35-8b88-80226519154c
+		summarizeBy: none
+		sourceColumn: Time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IM Cancelled Orders (Yesterday Line)' = m
+		mode: directQuery
+		queryGroup: 'IM\IM-Yesterday\IM-Cancellation\IM-Cancelled Orders'
+		source = ```
+				let
+				    // Get current date and time in UTC
+				    TodayDateTimeZone = DateTimeZone.UtcNow(),
+				
+				    // Convert UTC time to IST
+				    TodaysDateTime = TodayDateTimeZone + #duration(0, 5, 30, 0),
+				
+				    // Get yesterday's date (in IST)
+				    YesterdayDateTime = TodaysDateTime - #duration(1, 0, 0, 0),
+				    // Set Start of Yesterday to 12:00 AM IST
+				    StartOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(YesterdayDateTime)) & " 00:00:00"),
+				    // Set End of Today to 00:00 AM IST
+				    EndOfYesterday = DateTime.FromText(Date.ToText(DateTime.Date(TodaysDateTime)) & " 00:00:00"),
+				    // Format the start and end dates to yyyy-MM-dd HH:mm:ss format
+				    StartOfYesterdayFormatted = DateTime.ToText(StartOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				    EndOfYesterdayFormatted = DateTime.ToText(EndOfYesterday, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Get Last 7 days's time
+				    LastWeekDateTime = YesterdayDateTime - #duration(7, 0, 0, 0),
+				    StartOfLastWeek = DateTime.FromText(Date.ToText(DateTime.Date(LastWeekDateTime)) & " 00:00:00"),
+				    StartOfLastWeekFormatted = DateTime.ToText(StartOfLastWeek, "yyyy-MM-dd HH:mm:ss"),
+				    NextDayLastWeekDateTime = YesterdayDateTime - #duration(6, 0, 0, 0),
+				    LastWeekCurrentDateTime = DateTime.FromText(Date.ToText(DateTime.Date(NextDayLastWeekDateTime)) & " 00:00:00"),
+				    LastWeekCurrentDateTimeFormatted = DateTime.ToText(LastWeekCurrentDateTime, "yyyy-MM-dd HH:mm:ss"),
+				
+				    // Reference the Table Name parameter dynamically
+				    TableName = IMTableName,
+				
+				    // Reference all dynamic parameters
+				    IMCityParam = if Value.Is(IM_City_Parameter, type list) then IM_City_Parameter else {IM_City_Parameter},
+				    RegionParam = if Value.Is(Region_Parameter, type list) then Region_Parameter else {Region_Parameter},
+				    ZoneParam = if Value.Is(Zone_Parameter, type list) then Zone_Parameter else {Zone_Parameter},
+				    StoreIDParam = if Value.Is(StoreID_Parameter, type list) then StoreID_Parameter else {StoreID_Parameter},
+				    DeliveryTypeParam = if Value.Is(DeliveryType_Parameter, type list) then DeliveryType_Parameter else {DeliveryType_Parameter},
+				    DeliverySlotParam = if Value.Is(DeliverySlot_Parameter, type list) then DeliverySlot_Parameter else {DeliverySlot_Parameter},
+				
+				    // BUild Dynamic Conditions
+				    IMCityCondition = if List.NonNullCount(IMCityParam) > 0 then " | where city in (" & Text.Combine(List.Transform(IMCityParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    RegionCondition = if List.NonNullCount(RegionParam) > 0 then " | where region in (" & Text.Combine(List.Transform(RegionParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    ZoneCondition = if List.NonNullCount(ZoneParam) > 0 then " | where zone in (" & Text.Combine(List.Transform(ZoneParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    StoreIDCondition = if List.NonNullCount(StoreIDParam) > 0 then " | where store_id in (" & Text.Combine(List.Transform(StoreIDParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliveryTypeCondition = if List.NonNullCount(DeliveryTypeParam) > 0 then " | where delivery_type in (" & Text.Combine(List.Transform(DeliveryTypeParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    DeliverySlotCondition = if List.NonNullCount(DeliverySlotParam) > 0 then " | where delivery_slot in (" & Text.Combine(List.Transform(DeliverySlotParam, each "'" & _ & "'"), ", ") & ")" else "",
+				    
+				    // Combine All Filters
+				    CombinedFilters = IMCityCondition & RegionCondition & ZoneCondition & StoreIDCondition & DeliveryTypeCondition & DeliverySlotCondition,
+				
+				
+				    // Format the query with dynamic start and end times
+				
+				    Query = "    let currentUser = current_principal_details()['UserPrincipalName'];
+				    let userCities = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser
+				        | summarize make_list(city)
+				    );
+				    let hasAllAccess = toscalar(
+				        Anobis_RLS_MV
+				        | where UserEmail_ID == currentUser and city == 'cities'
+				        | count
+				    );
+				    let today = " & TableName & "
+				    | where created_at_ist >= datetime(' " & StartOfYesterdayFormatted & " ')
+				    | where  created_at_ist < datetime(' " & EndOfYesterdayFormatted & " ')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				            " & CombinedFilters & "
+				    | where dp_order_type == 'INSTAMART' and status == 'CANCELLED' and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level))
+				    | summarize COUNT_id = count() by bin(created_at_ist, 1h)
+				    | extend Time_period='Yesterday'
+				    | project COUNT_id, created_at_ist, Time_period;
+				    let last_week = " & TableName & "
+				    | where created_at_ist >= datetime('"& StartOfLastWeekFormatted &"') 
+				    | where created_at_ist < datetime('"& LastWeekCurrentDateTimeFormatted &"')
+				      and ((hasAllAccess > 0) or (city in (userCities)))
+				            " & CombinedFilters & " 
+				    | where dp_order_type == 'INSTAMART' and status == 'CANCELLED' and (order_level != 'ORDER_LEVEL_LEAF' or isempty(order_level))
+				    | extend created_at_ist = datetime_add('hour', 168, created_at_ist)
+				    | summarize COUNT_id = count() by bin(created_at_ist, 1h)
+				    | extend Time_period='SDLW'
+				    | project COUNT_id, created_at_ist, Time_period;
+				    today
+				    | union last_week",
+				
+				    // Get data from Azure Data Explorer with the dynamic query
+				    Source = AzureDataExplorer.Contents(Cluster,DB, Query, [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"created_at_ist", type datetime}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

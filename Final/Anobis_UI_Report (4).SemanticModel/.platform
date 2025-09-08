@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Anobis_UI_Report (4)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f92823bc-e34d-a821-43a9-9e2d2b8435c5"
+  }
+}
